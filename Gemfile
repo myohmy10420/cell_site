@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem "browser", '~>2.5.0'
 
 group :development, :test do
   gem 'pry'
