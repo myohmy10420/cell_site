@@ -12,17 +12,26 @@ section.header {
       padding-bottom: 10px;
     }
 
-    .nav-link {
-      font-size: 16px;
-      color: #ffffff;
+    .nav-item {
+      .nav-link {
+        text-align: center;
+        font-size: 16px;
+        color: #ffffff;
+      }
+
+      @media (max-width: 576px) {
+        .nav-link {
+          text-align: left;
+
+          img {
+            display: none;
+          }
+        }
+      }
     }
 
     .navbar-toggler {
       border: 1px solid;
-
-      .avbar-toggler-icon {
-        zoom: 3;
-      }
     }
 
     .form-inline {
