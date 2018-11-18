@@ -1,6 +1,9 @@
 @import "reset";
 @import "bootstrap";
 
+@import "admin/admin_nav";
+@import "admin/products";
+
 @import "layouts/header";
 
-@import "partails/advertisement"
+@import "partails/advertisement";
