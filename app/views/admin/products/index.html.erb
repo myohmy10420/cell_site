@@ -9,23 +9,36 @@
           <th scope="col">商品名稱</th>
           <th scope="col">標題語</th>
           <th scope="col">市價</th>
-          <th scope="col">折扣價</th>
+          <th scope="col"><span class="font--important">折扣價</span></th>
           <th scope="col">狀態</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>iphone</td>
-          <td>超便宜</td>
-          <td>10000</td>
-          <td>8000</td>
-          <td>上架中</td>
-          <td>
-            <%= image_tag "icons/pencil" %>
-            <%= image_tag "icons/x" %>
-          </td>
-        </tr>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= link_to product.name, admin_product_path(product) %></td>
+            <td><%= product.slogan %></td>
+            <td><%= product.list_price %></td>
+            <td>
+              <span class="font--important">
+                <%= product.selling_price %>
+              </span>
+            </td>
+            <td width="160px">
+              <%= render_shelved_status(product.shelved) %>
+              <%= render_priced_status(product.priced) %>
+            </td>
+            <td width="100px">
+              <%= link_to edit_admin_product_path(product), class: "action-icons" do %>
+                <%= image_tag "icons/pencil" %>
+              <% end %>
+              <%= link_to admin_product_path(product), method: :delete, data: { confirm: "確定刪除此商品嗎？" }, class: "action-icons" do %>
+                <%= image_tag "icons/x", class: "action-icons" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

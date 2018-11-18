@@ -1,0 +1,46 @@
+<div class="product">
+  <div class="card mb-3">
+    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= @product.name %></h5>
+      <hr>
+      <p class="card-text">
+        <h5>標題語</h5>
+        <%= @product.slogan %>
+      </p>
+      <p class="card-text">
+        <h5>市價</h5>
+        <%= @product.list_price %>
+      </p>
+      <p class="card-text">
+        <h5 class="font--important">折扣價</h5>
+        <h5 class="font--important">
+          <%= @product.selling_price %>
+        </h5>
+      </p>
+      <p class="card-text">
+        <h5>內文</h5>
+        <%= simple_format(@product.content) %>
+      </p>
+      <p class="card-text">
+        <h5>狀態</h5>
+        <%= render_shelved_status(@product.shelved) %>
+        <%= render_priced_status(@product.priced) %>
+      </p>
+    </div>
+  </div>
+
+  <%= link_to admin_products_path, class: "action-btns" do %>
+    <button type="button" class="btn btn-primary">回商品列表</button>
+  <% end %>
+
+  <%= link_to admin_product_path(@product), method: :delete, data: { confirm: "確定刪除此商品嗎？" }, class: "action-btns" do %>
+    <button type="button" class="btn btn-danger">刪除</button>
+  <% end %>
+
+  <%= link_to edit_admin_product_path(@product), class: "action-btns" do %>
+    <button type="button" class="btn btn-warning">編輯</button>
+  <% end %>
+
+  <br><br><br><br>
+</div>
