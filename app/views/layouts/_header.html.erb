@@ -1,16 +1,27 @@
-<div class="header">
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <%= link_to "門市據點", "#", class: "nav-link active" %>
-    </li>
-    <li>
-      <span class="oi oi-home"></span>
-    </li>
-    <li class="nav-item">
-      <%= link_to "常見問題", "#", class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "聯絡我們", "#", class: "nav-link" %>
-    </li>
-  </ul>
-</div>
+<section class="header">
+  <div class="container">
+    <nav class="navbar">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.jpg" %>
+      <% end %>
+
+      <% if !browser.device.mobile? %>
+        <ul class="nav justify-content-end">
+          <%= render "layouts/nav_list" %>
+        </ul>
+      <% end %>
+
+      <% if browser.device.mobile? %>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <%= image_tag "icons/grid-three-up.svg", class: "navbar-toggler-icon" %>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <%= render "layouts/nav_list" %>
+          </ul>
+        </div>
+      <% end %>
+    </nav>
+  </div>
+</section>

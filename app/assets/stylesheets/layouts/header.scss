@@ -1,9 +1,44 @@
-.header {
-  background-color: #b41c29;
-  ul {
-    li {
-      a {
-        color: #ffffff;
+section.header {
+  background-color: #E9222E;
+
+  .justify-content-end {
+    flex-grow: 1;
+  }
+
+  .navbar {
+    padding: 0px;
+
+    .navbar-collapse {
+      padding-bottom: 10px;
+    }
+
+    .nav-link {
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .navbar-toggler {
+      border: 1px solid;
+
+      .avbar-toggler-icon {
+        zoom: 3;
+      }
+    }
+
+    .form-inline {
+      width: 200px;
+      display: flex;
+
+      input {
+        width: 70%;
+        padding: 6px;
+        border: 1px solid #ced4da;
+        border-radius: 5px 0px 0px 5px;
+      }
+
+      button {
+        flex-grow: 1;
+        border-radius: 0px 5px 5px 0px;
       }
     }
   }
