@@ -1,0 +1,15 @@
+#advertisement {
+  background-color: aqua;
+  width: 800px;
+  height: 400px;
+  border: 1px solid green;
+
+  .carousel-inner {
+    .carousel-item {
+      img {
+        width: 800px;
+        height: 400px;
+      }
+    }
+  }
+}
