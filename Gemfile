@@ -14,6 +14,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem "browser", '~>2.5.0'
 
+# authentication gems
+gem 'devise', '~> 4.5.0'
+
 group :development, :test do
   gem 'pry'
 end
