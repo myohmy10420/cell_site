@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem "browser", '~>2.5.0'
 gem 'simple_form', "4.0.0"
+gem "paperclip", "~> 6.0.0"
 
 # authentication gems
 gem 'devise', '~> 4.5.0'
