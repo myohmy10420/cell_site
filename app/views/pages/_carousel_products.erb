@@ -1,0 +1,19 @@
+<% @pop_products.each_with_index do |group_products, index| %>
+  <div class="carousel-item <%= 'active' if index == 0 %>">
+    <div class="cards">
+      <% group_products.each do |product| %>
+        <div class="card">
+          <div class="card-image-content">
+            <%= image_tag product.avatar.url(:small) %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <div class="card-text">折扣價 <%= product.selling_price %></div>
+            <hr>
+            <div class="card-text"><%= product.slogan %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

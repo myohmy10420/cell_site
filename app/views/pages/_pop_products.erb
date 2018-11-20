@@ -1,25 +1,6 @@
-<div id="pop_products" class="carousel slide" data-ride="carousel">
+<div id="pop_products" class="carousel slide carousel_products" data-ride="carousel">
   <div class="carousel-inner">
-
-    <% @pop_products.each_with_index do |three_products, index| %>
-      <div class="carousel-item <%= 'active' if index == 0 %>">
-        <div class="cards">
-          <% three_products.each do |product| %>
-            <div class="card">
-              <div class="card-image-content">
-                <%= image_tag product.avatar.url(:small) %>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">商品名稱</h5>
-                <div class="card-text">折扣價 30000</div>
-                <hr>
-                <div class="card-text">標題語</div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+    <%= render "pages/carousel_products", products: @pop_products %>
   </div>
   <a class="carousel-control-prev" href="#pop_products" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
