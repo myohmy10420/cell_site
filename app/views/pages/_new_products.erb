@@ -6,7 +6,9 @@
         <div class="cards">
           <% three_products.each do |product| %>
             <div class="card">
-              <%= image_tag "advertisement/640x474.png" %>
+              <div class="card-image-content">
+                <%= image_tag product.avatar.url(:small) %>
+              </div>
               <div class="card-body">
                 <h5 class="card-title">商品名稱</h5>
                 <div class="card-text">折扣價 30000</div>
