@@ -1,0 +1,28 @@
+#pop_products {
+  width: 800px;
+  border: #dedede 2px solid;
+  padding: 5px;
+
+  .carousel-inner {
+    .carousel-item {
+      .cards {
+        display: flex;
+
+        .card {
+          padding: 10px;
+          margin: 0 5px;
+          flex-grow: 1;
+          max-width: 33.33%;
+
+          .card-body {
+            padding: 0px;
+
+            hr {
+              margin: 5px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
