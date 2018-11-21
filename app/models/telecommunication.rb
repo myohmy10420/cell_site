@@ -1,0 +1,2 @@
+class Telecommunication < ApplicationRecord
+end
