@@ -1,0 +1,31 @@
+<div class="telecommunication">
+  <%= link_to new_admin_telecommunication_path do %>
+    <button type="button" class="btn btn-primary btn-add">新增電信</button>
+  <% end %>
+  <div class="product_list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">電信名稱</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @telecommunications.each do |telecommunication| %>
+          <tr>
+            <td><%= telecommunication.name %></td>
+
+            <td width="100px">
+              <%= link_to edit_admin_telecommunication_path(telecommunication), class: "action-icons" do %>
+                <%= image_tag "icons/pencil" %>
+              <% end %>
+              <%= link_to admin_telecommunication_path(telecommunication), method: :delete, data: { confirm: "確定刪除此電信嗎？" }, class: "action-icons" do %>
+                <%= image_tag "icons/x", class: "action-icons" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
