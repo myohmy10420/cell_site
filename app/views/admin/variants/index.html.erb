@@ -1,0 +1,43 @@
+<div class="variant">
+  <%= link_to new_admin_variant_path do %>
+    <button type="button" class="btn btn-primary btn-add">新增方案</button>
+  <% end %>
+  <div class="product_list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">方案電信</th>
+          <th scope="col">名稱</th>
+          <th scope="col">專案折扣</th>
+          <th scope="col">預繳金額</th>
+          <th scope="col">優惠流量</th>
+          <th scope="col">合約期</th>
+          <th scope="col">方案敘述</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @variants.each do |variant| %>
+          <tr>
+            <td><%= render_telecommunication_name(variant) %></td>
+            <td><%= variant.name %></td>
+            <td><%= variant.discount %></td>
+            <td><%= variant.prepaid %></td>
+            <td><%= variant.traffic %></td>
+            <td><%= variant.period %></td>
+            <td><%= simple_format(variant.content) %></td>
+
+            <td width="100px">
+              <%= link_to edit_admin_variant_path(variant), class: "action-icons" do %>
+                <%= image_tag "icons/pencil" %>
+              <% end %>
+              <%= link_to admin_variant_path(variant), method: :delete, data: { confirm: "確定刪除此方案嗎？" }, class: "action-icons" do %>
+                <%= image_tag "icons/x", class: "action-icons" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

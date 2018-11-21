@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products
     resources :telecommunications
+    resources :variants
   end
 
   root "pages#welcome"

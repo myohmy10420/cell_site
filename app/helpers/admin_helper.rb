@@ -1,4 +1,4 @@
-module ProductsHelper
+module AdminHelper
   def render_shelved_status(shelved)
     if shelved
       content_tag :span, "已上架", class: "badge badge-success"
