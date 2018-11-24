@@ -42,7 +42,7 @@ module Admin
     private
 
     def brand_params
-      params.require(:brand).permit(:name)
+      params.require(:brand).permit(:logo, :name)
     end
   end
 end
