@@ -21,6 +21,39 @@
       <div>
         <span class="font font--red">折扣價</span>:
         <%= render_details_selling_price(@product) %>
+      </div>
+      <form class="form-inline">
+        <label for="testSelect">搭配門號折扣：</label>
+        <select id="testSelect" onchange="calculateSubtotal(value)">
+          <option value="0" selected>請選擇電信</option>
+          <%= @telecommunications.each do |telecommunication| %>
+            <option disabled>
+              -------<%= telecommunication.name %>-------
+            </option>
+            <%= telecommunication.variants.each do |variant| %>
+              <%= content_tag :option, variant.name, value: variant.discount %>
+            <% end %>
+          <% end %>
+        </select>
+      </form>
+      <div>
+        <span class="font font--red">小計</span>:
+        <span class="font font--red font--large">
+          $ <%= content_tag :span, @product.selling_price, id: "subtotal" %>
+        </span>
+      </div>
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+  var calculateSubtotal = function (value) {
+    var discount = parseInt(value)
+
+    var sellingPriceTag = document.getElementById('selling_price');
+    var sellingPrice = parseInt(sellingPriceTag.dataset.price)
+
+    var subtotal = sellingPrice - discount
+    document.getElementById('subtotal').innerHTML = subtotal
+  }
+</script>

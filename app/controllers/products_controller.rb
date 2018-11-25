@@ -6,5 +6,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @telecommunications = Telecommunication.all
   end
 end

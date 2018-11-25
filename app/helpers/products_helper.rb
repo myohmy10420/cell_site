@@ -11,7 +11,10 @@ module ProductsHelper
     if !product.priced || !product.selling_price
       content_tag :span, "特價中請來電詢問", class: "font font--red"
     else
-      content_tag :span, "$ "+product.selling_price.to_s, class: "font font--red  font--large"
+      content_tag :span, "$ "+product.selling_price.to_s,
+        class: "font font--red  font--large",
+        id:"selling_price",
+        data: { price: product.selling_price.to_s }
     end
   end
 end
