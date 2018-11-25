@@ -20,7 +20,7 @@
       </div>
       <div>
         <span class="font font--red">折扣價</span>:
-        <%= content_tag :span, "$"+@product.selling_price.to_s, class: "font font--red font--large" %>
+        <%= render_details_selling_price(@product) %>
     </div>
   </div>
 </section>

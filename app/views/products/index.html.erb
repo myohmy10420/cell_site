@@ -35,9 +35,7 @@
                 <%= link_to product.name, product_path(product), class: "product-name" %>
               </td>
               <td width="230px;">
-                <h4 class="font font--red">
-                  $ <%= product.selling_price %>
-                </h4>
+                <%= render_list_selling_price(product) %>
               </td>
               <td width="100px;">
                 <%= link_to "詳情", product_path(product), class: "btn btn-product" %>
