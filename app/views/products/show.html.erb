@@ -1,0 +1,26 @@
+<section class="products">
+  <div class="title-tip">
+    <div class="square"></div>
+    <span class="font font--grey">產品目錄</span>
+  </div>
+  <div class="details">
+    <div class="image">
+      <%= image_tag @product.image.url(:large) %>
+    </div>
+
+    <div class="specs">
+      <div class="title-tip">
+        <div class="square square--grey square--large"></div>
+        <h4 class="font font--red"><%= @product.name %></h4>
+      </div>
+      <div><%= simple_format(@product.content) %></div>
+      <div>
+        <span class="font font--red">市價</span>:
+        <%= content_tag :span, "$"+@product.list_price.to_s, class: "font font--delete" %>
+      </div>
+      <div>
+        <span class="font font--red">折扣價</span>:
+        <%= content_tag :span, "$"+@product.selling_price.to_s, class: "font font--red font--large" %>
+    </div>
+  </div>
+</section>
