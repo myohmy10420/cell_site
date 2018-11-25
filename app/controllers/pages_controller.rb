@@ -4,6 +4,8 @@ class PagesController < ApplicationController
     @pop_products = slice_three_items_a_group(Product.all)
   end
 
+  private
+
   def slice_three_items_a_group(array)
     groups_array = []
     array.each_slice(3) do |items|

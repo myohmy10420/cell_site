@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :variants
   end
 
+  resources :products
+
   root "pages#welcome"
 end

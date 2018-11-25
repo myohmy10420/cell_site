@@ -1,8 +1,8 @@
 <li class="nav-item">
-  <a class="nav-link" href="#">
-    <%= image_tag "icons/home.svg" %>
-    <div>聯絡我們</div>
-  </a>
+  <%= link_to products_path, class: "nav-link" do %>
+    <%= image_tag "icons/phone.svg" %>
+    <div>價格總覽</div>
+  <% end %>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="#">
