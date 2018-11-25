@@ -1,0 +1,61 @@
+<section class="variants">
+  <div class="title-tip">
+    <div class="square"></div>
+    <span class="font font--grey">門號折扣</span>
+  </div>
+
+  請選擇電信公司：
+  <div class="list-brands">
+    <% @telecommunications.each do |telecommunication| %>
+      <%= link_to "##{ telecommunication.name }" do %>
+        <div class="btn btn-brand"><%= telecommunication.name %></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="list-variants">
+    <% @telecommunications.each do |telecommunication| %>
+      <div class="row">
+        <div class="col col-3">
+          <div class="logos">
+            <%= image_tag telecommunication.logo.url(:normal) %>
+          </div>
+        </div>
+        <div class="col col-9">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" id="<%= telecommunication.name %>">
+                  <%= content_tag :h4, "方案", class: "font font--red" %>
+                </th>
+                <th scope="col">
+                  <%= content_tag :h4, "折扣價", class: "font font--green" %>
+                </th>
+                <th scope="col">
+                  <%= content_tag :h4, "預繳", class: "font font--orange" %>
+                </th>
+                <th scope="col">
+                  <%= content_tag :h4, "傳輸量", class: "font font--orange" %>
+                </th>
+                <th scope="col">
+                  <%= content_tag :h4, "方案內容", class: "font font--red" %>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% telecommunication.variants.each do |variant| %>
+                <tr>
+                  <td><%= variant.name %></td>
+                  <td><%= variant.discount %></td>
+                  <td><%= variant.prepaid %></td>
+                  <td><%= variant.traffic %></td>
+                  <td><%= simple_format(variant.content) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

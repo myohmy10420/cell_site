@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :variants
   end
 
-  resources :products
+  resources :products, only: [:index, :show]
+  resources :variants, only: [:index]
 
   root "pages#welcome"
 end
