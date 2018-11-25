@@ -1,4 +1,5 @@
 <%= simple_form_for @telecommunication, url: url do |f| %>
   <%= f.input :name, label: "名稱" %>
+  <%= f.input :logo, label: "圖片", as: :file %>
   <%= f.button :submit, "提交", class: "btn btn-primary" %>
 <% end %>

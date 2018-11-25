@@ -42,7 +42,7 @@ module Admin
     private
 
     def telecommunication_params
-      params.require(:telecommunication).permit(:name)
+      params.require(:telecommunication).permit(:logo, :name)
     end
   end
 end
