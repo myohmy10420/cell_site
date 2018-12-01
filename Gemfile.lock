@@ -106,6 +106,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    pg (1.0.0)
     popper_js (1.14.3)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -198,6 +199,7 @@ DEPENDENCIES
   jquery-rails (= 4.3.3)
   mysql2 (>= 0.3.18, < 0.5)
   paperclip (~> 6.0.0)
+  pg
   pry
   puma (~> 3.11)
   rails (~> 5.2.0)
