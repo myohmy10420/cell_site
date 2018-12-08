@@ -1,0 +1,96 @@
+.recoveries {
+  max-width: 800px;
+  padding: 20px;
+
+  .font {
+    &--grey {
+      color: #777777;
+    }
+    &--red {
+      color: #E9222E;
+    }
+    &--delete {
+      text-decoration: line-through;
+    }
+    &--large {
+      font-size: 30px;
+    }
+  }
+
+  .title-tip {
+    margin: 0px 0px 5px 0px;
+
+    .square {
+      width: 10px;
+      height: 18px;
+      position: relative;
+      top: 3px;
+      margin-right: 5px;
+      background-color: #E9222E;
+      display: inline-block;
+
+      &--large {
+        height: 28px;
+        top: 6px;
+      }
+
+      &--grey {
+        background-color: #dddddd;
+      }
+    }
+
+    h4 {
+      display: inline-block;
+    }
+  }
+
+  .btn {
+    color: #ffffff;
+    display: inline-block;
+    background-color: #E9222E;
+    border-radius: 0px;
+
+    &-brand {
+      width: 120px;
+    }
+
+    &-product {
+      width: 80px;
+    }
+  }
+
+  .list {
+    &-brands {
+      margin: 10px 0px;
+    }
+
+    &-products {
+      margin: 10px 0px;
+
+      table {
+        th {
+          border-top : 0px;
+        }
+        .product-name {
+          color: #000000;
+        }
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .details {
+    .image {
+      img {
+        width: 300px;
+      }
+      display: inline-block;
+    }
+    .specs {
+      padding: 0px 10px;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}

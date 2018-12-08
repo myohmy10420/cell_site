@@ -1,0 +1,39 @@
+<section class="recoveries">
+  <div class="title-tip">
+    <div class="square"></div>
+    <span class="font font--grey">手機回收價格目錄</span>
+  </div>
+
+  請選擇品牌：
+  <div class="list-brands">
+    <% @brands.each do |brand| %>
+      <%= link_to "##{ brand.name }" do %>
+        <div class="btn btn-brand"><%= brand.name %></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="list-products">
+    <% @brands.each do |brand| %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" id="<%= brand.name %>">
+              <%= image_tag brand.logo.url(:normal) %>
+              <span class="font font--red">型號</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% brand.recoveries.each do |recovery| %>
+            <tr>
+              <td>
+                <%= recovery.name %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</section>
