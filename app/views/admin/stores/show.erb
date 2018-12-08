@@ -1,5 +1,8 @@
 <div class="store">
   <div class="card">
+    <div>
+      <%= image_tag @store.image.url(:normal) %>
+    </div>
     <div class="card-body">
       <h5 class="card-title"><%= @store.name %></h5>
       <hr>
