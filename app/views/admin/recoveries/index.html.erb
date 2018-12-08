@@ -1,0 +1,37 @@
+<div class="recovery">
+  <%= link_to new_admin_recovery_path do %>
+    <button type="button" class="btn btn-primary btn-add">新增方案</button>
+  <% end %>
+  <div class="product_list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">品牌</th>
+          <th scope="col">名稱</th>
+          <th scope="col">最高金額</th>
+          <th scope="col">最低金額</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recoveries.each do |recovery| %>
+          <tr>
+            <td><%= render_brand_name(recovery) %></td>
+            <td><%= recovery.name %></td>
+            <td><%= recovery.max_price %></td>
+            <td><%= recovery.min_price %></td>
+
+            <td width="100px">
+              <%= link_to edit_admin_recovery_path(recovery), class: "action-icons" do %>
+                <%= image_tag "icons/pencil" %>
+              <% end %>
+              <%= link_to admin_recovery_path(recovery), method: :delete, data: { confirm: "確定刪除此方案嗎？" }, class: "action-icons" do %>
+                <%= image_tag "icons/x", class: "action-icons" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
