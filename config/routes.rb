@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :variants, only: [:index]
+  resources :stores, only: [:index]
 
   root "pages#welcome"
 end

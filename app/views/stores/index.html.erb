@@ -1,0 +1,52 @@
+<section class="stores">
+  <div class="title-tip">
+    <div class="square"></div>
+    <span class="font font--grey">門市據點</span>
+  </div>
+
+  <div class="list-brands">
+    <% @stores.each do |store| %>
+      <%= link_to "##{ store.name }" do %>
+        <div class="btn btn-brand"><%= store.name %></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% @stores.each do |store| %>
+    <div class="info_box" id="<%= store.name %>">
+      <%= image_tag store.image.url(:normal) %>
+
+      <div class="infos">
+        <h4 class="font font--red"><%= store.name %></h4>
+        <p>
+          <span class="font font--red">服務電話:</span>
+          <%= render_dash_if_empty(store.service_line) %>
+        </p>
+        <p>
+          <span class="font font--red">傳真專線:</span>
+          <%= render_dash_if_empty(store.fax) %>
+        </p>
+        <p>
+          <span class="font font--red">行動電話:</span>
+          <%= render_dash_if_empty(store.phone) %>
+        </p>
+        <p>
+          <span class="font font--red">E-mail:</span>
+          <%= render_dash_if_empty(store.email) %>
+        </p>
+        <p>
+          <span class="font font--red">Line ID:</span>
+          <%= render_dash_if_empty(store.line_ID) %>
+        </p>
+        <p>
+          <span class="font font--red">門市地址:</span>
+          <%= render_dash_if_empty(store.address) %>
+        </p>
+        <p>
+          <span class="font font--red">營業時間:</span>
+          <%= store.time %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</section>
