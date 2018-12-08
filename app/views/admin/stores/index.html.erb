@@ -1,0 +1,39 @@
+<div class="store">
+  <%= link_to new_admin_store_path do %>
+    <button type="button" class="btn btn-primary btn-add">新增品牌</button>
+  <% end %>
+  <div class="store_list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">門市名稱</th>
+          <th scope="col">服務電話</th>
+          <th scope="col">行動電話</th>
+          <th scope="col">店面位址</th>
+          <th scope="col">營業時間</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stores.each do |store| %>
+          <tr>
+            <td><%= link_to store.name, admin_store_path(store) %></td>
+            <td><%= store.service_line %></td>
+            <td><%= store.phone %></td>
+            <td><%= store.address %></td>
+            <td><%= store.time %></td>
+
+            <td width="100px">
+              <%= link_to edit_admin_store_path(store), class: "action-icons" do %>
+                <%= image_tag "icons/pencil" %>
+              <% end %>
+              <%= link_to admin_store_path(store), method: :delete, data: { confirm: "確定刪除此門市嗎？" }, class: "action-icons" do %>
+                <%= image_tag "icons/x", class: "action-icons" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

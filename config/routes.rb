@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :telecommunications
     resources :variants
     resources :recoveries
+    resources :stores
   end
 
   resources :products, only: [:index, :show]

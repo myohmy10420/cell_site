@@ -1,0 +1,50 @@
+<div class="store">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @store.name %></h5>
+      <hr>
+      <p class="card-text">
+        <h5>服務專線</h5>
+        <%= @store.service_line %>
+      </p>
+      <p class="card-text">
+        <h5>傳真專線</h5>
+        <%= render_dash_if_empty(@store.fax) %>
+      </p>
+      <p class="card-text">
+        <h5>行動電話</h5>
+        <%= render_dash_if_empty(@store.phone) %>
+      </p>
+      <p class="card-text">
+        <h5>E-mail</h5>
+        <%= render_dash_if_empty(@store.email) %>
+      </p>
+      <p class="card-text">
+        <h5>line ID</h5>
+        <%= render_dash_if_empty(@store.line_ID) %>
+      </p>
+      <p class="card-text">
+        <h5>門市地址</h5>
+        <%= @store.address %>
+      </p>
+      <p class="card-text">
+        <h5>營業時間</h5>
+        <%= @store.time %>
+      </p>
+    </div>
+  </div>
+
+  <%= link_to admin_stores_path, class: "action-btns" do %>
+    <button type="button" class="btn btn-primary">回門市列表</button>
+  <% end %>
+
+  <%= link_to admin_store_path(@store), method: :delete, data: { confirm: "確定刪除此商品嗎？" }, class: "action-btns" do %>
+    <button type="button" class="btn btn-danger">刪除</button>
+  <% end %>
+
+  <%= link_to edit_admin_store_path(@store), class: "action-btns" do %>
+    <button type="button" class="btn btn-warning">編輯</button>
+  <% end %>
+
+  <br><br><br><br>
+</div>

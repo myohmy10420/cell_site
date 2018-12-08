@@ -1,0 +1,12 @@
+<%= simple_form_for @store, url: url do |f| %>
+  <%= f.input :name, label: "門市名稱" %>
+  <%= f.input :service_line, label: "服務專線" %>
+  <%= f.input :fax, label: "傳真專業" %>
+  <%= f.input :phone, label: "行動電話" %>
+  <%= f.input :email, label: "E-mail" %>
+  <%= f.input :line_ID, label: "line ID" %>
+  <%= f.input :address, label: "門市地址" %>
+  <%= f.input :time, label: "營業時間" %>
+
+  <%= f.button :submit, "提交", class: "btn btn-primary" %>
+<% end %>
