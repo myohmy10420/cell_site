@@ -22,6 +22,21 @@
     <div>門市據點</div>
   <% end %>
 </li>
+<% if !current_user %>
+  <li class="nav-item">
+    <%= link_to new_user_session_path, class: "nav-link" do %>
+      <%= image_tag "icons/people.svg" %>
+      <div>會員登入</div>
+    <% end %>
+  </li>
+<% else %>
+  <li class="nav-item">
+    <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+      <%= image_tag "icons/external-link.svg" %>
+      <div>會員登出</div>
+    <% end %>
+  </li>
+<% end %>
 <li class="nav-item">
   <a class="nav-link" href="#">
     <%= image_tag "icons/home.svg" %>
