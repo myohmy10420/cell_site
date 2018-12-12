@@ -36,13 +36,13 @@
       <div>會員登出</div>
     <% end %>
   </li>
+  <li class="nav-item">
+    <%= link_to admin_path, class: "nav-link" do %>
+      <%= image_tag "icons/home.svg" %>
+      <div>後台管理</div>
+    <% end %>
+  </li>
 <% end %>
-<li class="nav-item">
-  <a class="nav-link" href="#">
-    <%= image_tag "icons/home.svg" %>
-    <div>聯絡我們</div>
-  </a>
-</li>
 <form class="form-inline">
   <input type="search" placeholder="輸入機型..." aria-label="Search">
   <button class="btn btn-secondary" type="submit">收尋</button>
