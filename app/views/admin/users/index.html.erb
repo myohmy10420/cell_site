@@ -1,0 +1,34 @@
+<div class="variant">
+  <div class="product_list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">電話(帳號)</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Line ID</th>
+          <th scope="col">生日</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.phone %></td>
+            <td><%= render_dash_if_empty(user.email) %></td>
+            <td><%= render_dash_if_empty(user.line) %></td>
+            <td><%= !!user.birthday ? user.birthday : '-' %></td>
+
+            <td width="100px">
+              <%= link_to edit_admin_user_path(user), class: "action-icons" do %>
+                <%= image_tag "icons/pencil.svg" %>
+              <% end %>
+              <%= link_to admin_user_path(user), method: :delete, data: { confirm: "確定刪除此會員嗎？" }, class: "action-icons" do %>
+                <%= image_tag "icons/x.svg", class: "action-icons" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

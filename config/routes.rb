@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :variants
     resources :recoveries
     resources :stores
+    resources :users
   end
 
   resources :products, only: [:index, :show]

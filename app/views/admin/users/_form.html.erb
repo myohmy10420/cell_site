@@ -1,0 +1,8 @@
+<%= simple_form_for @user, url: url do |f| %>
+  <%= f.input :phone, label: "電話(帳號)", disabled: true %>
+  <%= f.input :line, label: "Line ID" %>
+  <%= f.input :email, label: "E-mail" %>
+  <%= f.input :birthday, label: "生日", as: :date %>
+
+  <%= f.button :submit, "提交", class: "btn btn-primary" %>
+<% end %>
