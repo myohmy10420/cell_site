@@ -1,5 +1,5 @@
 class Telecommunication < ApplicationRecord
-  has_many :variants
+  has_many :variants, dependent: :delete_all
 
   has_attached_file :logo,
   styles: {

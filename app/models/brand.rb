@@ -1,6 +1,6 @@
 class Brand < ApplicationRecord
-  has_many :products
-  has_many :recoveries
+  has_many :products,   dependent: :delete_all
+  has_many :recoveries, dependent: :delete_all
 
   has_attached_file :logo,
   styles: {
