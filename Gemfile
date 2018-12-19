@@ -5,6 +5,7 @@ ruby '2.4.4'
 gem 'rails', '~> 5.2.0'
 gem 'puma', '~> 3.11'
 gem 'uglifier', '>= 1.3.0'
+gem 'rubyzip', '>= 1.0.0'
 
 # front end gems
 # Reduces boot times through caching; required in config/boot.rb
