@@ -26,6 +26,9 @@
     <% end %>
   </select>
 </form>
+<div class="recoveriesStandard recoveriesStandard--hidden">
+  <%= image_tag "recoveries_standard.jpg" %>
+</div>
 <div>
   <span class="font font--red">小計</span>:
   <span class="font font--red font--large">
@@ -40,6 +43,12 @@
 
     var variantDiscount = parseInt(document.getElementById("variantSelector").value)
     var recoveryDiscount = parseInt(document.getElementById("recoverySelector").value)
+
+    if (!!recoveryDiscount) {
+      $(".recoveriesStandard").show()
+    } else {
+      $(".recoveriesStandard").hide()
+    }
 
     var subtotal = sellingPrice - variantDiscount - recoveryDiscount
     document.getElementById('subtotal').innerHTML = subtotal
