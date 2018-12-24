@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_08_132428) do
+ActiveRecord::Schema.define(version: 2018_12_24_151502) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_132428) do
     t.datetime "logo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_brands_on_name", unique: true
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_132428) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "brand_id"
+    t.index ["name"], name: "index_products_on_name", unique: true
   end
 
   create_table "recoveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_132428) do
     t.integer "min_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_recoveries_on_name", unique: true
   end
 
   create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,6 +67,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_132428) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.index ["name"], name: "index_stores_on_name", unique: true
   end
 
   create_table "telecommunications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,6 +78,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_132428) do
     t.datetime "logo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_telecommunications_on_name", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,6 +105,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_132428) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "telecommunication_id"
+    t.index ["name"], name: "index_variants_on_name", unique: true
   end
 
 end
