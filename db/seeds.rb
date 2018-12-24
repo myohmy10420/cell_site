@@ -1,2 +1,2 @@
 require 'csv'
-Rake::Task['brands:builds_or_updates'].execute
+Rake::Task["name_and_image:creates_or_updates"].invoke(['brands', 'telecommunications'])
