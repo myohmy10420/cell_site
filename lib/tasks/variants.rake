@@ -1,15 +1,12 @@
-include ActionView::Helpers::TextHelper
 namespace :variants do
 
   desc "Creates or updates the only name and image of models"
   task creates_or_updates: :environment do
     file_path = "#{Rails.root}/doc/variants.csv"
-    # file=File.open(file_path, "r:ISO-8859-1")
     puts "新增或更新開始"
 
     CSV.foreach(file_path, headers: :first_row) do |row|
       attributes = row.to_hash
-      Rails.logger.debug("----#{attributes}")
 
       telecommunication = Telecommunication.find_by(name: attributes["telecommunication_name"])
 
@@ -33,5 +30,7 @@ namespace :variants do
         puts "新增或更新失敗，找不到電信#{attributes["name"]}"
       end
     end
+
+    puts "----------------next model----------------"
   end
 end
