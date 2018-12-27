@@ -1,0 +1,25 @@
+.font {
+  &--large {
+    font-size: 30px;
+  }
+
+  &--grey {
+    color: #777777;
+  }
+  &--green {
+    color: #690;
+  }
+  &--orange {
+    color: #F60;
+  }
+  &--red {
+    color: #E9222E;
+  }
+  &--important {
+    color: #E9222E;
+  }
+
+  &--delete {
+    text-decoration: line-through;
+  }
+}

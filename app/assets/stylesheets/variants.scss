@@ -1,27 +1,6 @@
 .variants {
   padding: 20px;
 
-  .font {
-    &--grey {
-      color: #777777;
-    }
-    &--red {
-      color: #E9222E;
-    }
-    &--green {
-      color: #690;
-    }
-    &--orange {
-      color: #F60;
-    }
-    &--delete {
-      text-decoration: line-through;
-    }
-    &--large {
-      font-size: 30px;
-    }
-  }
-
   .title-tip {
     margin: 0px 0px 5px 0px;
 
