@@ -5,25 +5,6 @@
   .title-tip {
     margin: 0px 0px 5px 0px;
 
-    .square {
-      width: 10px;
-      height: 18px;
-      position: relative;
-      top: 3px;
-      margin-right: 5px;
-      background-color: #E9222E;
-      display: inline-block;
-
-      &--large {
-        height: 28px;
-        top: 6px;
-      }
-
-      &--grey {
-        background-color: #dddddd;
-      }
-    }
-
     h4 {
       display: inline-block;
     }

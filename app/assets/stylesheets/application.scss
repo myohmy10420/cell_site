@@ -2,6 +2,9 @@
 @import "bootstrap";
 
 @import "utilities/*";
+@import "components/*";
+@import "modules/*";
+
 @import "products";
 @import "recoveries";
 @import "stores";
@@ -11,6 +14,3 @@
 @import "admin/admin_nav";
 
 @import "layouts/header";
-
-@import "partails/advertisement";
-@import "partails/carousel_products";
