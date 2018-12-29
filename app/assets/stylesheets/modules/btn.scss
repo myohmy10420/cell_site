@@ -1,0 +1,22 @@
+.btn {
+  display: inline-block;
+  color: #ffffff;
+  &:hover {
+    color: #ffffff;
+  }
+
+  &--red {
+    background-color: #E9222E;
+    &:hover {
+      background-color: #c5212b;
+    }
+  }
+
+  &--group {
+    margin: 2px 1px;
+  }
+}
+
+a.btn-link, a.btn-link:hover {
+  text-decoration: none;
+}

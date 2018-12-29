@@ -7,8 +7,8 @@
   請選擇品牌：
   <div class="list-brands">
     <% @brands.each do |brand| %>
-      <%= link_to "##{ brand.name }" do %>
-        <div class="btn btn-brand"><%= brand.name %></div>
+      <%= link_to "##{ brand.name }", class: "btn-link" do %>
+        <div class="btn btn--red btn--group"><%= brand.name %></div>
       <% end %>
     <% end %>
   </div>
@@ -38,7 +38,7 @@
                 <%= render_list_selling_price(product) %>
               </td>
               <td width="100px;">
-                <%= link_to "詳情", product_path(product), class: "btn btn-product" %>
+                <%= link_to "詳情", product_path(product), class: "btn btn--red" %>
               </td>
             </tr>
           <% end %>

@@ -7,8 +7,8 @@
   請選擇品牌：
   <div class="list-brands">
     <% @brands.each do |brand| %>
-      <%= link_to "##{ brand.name }" do %>
-        <div class="btn btn-brand"><%= brand.name %></div>
+      <%= link_to "##{ brand.name }", class: "btn-link" do %>
+        <div class="btn btn--red btn--group"><%= brand.name %></div>
       <% end %>
     <% end %>
   </div>
