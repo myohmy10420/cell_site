@@ -1,19 +1,19 @@
-<section class="variants">
-  <div class="title-tip">
+<div class="variants">
+  <section>
     <div class="square square--red"></div>
     <span class="font font--grey">門號折扣</span>
-  </div>
+  </section>
 
-  請選擇電信公司：
-  <div class="list-brands">
+  <section>
+    <div>請選擇電信公司：</div>
     <% @telecommunications.each do |telecommunication| %>
       <%= link_to "##{ telecommunication.name }", class: "btn-link" do %>
         <div class="btn btn--red btn--group"><%= telecommunication.name %></div>
       <% end %>
     <% end %>
-  </div>
+  </section>
 
-  <div class="list-variants">
+  <section class="list-variants">
     <% @telecommunications.each do |telecommunication| %>
       <div class="row">
         <div class="col col-3">
@@ -57,5 +57,5 @@
         </div>
       </div>
     <% end %>
-  </div>
-</section>
+  </section>
+</div>

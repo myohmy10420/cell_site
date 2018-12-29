@@ -1,23 +1,23 @@
-<section class="recoveries">
-  <div class="title-tip">
+<div class="recoveries">
+  <section>
     <div class="square square--red"></div>
     <span class="font font--grey">手機回收價格目錄</span>
-  </div>
+  </section>
 
-  請選擇品牌：
-  <div class="list-brands">
+  <section>
+    <div>請選擇品牌：</div>
     <% @brands.each do |brand| %>
       <%= link_to "##{ brand.name }", class: "btn-link" do %>
         <div class="btn btn--red btn--group"><%= brand.name %></div>
       <% end %>
     <% end %>
-  </div>
+  </section>
 
   <div class="recoveriesStandard">
     <%= image_tag "recoveries_standard.jpg" %>
   </div>
 
-  <div class="list-products">
+  <section class="section list-products">
     <% @brands.each do |brand| %>
       <table class="table">
         <thead>
@@ -39,5 +39,5 @@
         </tbody>
       </table>
     <% end %>
-  </div>
-</section>
+  </section>
+</div>
