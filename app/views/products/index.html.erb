@@ -32,8 +32,8 @@
           </div>
           <div class="list-items">
             <% brand.products.each do |product| %>
-              <%= link_to product_path(product), class: 'item-link' do %>
-                <div class="item">
+              <%= link_to product_path(product), class: 'list-link' do %>
+                <div class="item item--clickable">
                   <div style="width: 25%"></div>
                   <div class="data" style="width: 30%">
                     <span class="font font--black _product-name"><%= product.name %></span>

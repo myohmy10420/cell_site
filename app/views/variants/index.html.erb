@@ -7,55 +7,61 @@
   <section>
     <div>請選擇電信公司：</div>
     <% @telecommunications.each do |telecommunication| %>
-      <%= link_to "##{ telecommunication.name }", class: "btn-link" do %>
-        <div class="btn btn--red btn--group"><%= telecommunication.name %></div>
+      <% if telecommunication.variants.any? %>
+        <%= link_to "##{ telecommunication.name }", class: "btn-link" do %>
+          <div class="btn btn--red btn--group"><%= telecommunication.name %></div>
+        <% end %>
       <% end %>
     <% end %>
   </section>
 
   <section class="list-variants">
     <% @telecommunications.each do |telecommunication| %>
-      <div class="row">
-        <div class="col col-3">
-          <div class="logos">
-            <%= image_tag telecommunication.logo.url(:normal) %>
+      <% if telecommunication.variants.any? %>
+        <div class="logos">
+          <%= image_tag telecommunication.logo.url(:normal) %>
+        </div>
+        <div class="list">
+          <div class="list-topics">
+            <div class="topic" style="width:30%">
+              <%= content_tag :span, "方案", class: "font font--red font--12r" %>
+            </div>
+            <div class="topic" style="width:15%">
+              <%= content_tag :span, "折扣價", class: "font font--green font--12r" %>
+            </div>
+            <div class="topic" style="width:11.5%">
+              <%= content_tag :span, "預繳", class: "font font--orange font--12r" %>
+            </div>
+            <div class="topic" style="width:15%">
+              <%= content_tag :span, "傳輸量", class: "font font--orange font--12r" %>
+            </div>
+            <div class="topic" style="flex-grow:1">
+              <%= content_tag :span, "方案內容", class: "font font--red font--12r" %>
+            </div>
+          </div>
+          <div class="list-items">
+            <% telecommunication.variants.each do |variant| %>
+              <div class="item">
+                <div class="data" style="width: 30%">
+                  <span><%= variant.name %></span>
+                </div>
+                <div class="data" style="width: 15%">
+                  <span><%= variant.discount %></span>
+                </div>
+                <div class="data" style="width: 11.5%">
+                  <span><%= variant.prepaid %></span>
+                </div>
+                <div class="data" style="width: 15%">
+                  <span><%= variant.traffic %></span>
+                </div>
+                <div class="data" style="flex-grow:1">
+                  <span><%= simple_format(variant.content) %></span>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
-        <div class="col col-9">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" id="<%= telecommunication.name %>">
-                  <%= content_tag :h4, "方案", class: "font font--red" %>
-                </th>
-                <th scope="col">
-                  <%= content_tag :h4, "折扣價", class: "font font--green" %>
-                </th>
-                <th scope="col">
-                  <%= content_tag :h4, "預繳", class: "font font--orange" %>
-                </th>
-                <th scope="col">
-                  <%= content_tag :h4, "傳輸量", class: "font font--orange" %>
-                </th>
-                <th scope="col">
-                  <%= content_tag :h4, "方案內容", class: "font font--red" %>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <% telecommunication.variants.each do |variant| %>
-                <tr>
-                  <td><%= variant.name %></td>
-                  <td><%= variant.discount %></td>
-                  <td><%= variant.prepaid %></td>
-                  <td><%= variant.traffic %></td>
-                  <td><%= simple_format(variant.content) %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </section>
 </div>

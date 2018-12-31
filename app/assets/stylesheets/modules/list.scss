@@ -17,28 +17,37 @@
   }
 }
 
-.item-link, .item-link:hover {
-  display: block;
-  text-decoration: none;
-}
-
 .list-items {
   width: 100%;
-  &:hover {
-    background-color: #f1e9e9;
-    cursor: pointer;
-  }
 
   .item {
     width: 100%;
     display: flex;
-    &:last-child {
-      border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    &:nth-child(2n) {
+      background-color: #e9edf1;
+    }
+
+    &--clickable{
+      &:hover {
+        background-color: #ccceee !important;
+        cursor: pointer;
+      }
     }
 
     .data {
       padding: 5px;
       display: inline-block;
     }
+  }
+}
+
+.list-link {
+  display: block;
+  &:nth-child(2n) {
+    background-color: #e9edf1;
+  }
+  &:hover {
+    text-decoration: none;
   }
 }
