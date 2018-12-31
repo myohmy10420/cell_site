@@ -1,0 +1,44 @@
+.list {
+  width: 100%;
+}
+
+.list-topics {
+  width: 100%;
+  display: flex;
+  height: 35px;
+  .topic {
+    border-bottom: 2px solid #dee2e6;
+    display: inline-block;
+    padding: 5px;
+    &-logo {
+      width: 120px;
+      height: 25px;
+    }
+  }
+}
+
+.item-link, .item-link:hover {
+  display: block;
+  text-decoration: none;
+}
+
+.list-items {
+  width: 100%;
+  &:hover {
+    background-color: #f1e9e9;
+    cursor: pointer;
+  }
+
+  .item {
+    width: 100%;
+    display: flex;
+    &:last-child {
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .data {
+      padding: 5px;
+      display: inline-block;
+    }
+  }
+}

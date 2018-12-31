@@ -1,8 +1,14 @@
 .font {
-  &--large {
-    font-size: 30px;
+  &--16r {
+    font-size: 1.6rem;
+  }
+  &--14r {
+    font-size: 1.4rem;
   }
 
+  &--black {
+    color: #000000;
+  }
   &--grey {
     color: #777777;
   }

@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  width: 80%;
+  min-width: 768px;
+  margin: auto;
+}
+
+.wrapper-left {
+  display: inline-block;
+  width: 20%;
+}
+
+.wrapper-body {
+  display: inline-block;
+  flex-grow: 1;
+}

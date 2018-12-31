@@ -12,8 +12,13 @@
 
   <body>
     <%= render partial: "modules/header" %>
-    <div class="container">
-      <%= yield %>
+    <div class="wrapper">
+      <div class="wrapper-left">
+        <%= render partial: "modules/side_bar" %>
+      </div>
+      <div class="wrapper-body">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

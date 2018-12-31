@@ -17,10 +17,11 @@ module ProductsHelper
 
   def render_list_selling_price(product)
     if !product.priced || !product.selling_price
-      content_tag :h5, "特價中", class: "font font--red"
+      context = "特價中"
     else
-      content_tag :h4, "$ "+product.selling_price.to_s, class: "font font--red"
+      context = "$ "+product.selling_price.to_s
     end
+    content_tag :span, context, class: "font font--red font--16r"
   end
 
   def render_details_selling_price(product)
@@ -28,7 +29,7 @@ module ProductsHelper
       content_tag :span, "特價中請來電詢問", class: "font font--red"
     else
       content_tag :span, "$ "+product.selling_price.to_s,
-        class: "font font--red  font--large",
+        class: "font font--red  font--16r",
         id:"selling_price",
         data: { price: product.selling_price.to_s }
     end
