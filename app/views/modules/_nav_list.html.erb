@@ -22,6 +22,7 @@
     <div>門市據點</div>
   <% end %>
 </li>
+
 <% if !current_user %>
   <li class="nav-item">
     <%= link_to new_user_session_path, class: "nav-link" do %>
@@ -36,10 +37,13 @@
       <div>會員登出</div>
     <% end %>
   </li>
-  <li class="nav-item">
-    <%= link_to admin_path, class: "nav-link" do %>
-      <%= image_tag "icons/home.svg" %>
-      <div>後台管理</div>
-    <% end %>
-  </li>
+
+  <% if current_user.has_role? :admin %>
+    <li class="nav-item">
+      <%= link_to admin_path, class: "nav-link" do %>
+        <%= image_tag "icons/home.svg" %>
+        <div>後台管理</div>
+      <% end %>
+    </li>
+  <% end %>
 <% end %>

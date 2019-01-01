@@ -7,7 +7,13 @@ class User < ApplicationRecord
 
   validates_presence_of :phone
 
+  after_create :assign_default_role
+
   def email_required?
     false
+  end
+
+  def assign_default_role
+    self.add_role(:normal) if self.roles.blank?
   end
 end
