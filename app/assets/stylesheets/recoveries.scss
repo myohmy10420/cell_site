@@ -1,37 +1,5 @@
 .recoveries {
-  max-width: 800px;
   padding: 20px;
-
-  .list {
-    &-products {
-      margin: 10px 0px;
-
-      table {
-        th {
-          border-top : 0px;
-        }
-        .product-name {
-          color: #000000;
-        }
-        border-bottom: 1px solid #dee2e6;
-        margin-bottom: 30px;
-      }
-    }
-  }
-
-  .details {
-    .image {
-      img {
-        width: 300px;
-      }
-      display: inline-block;
-    }
-    .specs {
-      padding: 0px 10px;
-      display: inline-block;
-      vertical-align: top;
-    }
-  }
 }
 
 .recoveriesStandard {
