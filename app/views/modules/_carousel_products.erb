@@ -4,10 +4,16 @@
       <% group_products.each do |product| %>
         <div class="card">
           <div class="card-image-content">
-            <%= image_tag product.image.url(:small) %>
+            <%= link_to product_path(product) do %>
+              <%= image_tag product.image.url(:small) %>
+            <% end %>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= product.name %></h5>
+            <h5 class="card-title">
+              <%= link_to product_path(product) do %>
+                <%= content_tag :span, product.name, class: "font font--red" %>
+              <% end %>
+            </h5>
             <div class="card-text">折扣價 <%= product.selling_price %></div>
             <hr>
             <div class="card-text"><%= product.slogan %></div>

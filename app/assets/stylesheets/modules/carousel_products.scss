@@ -28,6 +28,13 @@
             hr {
               margin: 5px 0px;
             }
+
+            .card-title {
+              a, a:hover {
+                color: #000000;
+                text-decoration: none;
+              }
+            }
           }
         }
       }
