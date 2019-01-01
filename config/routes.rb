@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :recoveries, only: [:index]
   resources :stores, only: [:index]
 
-  root "pages#welcome"
+  root "pages#home"
 end

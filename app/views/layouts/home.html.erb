@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>某某通訊</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= render partial: "modules/header" %>
+    <div class="wrapper">
+      <div class="wrapper-body">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

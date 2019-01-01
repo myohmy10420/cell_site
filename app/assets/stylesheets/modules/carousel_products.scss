@@ -1,5 +1,5 @@
 .carousel_products {
-  width: 800px;
+  width: 770px;
   border: #dedede 2px solid;
   padding: 5px;
 
@@ -15,8 +15,11 @@
           max-width: 33.33%;
 
           .card-image-content {
-            min-width: 200px;
+            width: 100%;
             min-height: 200px;
+            img {
+              width: 100%;
+            }
           }
 
           .card-body {
