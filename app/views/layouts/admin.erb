@@ -12,8 +12,10 @@
 
   <body>
     <div class="wrapper">
-      <%= render "modules/admin_nav" %>
-      <%= yield %>
+      <div class="wrapper-body">
+        <%= render "modules/admin_nav" %>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
