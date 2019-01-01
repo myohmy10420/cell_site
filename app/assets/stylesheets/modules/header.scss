@@ -33,22 +33,5 @@ section.header {
     .navbar-toggler {
       border: 1px solid;
     }
-
-    .form-inline {
-      width: 200px;
-      display: flex;
-
-      input {
-        width: 70%;
-        padding: 6px;
-        border: 1px solid #ced4da;
-        border-radius: 5px 0px 0px 5px;
-      }
-
-      button {
-        flex-grow: 1;
-        border-radius: 0px 5px 5px 0px;
-      }
-    }
   }
 }
