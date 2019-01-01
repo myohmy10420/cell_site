@@ -18,6 +18,7 @@ gem 'simple_form', "4.0.0"
 # authentication gems
 gem 'devise', '~> 4.5.0'
 gem 'cancan', '~> 1.6'
+gem 'rolify', '~> 5.2'
 
 # images gems
 gem 'paperclip', '~> 6.0.0'
