@@ -731,6 +731,7 @@ GEM
       sass (>= 3.5.2)
     browser (2.5.3)
     builder (3.2.3)
+    cancan (1.6.10)
     climate_control (0.2.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.3)
@@ -825,7 +826,6 @@ GEM
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
-    rubyzip (1.2.1)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -875,6 +875,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.1.3)
   browser (~> 2.5.0)
+  cancan (~> 1.6)
   devise (~> 4.5.0)
   jquery-rails (= 4.3.3)
   mysql2 (>= 0.3.18, < 0.5)
@@ -883,7 +884,6 @@ DEPENDENCIES
   pry
   puma (~> 3.11)
   rails (~> 5.2.0)
-  rubyzip (>= 1.0.0)
   sass-rails (~> 5.0)
   simple_form (= 4.0.0)
   spring
