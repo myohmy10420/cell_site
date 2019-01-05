@@ -1,10 +1,10 @@
 <nav class="nav flex-column side-bar">
-  <form class="form-inline">
-    <input class="font font--08r" type="search" placeholder="快速查詢">
+  <%= form_tag search_products_path, method: :post, class: "form-inline" do %>
+    <input class="font font--08r" name="search_key" placeholder="快速查詢">
     <button class="btn btn-secondary" type="submit">
       <%= image_tag "icons/magnifying-glass.svg" %>
     </button>
-  </form>
+  <% end %>
   <a class="nav-link" href="#">路徑1</a>
   <a class="nav-link" href="#">路徑2</a>
   <a class="nav-link" href="#">路徑3</a>

@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    collection do
+      post 'search'
+    end
+  end
   resources :variants, only: [:index]
   resources :recoveries, only: [:index]
   resources :stores, only: [:index]
