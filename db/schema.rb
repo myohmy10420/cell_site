@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_01_104123) do
+ActiveRecord::Schema.define(version: 2019_01_06_080801) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2019_01_01_104123) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "brand_id"
+    t.boolean "is_new", default: false
+    t.boolean "is_pop", default: false
     t.index ["name"], name: "index_products_on_name", unique: true
   end
 
