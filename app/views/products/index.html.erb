@@ -7,49 +7,45 @@
   <section class="section">
     <div>請選擇品牌：</div>
     <% @brands.each do |brand| %>
-      <% if brand.products.any? %>
-        <%= link_to "##{ brand.name }", class: "btn-link" do %>
-          <div class="btn btn--red btn--group"><%= brand.name %></div>
-        <% end %>
+      <%= link_to "##{ brand.name }", class: "btn-link" do %>
+        <div class="btn btn--red btn--group"><%= brand.name %></div>
       <% end %>
     <% end %>
   </section>
 
   <section class="section">
     <% @brands.each do |brand| %>
-      <% if brand.products.any? %>
-        <div class="list">
-          <div class="list-topics">
-            <div class="topic" id="<%= brand.name %>" style="width:25%">
-              <%= image_tag brand.logo.url(:normal), class: "topic-logo" %>
-            </div>
-            <div class="topic" style="width:30%">
-              <span class="font font--red">型號</span>
-            </div>
-            <div class="topic" style="flex-grow: 1">
-              <span class="font font--red">價格</span>
-            </div>
+      <div class="list">
+        <div class="list-topics">
+          <div class="topic" id="<%= brand.name %>" style="width:25%">
+            <%= image_tag brand.logo.url(:normal), class: "topic-logo" %>
           </div>
-          <div class="list-items">
-            <% brand.products.each do |product| %>
-              <% if product.name.downcase.include?(@search_key.downcase) %>
-                <%= link_to product_path(product), class: 'list-link' do %>
-                  <div class="item item--clickable">
-                    <div style="width: 25%"></div>
-                    <div class="data" style="width: 30%">
-                      <span class="font font--black _product-name"><%= product.name %></span>
-                    </div>
-                    <div class="data" style="flex-grow: 1">
-                      <%= render_list_selling_price(product) %>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
+          <div class="topic" style="width:30%">
+            <span class="font font--red">型號</span>
+          </div>
+          <div class="topic" style="flex-grow: 1">
+            <span class="font font--red">價格</span>
           </div>
         </div>
-        <br><br>
-      <% end %>
+        <div class="list-items">
+          <% brand.products.each do |product| %>
+            <% if product_is_searched?(product, @search_key) %>
+              <%= link_to product_path(product), class: 'list-link' do %>
+                <div class="item item--clickable">
+                  <div style="width: 25%"></div>
+                  <div class="data" style="width: 30%">
+                    <span class="font font--black _product-name"><%= product.name %></span>
+                  </div>
+                  <div class="data" style="flex-grow: 1">
+                    <%= render_list_selling_price(product) %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <br><br>
     <% end %>
   </section>
 </div>

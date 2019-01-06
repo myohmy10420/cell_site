@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_search_key
   def index
-    @brands = Brand.all
+    @brands = has_valid_products_brands
   end
 
   def show

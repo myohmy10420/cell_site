@@ -34,4 +34,8 @@ module ProductsHelper
         data: { price: product.selling_price.to_s }
     end
   end
+
+  def product_is_searched?(product, search_key)
+    product.name.downcase.include?(search_key.downcase)
+  end
 end
