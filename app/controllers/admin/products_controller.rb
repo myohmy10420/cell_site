@@ -14,6 +14,7 @@ module Admin
 
     def create
       @product = Product.new(product_params)
+
       if @product.save
         redirect_to admin_product_path(@product)
       else
@@ -46,7 +47,7 @@ module Admin
     private
 
     def product_params
-      params.require(:product).permit(:brand_id, :name, :slogan, :content, :list_price, :selling_price, :shelved, :priced, :image)
+      params.require(:product).permit(:brand_id, :name, :slogan, :content, :list_price, :selling_price, :shelved, :priced, :image, :is_new, :is_pop)
     end
   end
 end
