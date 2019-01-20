@@ -5,8 +5,28 @@
       <%= image_tag "icons/magnifying-glass.svg" %>
     </button>
   <% end %>
-  <a class="nav-link" href="#">路徑1</a>
-  <a class="nav-link" href="#">路徑2</a>
-  <a class="nav-link" href="#">路徑3</a>
-  <a class="nav-link disabled" href="#">不能點的路徑</a>
+
+  <% Brand.all.each_with_index do |brand, index| %>
+    <% if brand.has_products? %>
+      <div class="accordion" id="accordion_<%= index %>">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne_<%= index %>">
+                <%= brand.name %>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne_<%= index %>" class="collapse" data-parent="#accordion_<%= index %>">
+            <div class="card-body">
+              <% brand.products.each do |product| %>
+                <%= link_to product.name, product_path(product) %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </nav>

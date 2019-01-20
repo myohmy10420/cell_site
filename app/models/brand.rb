@@ -10,4 +10,8 @@ class Brand < ApplicationRecord
   validates_attachment_content_type :logo, content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]
 
   validates_presence_of :name
+
+  def has_products?
+    self.products.any?
+  end
 end
