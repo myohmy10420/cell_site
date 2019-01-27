@@ -35,6 +35,9 @@
                   <div style="width: 25%"></div>
                   <div class="data" style="width: 30%">
                     <span class="font font--black _product-name"><%= product.name %></span>
+                    <div style="display: inline-block; position:relative; top: 6px;">
+                      <%= render_tag(product.tag) %>
+                    </div>
                   </div>
                   <div class="data" style="flex-grow: 1">
                     <%= render_list_selling_price(product) %>

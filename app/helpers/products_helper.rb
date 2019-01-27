@@ -1,4 +1,9 @@
 module ProductsHelper
+  def render_tag(tag)
+    content_tag :div, "", class: "tag tag--red" do
+      content_tag :span, tag
+    end if tag
+  end
   def render_shelved_status(shelved)
     if shelved
       content_tag :span, "已上架", class: "badge badge-success"

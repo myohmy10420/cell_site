@@ -17,7 +17,10 @@
       <tbody>
         <% @products.each do |product| %>
           <tr>
-            <td><%= link_to product.name, admin_product_path(product) %></td>
+            <td>
+              <%= link_to product.name, admin_product_path(product) %>
+              <%= render_tag(product.tag) %>
+            </td>
             <td><%= product.slogan %></td>
             <td><%= product.list_price %></td>
             <td>

@@ -12,6 +12,7 @@
       <div>
         <div class="square square--grey square--large"></div>
         <span class="font font--red font--16r"><%= @product.name %></span>
+        <%= render_tag(@product.tag) %>
       </div>
       <div><%= simple_format(@product.content) %></div>
       <div>

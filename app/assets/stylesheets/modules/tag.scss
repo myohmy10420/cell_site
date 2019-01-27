@@ -1,0 +1,16 @@
+.tag {
+  display: inline-block;
+  padding: 0px 7px 2px;
+  border: 1px solid;
+  border-radius: 5px;
+
+  span {
+    font-size: 12px;
+    color: #4b45da;
+  }
+
+  &--red {
+    border-color: #ff434e;
+    background-color: #ff434e;
+  }
+}
