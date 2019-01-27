@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :slogan
   validates_presence_of :content
+  validates_presence_of :list_price
   validate :check_is_new_limit
   validate :check_is_pop_limit
 
