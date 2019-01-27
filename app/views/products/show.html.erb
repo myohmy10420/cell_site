@@ -22,9 +22,7 @@
         <span class="font font--red">折扣價</span>:
         <%= render_details_selling_price(@product) %>
       </div>
-      <% if @product.priced || @product.selling_price %>
-        <%= render "products/discount_selector" %>
-      <% end %>
+      <%= render "products/discount_selector" %>
     </div>
   </div>
 </section>

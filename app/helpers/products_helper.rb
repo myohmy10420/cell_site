@@ -26,13 +26,17 @@ module ProductsHelper
 
   def render_details_selling_price(product)
     if !product.priced || !product.selling_price
-      content_tag :span, "特價中請來電詢問", class: "font font--red"
+      content = "特價中請來電詢問"
+      price = 0
     else
-      content_tag :span, "$ "+product.selling_price.to_s,
-        class: "font font--red  font--16r",
-        id:"selling_price",
-        data: { price: product.selling_price.to_s }
+      content = "$ "+product.selling_price.to_s
+      price = product.selling_price.to_s
     end
+
+    content_tag :span, content,
+      class: "font font--red  font--16r",
+      id:"selling_price",
+      data: { price: price }
   end
 
   def product_is_searched?(product, search_key)
