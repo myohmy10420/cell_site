@@ -38,4 +38,25 @@ module ProductsHelper
   def product_is_searched?(product, search_key)
     product.name.downcase.include?(search_key.downcase)
   end
+
+  def tele_options
+    Telecommunication.all.map { |tele| [tele.name, tele.id] }
+  end
+
+  def variant_options
+    @variants.map { |variant| [variant.name, variant.discount] }
+  end
+
+  def recovery_options
+    options = []
+    @brands.each do |brand|
+      if brand.recoveries.any?
+        options << ["品牌：(#{brand.name})", "0"]
+        brand.recoveries.each do |recovery|
+          options << [recovery.name, recovery.min_price]
+        end
+      end
+    end
+    options
+  end
 end

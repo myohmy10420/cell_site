@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     collection do
       post 'search'
     end
+    patch 'tele_search_varirnt', to: "products#search_varirnt"
   end
+  patch 'tele_search_varirnt', to: "products#search_varirnt"
+
   resources :variants, only: [:index]
   resources :recoveries, only: [:index]
   resources :stores, only: [:index]

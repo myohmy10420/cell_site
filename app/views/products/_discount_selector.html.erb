@@ -1,31 +1,18 @@
-<form class="form-inline">
-  <label for="variantSelector">搭配門號折扣：</label>
-  <select id="variantSelector" onchange="calculateSubtotal(value)">
-    <option value="0" selected>請選擇電信</option>
-    <%= @telecommunications.each do |telecommunication| %>
-      <option disabled>
-        -------<%= telecommunication.name %>-------
-      </option>
-      <%= telecommunication.variants.each do |variant| %>
-        <%= content_tag :option, variant.name, value: variant.discount %>
-      <% end %>
-    <% end %>
-  </select>
-</form>
-<form class="form-inline">
-  <label for="recoverySelector">手機回收折扣：</label>
-  <select id="recoverySelector" onchange="calculateSubtotal(value)">
-    <option value="0" selected>請選擇型號</option>
-    <%= @brands.each do |brand| %>
-      <option disabled>
-        -------<%= brand.name %>-------
-      </option>
-      <%= brand.recoveries.each do |recovery| %>
-        <%= content_tag :option, recovery.name, value: recovery.min_price %>
-      <% end %>
-    <% end %>
-  </select>
-</form>
+<%= simple_form_for @product,
+  remote: true,
+  url: product_tele_search_varirnt_path(@product),
+  html: {
+    class: "variant_select_form"
+  } do |f| %>
+
+  <%= f.input :tele_id, label: "選擇電信", collection: tele_options, prompt: "請選擇電信" %>
+  <div class="variant_select_panel">
+    <%= f.input :variant_id, label: "選擇方案", collection: variant_options, prompt: "請選擇方案" %>
+  </div>
+
+  <%= f.input :recovery_id, label: "手機回收折扣", collection: recovery_options, prompt: "請選擇型號", disabled: ["0"] %>
+<% end %>
+
 <div class="recoveriesStandard recoveriesStandard--hidden">
   <%= image_tag "recoveries_standard.jpg" %>
 </div>
@@ -35,22 +22,3 @@
     $ <%= content_tag :span, @product.selling_price, id: "subtotal" %>
   </span>
 </div>
-
-<script type="text/javascript">
-  var calculateSubtotal = function (value) {
-    var sellingPriceTag = document.getElementById('selling_price');
-    var sellingPrice = parseInt(sellingPriceTag.dataset.price)
-
-    var variantDiscount = parseInt(document.getElementById("variantSelector").value)
-    var recoveryDiscount = parseInt(document.getElementById("recoverySelector").value)
-
-    if (!!recoveryDiscount) {
-      $(".recoveriesStandard").show()
-    } else {
-      $(".recoveriesStandard").hide()
-    }
-
-    var subtotal = sellingPrice - variantDiscount - recoveryDiscount
-    document.getElementById('subtotal').innerHTML = subtotal
-  }
-</script>

@@ -15,6 +15,10 @@ class Product < ApplicationRecord
 
   belongs_to :brand
 
+  attr_reader :tele_id
+  attr_reader :variant_id
+  attr_reader :recovery_id
+
   private
 
   def check_is_new_limit

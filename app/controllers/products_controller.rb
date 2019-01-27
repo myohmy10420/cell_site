@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @telecommunications = Telecommunication.all
+    @variants = []
     @brands = Brand.all
   end
 
@@ -15,6 +16,26 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html { render :index }
+    end
+  end
+
+  def search_varirnt
+    @product = Product.find(params[:product_id])
+    @brands = has_valid_products_brands
+
+    tele_id = params[:product][:tele_id]
+
+    if tele_id != ""
+      tele = Telecommunication.find(tele_id)
+      @variants = tele.variants
+    else
+      @variants = []
+    end
+
+    respond_to do |format|
+      format.html {
+        render partial: "products/discount_selector"
+      }
     end
   end
 
