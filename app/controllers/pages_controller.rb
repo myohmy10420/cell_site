@@ -1,6 +1,4 @@
 class PagesController < ApplicationController
-  layout 'home'
-
   def home
     @new_products = slice_three_items_a_group(Product.all)
     @pop_products = slice_three_items_a_group(Product.all)
