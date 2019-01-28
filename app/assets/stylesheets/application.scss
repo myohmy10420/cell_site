@@ -10,36 +10,3 @@
 @import "recoveries";
 @import "stores";
 @import "variants";
-
-.side-bar {
-  background-color: #484848;
-  margin: 20px 0px 0px;
-  padding: 8px 0px;
-
-  a {
-    color: #ffffff;
-
-    &:hover {
-      background-color: #333333;
-    }
-  }
-
-  .form-inline {
-    padding: 3px;
-    width: 100%;
-    display: flex;
-
-    input {
-      width: 70%;
-      padding: 6px;
-      border: 1px solid #ced4da;
-      border-radius: 5px 0px 0px 5px;
-    }
-
-    button {
-      padding: 1px 0px 6px;
-      flex-grow: 1;
-      border-radius: 0px 5px 5px 0px;
-    }
-  }
-}
