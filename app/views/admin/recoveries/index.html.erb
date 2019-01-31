@@ -2,6 +2,18 @@
   <%= link_to new_admin_recovery_path do %>
     <button type="button" class="btn btn-primary btn-add">新增方案</button>
   <% end %>
+
+  <div style="float: right">
+    <%= form_tag admin_search_recoveries_path,
+      { class: "simple_form admin_search_form" } do %>
+      <%= search_field_tag "recovery_name", nil,
+        class: "form-control input",
+        placeholder: "輸入回收名稱"
+      %>
+      <%= submit_tag "收尋", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
   <div class="product_list">
     <table class="table">
       <thead>

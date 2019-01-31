@@ -1,7 +1,7 @@
 module Admin
   class RecoveriesController < Admin::BaseController
     def index
-      @recoveries = Recovery.all
+      @recoveries = Recovery.all.order('updated_at DESC')
     end
 
     def new
@@ -39,6 +39,16 @@ module Admin
 	    @recovery.destroy
 
 	    redirect_to admin_recoveries_path
+    end
+
+    def search
+      if params[:recovery_name].present?
+        @recoveries = Recovery.where("name like ?", "%#{params[:recovery_name]}%").order('updated_at DESC')
+      else
+        @recoveries = Recovery.all.order('updated_at DESC')
+      end
+
+      render "index"
     end
 
     private

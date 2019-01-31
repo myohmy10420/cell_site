@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :variants
     post "search_variants", to: "variants#search"
     resources :recoveries
+    post "search_recoveries", to: "recoveries#search"
     resources :stores
     resources :users
   end
