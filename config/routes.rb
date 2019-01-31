@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :products
     post "search_products", to: "products#search"
     resources :brands
+    post "search_brands", to: "brands#search"
     resources :telecommunications
     post "search_telecommunications", to: "telecommunications#search"
     resources :variants

@@ -1,7 +1,7 @@
 module Admin
   class BrandsController < Admin::BaseController
     def index
-      @brands = Brand.all
+      @brands = Brand.all.order('updated_at DESC')
     end
 
     def new
@@ -37,6 +37,16 @@ module Admin
 	    @brand.destroy
 
 	    redirect_to admin_brands_path
+    end
+
+    def search
+      if params[:brand_name].present?
+        @brands = Brand.where("name like ?", "%#{params[:brand_name]}%").order('updated_at DESC')
+      else
+        @brands = Brand.all.order('updated_at DESC')
+      end
+
+      render "index"
     end
 
     private
