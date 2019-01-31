@@ -1,7 +1,7 @@
 module Admin
   class TelecommunicationsController < Admin::BaseController
     def index
-      @telecommunications = Telecommunication.all
+      @telecommunications = Telecommunication.all.order('updated_at DESC')
     end
 
     def new
@@ -37,6 +37,16 @@ module Admin
 	    @telecommunication.destroy
 
 	    redirect_to admin_telecommunications_path
+    end
+
+    def search
+      if params[:tele_name].present?
+        @telecommunications = Telecommunication.where("name like ?", "%#{params[:tele_name]}%").order('updated_at DESC')
+      else
+        @telecommunications = Telecommunication.all.order('updated_at DESC')
+      end
+
+      render "index"
     end
 
     private
