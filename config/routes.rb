@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :recoveries
     post "search_recoveries", to: "recoveries#search"
     resources :stores
+    post "search_stores", to: "stores#search"
     resources :users
   end
 

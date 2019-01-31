@@ -2,6 +2,18 @@
   <%= link_to new_admin_store_path do %>
     <button type="button" class="btn btn-primary btn-add">新增品牌</button>
   <% end %>
+
+  <div style="float: right">
+    <%= form_tag admin_search_stores_path,
+      { class: "simple_form admin_search_form" } do %>
+      <%= search_field_tag "store_name", nil,
+        class: "form-control input",
+        placeholder: "輸入門市名稱"
+      %>
+      <%= submit_tag "收尋", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
   <div class="store_list">
     <table class="table">
       <thead>

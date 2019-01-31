@@ -1,7 +1,7 @@
 module Admin
   class StoresController < Admin::BaseController
     def index
-      @stores = Store.all
+      @stores = Store.all.order('updated_at DESC')
     end
 
     def show
@@ -42,6 +42,16 @@ module Admin
 	    @store.destroy
 
 	    redirect_to admin_stores_path
+    end
+
+    def search
+      if params[:store_name].present?
+        @stores = Store.where("name like ?", "%#{params[:store_name]}%").order('updated_at DESC')
+      else
+        @stores = Store.all.order('updated_at DESC')
+      end
+
+      render "index"
     end
 
     private
