@@ -2,6 +2,23 @@
   <%= link_to new_admin_product_path do %>
     <button type="button" class="btn btn-primary btn-add">新增商品</button>
   <% end %>
+
+  <div style="float: right">
+    <%= form_tag admin_search_products_path,
+      { class: "simple_form admin_search_form" } do %>
+      <%= search_field_tag "product_name", nil,
+        class: "form-control input",
+        placeholder: "輸入產品名稱"
+      %>
+      <%= select_tag "brand_id",
+        options_from_collection_for_select(Brand.all, "id", "name"),
+        prompt: "選擇品牌",
+        class: "form-control select"
+      %>
+      <%= submit_tag "收尋", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
   <div class="list">
     <table class="table">
       <thead>

@@ -1,7 +1,7 @@
 module Admin
   class ProductsController < Admin::BaseController
     def index
-      @products = Product.all
+      @products = Product.all.order('updated_at DESC')
     end
 
     def show
@@ -42,7 +42,24 @@ module Admin
 	    @product.destroy
 
 	    redirect_to admin_products_path
-	  end
+    end
+
+    def search
+      if params[:brand_id].present?
+        search_brand = Brand.find(params[:brand_id])
+        include_products = search_brand.products
+      else
+        include_products = Product.all
+      end
+
+      if params[:product_name].present?
+        @products = include_products.where("name like ?", "%#{params[:product_name]}%").order('updated_at DESC')
+      else
+        @products = include_products.order('updated_at DESC')
+      end
+
+      render "index"
+    end
 
     private
 

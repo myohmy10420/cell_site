@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "admin", to: "admin/products#index"
   namespace :admin do
     resources :products
+    post "search_products", to: "products#search"
     resources :brands
     resources :telecommunications
     resources :variants
@@ -14,11 +15,10 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show] do
     collection do
-      post 'search'
+      post "search"
     end
-    patch 'tele_search_varirnt', to: "products#search_varirnt"
+    patch "tele_search_varirnt", to: "products#search_varirnt"
   end
-  patch 'tele_search_varirnt', to: "products#search_varirnt"
 
   resources :variants, only: [:index]
   resources :recoveries, only: [:index]
