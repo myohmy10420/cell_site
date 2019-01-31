@@ -41,6 +41,23 @@ module Admin
 	    redirect_to admin_variants_path
     end
 
+    def search
+      if params[:tele_id].present?
+        search_telt = Telecommunication.find(params[:tele_id])
+        include_variants = search_telt.variants
+      else
+        include_variants = Variant.all
+      end
+
+      if params[:variant_name].present?
+        @variants = include_variants.where("name like ?", "%#{params[:variant_name]}%").order('updated_at DESC')
+      else
+        @variants = include_variants.order('updated_at DESC')
+      end
+
+      render "index"
+    end
+
     private
 
     def variant_params

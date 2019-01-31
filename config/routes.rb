@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :telecommunications
     post "search_telecommunications", to: "telecommunications#search"
     resources :variants
+    post "search_variants", to: "variants#search"
     resources :recoveries
     resources :stores
     resources :users

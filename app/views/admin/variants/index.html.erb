@@ -2,6 +2,23 @@
   <%= link_to new_admin_variant_path do %>
     <button type="button" class="btn btn-primary btn-add">新增方案</button>
   <% end %>
+
+  <div style="float: right">
+    <%= form_tag admin_search_variants_path,
+      { class: "simple_form admin_search_form" } do %>
+      <%= search_field_tag "variant_name", nil,
+        class: "form-control input",
+        placeholder: "輸入方案名稱"
+      %>
+      <%= select_tag "tele_id",
+        options_from_collection_for_select(Telecommunication.all, "id", "name"),
+        prompt: "選擇電信",
+        class: "form-control select"
+      %>
+      <%= submit_tag "收尋", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
   <div class="product_list">
     <table class="table">
       <thead>
