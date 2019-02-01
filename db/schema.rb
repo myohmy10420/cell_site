@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_27_085314) do
+ActiveRecord::Schema.define(version: 2019_02_01_141947) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -106,6 +106,8 @@ ActiveRecord::Schema.define(version: 2019_01_27_085314) do
     t.string "line"
     t.date "birthday"
     t.string "email"
+    t.string "name"
+    t.integer "store_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
