@@ -6,6 +6,8 @@ class Store < ApplicationRecord
   default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]
 
+  has_many :users
+
   validates_presence_of :name
   validates_presence_of :image
   validates_presence_of :service_line
