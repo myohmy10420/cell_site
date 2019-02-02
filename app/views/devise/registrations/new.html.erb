@@ -19,6 +19,12 @@
                   label: "確認密碼",
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.association :store,
+                  label: "註冊門市",
+                  prompt: "請選擇門市",
+                  required: true %>
+      <%= f.input :name,
+                  label: "姓名" %>
       <%= f.input :email,
                   label: "Email" %>
       <%= f.input :line,
