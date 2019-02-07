@@ -1,5 +1,5 @@
 <%= simple_form_for @recovery, url: url do |f| %>
-  <%= f.association :brand, label: "手機品牌", as: :select %>
+  <%= f.association :brand, label: "手機品牌", as: :select, prompt: "請選擇品" %>
   <%= f.input :name, label: "名稱" %>
   <%= f.input :max_price, label: "最高回收金額", as: :integer %>
   <%= f.input :min_price, label: "最低回收金額", as: :integer %>

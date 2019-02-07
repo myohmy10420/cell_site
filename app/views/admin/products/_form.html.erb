@@ -1,5 +1,5 @@
 <%= simple_form_for @product, url: url do |f| %>
-  <%= f.association :brand, label: "商品品牌", as: :select %>
+  <%= f.association :brand, label: "商品品牌", as: :select, prompt: "請選擇品牌" %>
   <%= f.input :name, label: "名稱" %>
   <%= f.input :tag, label: "特色標籤" %>
   <%= f.input :slogan, label: "標題語" %>

@@ -7,6 +7,7 @@
           <th scope="col">E-mail</th>
           <th scope="col">Line ID</th>
           <th scope="col">生日</th>
+          <th scope="col">註冊門市</th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -17,6 +18,7 @@
             <td><%= render_dash_if_empty(user.email) %></td>
             <td><%= render_dash_if_empty(user.line) %></td>
             <td><%= !!user.birthday ? user.birthday : '-' %></td>
+            <td><%= user.store ? user.store.name : "-" %></td>
 
             <td width="100px">
               <%= link_to edit_admin_user_path(user), class: "action-icons" do %>

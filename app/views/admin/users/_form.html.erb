@@ -3,6 +3,7 @@
   <%= f.input :name, label: "姓名" %>
   <%= f.association :store,
               label: "所屬門市",
+              as: :select,
               prompt: "請選擇門市",
               required: true %>
   <%= f.input :line, label: "Line ID" %>
