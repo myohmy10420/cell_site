@@ -23,8 +23,13 @@
                   label: "註冊門市",
                   prompt: "請選擇門市",
                   required: true %>
-      <%= f.input :name,
-                  label: "姓名" %>
+      <%= f.input :sex,
+                  label: "性別",
+                  as: :radio_buttons,
+                  collection: [["男性", "male"], ["女性", "female"]],
+                  required: true %>
+      <%= f.input :address,
+                  label: "地址" %>
       <%= f.input :email,
                   label: "Email" %>
       <%= f.input :line,

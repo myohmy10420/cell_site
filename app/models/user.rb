@@ -8,6 +8,7 @@ class User < ApplicationRecord
   belongs_to :store
 
   validates :phone, presence: true, uniqueness: true
+  validates :sex, presence: true
 
   after_create :assign_default_role
 

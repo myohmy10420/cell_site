@@ -47,7 +47,7 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:store_id, :name, :email, :line, :birthday)
+      params.require(:user).permit(:store_id, :name, :sex, :address, :email, :line, :birthday)
     end
   end
 end

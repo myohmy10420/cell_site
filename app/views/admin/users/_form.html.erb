@@ -1,6 +1,13 @@
 <%= simple_form_for @user, url: url do |f| %>
   <%= f.input :phone, label: "電話(帳號)", disabled: true %>
   <%= f.input :name, label: "姓名" %>
+  <%= f.input :sex,
+              label: "性別",
+              as: :radio_buttons,
+              collection: [["男性", "male"], ["女性", "female"]],
+              required: true %>
+  <%= f.input :address,
+              label: "地址" %>
   <%= f.association :store,
               label: "所屬門市",
               as: :select,
