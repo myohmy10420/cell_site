@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :stores
     post "search_stores", to: "stores#search"
     resources :users
+    post "search_users", to: "users#search"
   end
 
   resources :products, only: [:index, :show] do
