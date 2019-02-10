@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   after_create :assign_default_role
 
+  attr_reader :accept_terms
+
   def email_required?
     false
   end

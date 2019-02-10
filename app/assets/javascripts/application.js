@@ -4,3 +4,4 @@
 //= require bootstrap-sprockets
 
 //= require variant_select
+//= require devise/registrations
