@@ -6,13 +6,21 @@
   <br>
 
   <section>
-    <%= render "modules/new_products" %>
+    <%= render partial: "modules/carousel_products",
+      locals: {
+        carousel_id: "new_products",
+        product_groups: @new_product_groups
+      } %>
   </section>
 
   <br>
 
   <section>
-    <%= render "modules/pop_products" %>
+    <%= render partial: "modules/carousel_products",
+      locals: {
+        carousel_id: "pop_products",
+        product_groups: @pop_product_groups
+      } %>
   </section>
 
   <br>

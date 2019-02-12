@@ -1,10 +1,18 @@
 class PagesController < ApplicationController
   def home
-    @new_products = slice_three_items_a_group(Product.all)
-    @pop_products = slice_three_items_a_group(Product.all)
+    @new_product_groups = slice_three_items_a_group(new_products)
+    @pop_product_groups = slice_three_items_a_group(pop_products)
   end
 
   private
+
+  def new_products
+    Product.where(is_new: true)
+  end
+
+  def pop_products
+    Product.where(is_pop: true)
+  end
 
   def slice_three_items_a_group(array)
     groups_array = []
