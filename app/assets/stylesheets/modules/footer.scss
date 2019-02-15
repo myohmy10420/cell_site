@@ -1,0 +1,14 @@
+section.footer {
+  min-width: 1200px;
+  background-color: #E9222E;
+  padding-bottom: 20px;
+
+  a {
+    color: #ffffff;
+    margin: 0px 5px;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
