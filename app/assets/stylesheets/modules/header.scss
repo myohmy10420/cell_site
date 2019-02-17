@@ -1,6 +1,5 @@
 section.header {
   min-width: 1200px;
-  background-color: #E9222E;
 
   .justify-content-end {
     flex-grow: 1;
@@ -18,7 +17,7 @@ section.header {
       .nav-link {
         text-align: center;
         font-size: 16px;
-        color: #ffffff;
+        color: #000000;
       }
 
       @media (max-width: 576px) {
