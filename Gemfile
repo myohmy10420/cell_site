@@ -6,6 +6,14 @@ gem 'rails', '~> 5.2.0'
 gem 'puma', '~> 3.11'
 gem 'uglifier', '>= 1.3.0'
 gem 'rails-i18n', '~> 5.1'
+gem 'mysql2', '>= 0.3.18', '< 0.5'
+
+# deploy
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-passenger', '>= 0.1.1'
+gem 'capistrano-rails'
+gem 'capistrano-rvm'
 
 # front end gems
 # Reduces boot times through caching; required in config/boot.rb
@@ -26,15 +34,10 @@ gem 'paperclip', '~> 6.0.0'
 gem 'aws-sdk', '~> 3'
 
 group :development, :test do
-  gem 'mysql2', '>= 0.3.18', '< 0.5'
   gem 'pry'
 end
 
 group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :production do
-  gem 'pg'
 end
