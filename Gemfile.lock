@@ -860,6 +860,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    settingslogic (2.0.9)
     simple_form (4.0.0)
       actionpack (> 4)
       activemodel (> 4)
@@ -917,6 +918,7 @@ DEPENDENCIES
   rails-i18n (~> 5.1)
   rolify (~> 5.2)
   sass-rails (~> 5.0)
+  settingslogic
   simple_form (= 4.0.0)
   spring
   spring-watcher-listen (~> 2.0.0)

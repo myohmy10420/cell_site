@@ -7,6 +7,7 @@ gem 'puma', '~> 3.11'
 gem 'uglifier', '>= 1.3.0'
 gem 'rails-i18n', '~> 5.1'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
+gem "settingslogic"
 
 # deploy
 gem 'capistrano'
