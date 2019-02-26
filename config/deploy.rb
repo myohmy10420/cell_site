@@ -21,7 +21,8 @@ set :deploy_to, "/home/app/cell_site"
 
 set :linked_files, [
   "config/database.yml",
-  "config/aws_s3.yml"
+  "config/aws_s3.yml",
+  "config/master.key"
 ]
 
 # Default value for linked_dirs is []

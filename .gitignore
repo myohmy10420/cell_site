@@ -20,3 +20,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/database.yml
 /config/aws_s3.yml
+/config/master.key
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
