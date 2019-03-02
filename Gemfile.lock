@@ -741,14 +741,15 @@ GEM
       sshkit (>= 1.9.0)
     capistrano-bundler (1.5.0)
       capistrano (~> 3.1)
-    capistrano-passenger (0.2.0)
-      capistrano (~> 3.0)
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano3-puma (1.2.1)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
     climate_control (0.2.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.3)
@@ -905,9 +906,9 @@ DEPENDENCIES
   cancan (~> 1.6)
   capistrano
   capistrano-bundler
-  capistrano-passenger (>= 0.1.1)
   capistrano-rails
   capistrano-rvm
+  capistrano3-puma (= 1.2.1)
   devise (~> 4.5.0)
   jquery-rails (= 4.3.3)
   mysql2 (>= 0.3.18, < 0.5)
