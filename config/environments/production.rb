@@ -96,14 +96,14 @@ Rails.application.configure do
   config.serve_static_assets = false
 
   config.paperclip_defaults = {
-  storage: :s3,
-  s3_credentials: {
-    bucket: AwsS3.bucket,
-    access_key_id: AwsS3.access_key_id,
-    secret_access_key: AwsS3.secret_access_key,
-    s3_region: AwsS3.s3_region,
-    s3_host_name: AwsS3.s3_host_name,
-    path: '/:class/:attachment/:id_partition/:style/:filename',
+    storage: :s3,
+    preserve_files: true,
+    s3_host_name: "s3-#{AwsS3.s3_region}.amazonaws.com",
+    s3_credentials: {
+      access_key_id: AwsS3.access_key_id,
+      secret_access_key: AwsS3.secret_access_key,
+      s3_region: AwsS3.s3_region,
+    },
+    bucket: AwsS3.bucket
   }
-}
 end
