@@ -1,5 +1,4 @@
 default: &DEFAULT
-  host_name: nothing # for run rspec no error
   bucket: nothing
   access_key_id: nothing
   secret_access_key: nothing
