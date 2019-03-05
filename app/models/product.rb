@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  has_many :product_images, dependent: :destroy
   has_attached_file :image,
     styles: {
       medium: "300x300#"
