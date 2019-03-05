@@ -8,5 +8,5 @@ class Telecommunication < ApplicationRecord
   default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]
 
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true
 end

@@ -2,7 +2,7 @@ class Variant < ApplicationRecord
   belongs_to :telecommunication
 
   validates_presence_of :telecommunication_id
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true
   validates_presence_of :discount
   validates_presence_of :prepaid
   validates_presence_of :traffic

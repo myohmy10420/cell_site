@@ -12,7 +12,7 @@ class Product < ApplicationRecord
   attr_reader :variant_id
   attr_reader :recovery_id
 
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true
   validates_presence_of :slogan
   validates_presence_of :content
   validates_presence_of :list_price
