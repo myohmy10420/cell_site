@@ -1,11 +1,4 @@
 class Product < ApplicationRecord
-  validates_presence_of :name
-  validates_presence_of :slogan
-  validates_presence_of :content
-  validates_presence_of :list_price
-  validate :check_is_new_limit
-  validate :check_is_pop_limit
-
   has_attached_file :image,
     styles: {
       medium: "300x300#"
@@ -18,6 +11,13 @@ class Product < ApplicationRecord
   attr_reader :tele_id
   attr_reader :variant_id
   attr_reader :recovery_id
+
+  validates_presence_of :name
+  validates_presence_of :slogan
+  validates_presence_of :content
+  validates_presence_of :list_price
+  validate :check_is_new_limit
+  validate :check_is_pop_limit
 
   private
 
