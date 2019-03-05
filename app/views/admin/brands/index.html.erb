@@ -26,7 +26,7 @@
       <tbody>
         <% @brands.each do |brand| %>
           <tr>
-            <td width="130px"><%= image_tag brand.logo.url(:normal) if brand.logo %></td>
+            <td width="130px"><%= image_tag brand.logo.url(:medium) if brand.logo %></td>
             <td><%= brand.name %></td>
 
             <td width="100px">

@@ -1,6 +1,6 @@
 <%= simple_form_for @brand, url: url do |f| %>
   <%= f.input :name, label: "名稱" %>
-  <%= image_tag @brand.logo.url(:normal) if @brand.logo.present? %>
+  <%= image_tag @brand.logo.url(:medium) if @brand.logo.present? %>
   <%= f.input :logo, label: "圖片", as: :file %>
   <%= f.button :submit, "提交", class: "btn btn-primary" %>
 <% end %>

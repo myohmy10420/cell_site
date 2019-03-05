@@ -3,7 +3,7 @@ class Telecommunication < ApplicationRecord
 
   has_attached_file :logo,
   styles: {
-    normal: "120x25>",
+    medium: "140x40#",
   },
   default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]

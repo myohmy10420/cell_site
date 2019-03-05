@@ -1,6 +1,6 @@
 <%= simple_form_for @store, url: url do |f| %>
   <%= f.input :name, label: "門市名稱" %>
-  <%= image_tag @store.image.url(:normal) if @store.image.present? %>
+  <%= image_tag @store.image.url(:medium) if @store.image.present? %>
   <%= f.input :image, label: "門市圖片", as: :file %>
   <%= f.input :service_line, label: "服務專線" %>
   <%= f.input :fax, label: "傳真專線" %>

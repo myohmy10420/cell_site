@@ -19,7 +19,7 @@
     <% @telecommunications.each do |telecommunication| %>
       <% if telecommunication.variants.any? %>
         <div class="logos">
-          <%= image_tag telecommunication.logo.url(:normal) %>
+          <%= image_tag telecommunication.logo.url(:medium) %>
         </div>
         <div class="list">
           <div class="list-topics">
