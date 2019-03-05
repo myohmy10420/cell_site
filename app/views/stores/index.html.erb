@@ -46,6 +46,9 @@
           <span class="font font--red">營業時間:</span>
           <%= store.time %>
         </p>
+        <%= link_to store.google_map_url, target: "_blank" do %>
+          <div class="btn btn--red">瀏覽地圖</div>
+        <% end %>
       </div>
     </div>
   <% end %>

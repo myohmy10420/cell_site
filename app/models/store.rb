@@ -11,5 +11,6 @@ class Store < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates_presence_of :service_line
   validates_presence_of :address
+  validates_presence_of :google_map_url
   validates_presence_of :time
 end
