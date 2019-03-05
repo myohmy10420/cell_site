@@ -1,6 +1,6 @@
 <%= simple_form_for @telecommunication, url: url do |f| %>
   <%= f.input :name, label: "名稱" %>
   <%= image_tag @telecommunication.logo.url(:medium) if @telecommunication.logo.present? %>
-  <%= f.input :logo, label: "圖片", as: :file %>
+  <%= f.input :logo, label: "圖片", hint: "會自動裁減為140x40(px)", as: :file %>
   <%= f.button :submit, "提交", class: "btn btn-primary" %>
 <% end %>

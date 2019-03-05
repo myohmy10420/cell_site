@@ -11,6 +11,6 @@
   <%= f.input :is_new, label: "設為新產品輪播", as: :boolean %>
   <%= f.input :is_pop, label: "設為熱門產品輪播", as: :boolean %>
   <%= image_tag @product.image.url(:medium) if @product.image.present? %>
-  <%= f.input :image, label: "圖片", as: :file %>
+  <%= f.input :image, label: "圖片", hint: "會自動裁減為300x300(px)", as: :file %>
   <%= f.button :submit, "提交", class: "btn btn-primary" %>
 <% end %>

@@ -1,7 +1,7 @@
 <%= simple_form_for @store, url: url do |f| %>
   <%= f.input :name, label: "門市名稱" %>
   <%= image_tag @store.image.url(:medium) if @store.image.present? %>
-  <%= f.input :image, label: "門市圖片", as: :file %>
+  <%= f.input :image, label: "門市圖片", hint: "會自動裁減為250x250(px)", as: :file %>
   <%= f.input :service_line, label: "服務專線" %>
   <%= f.input :fax, label: "傳真專線" %>
   <%= f.input :phone, label: "行動電話" %>
