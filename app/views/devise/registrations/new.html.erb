@@ -38,7 +38,11 @@
                   label: "生日",
                   as: :date,
                   include_blank: true,
-                  html5: true %>
+                  html5: true,
+                  input_html: {
+                    class: "birthday",
+                  } %>
+      <p>年齡：<span class="age"></span></p>
       <%= f.input :accept_terms,
                   label: "我已仔細閱讀並明瞭
                           <a href='/'>【網站使用條款】</a>、
