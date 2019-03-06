@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    redirect_to root_path if !@product.shelved && !params[:preview]
     @telecommunications = Telecommunication.all
     @variants = []
     @brands = Brand.all

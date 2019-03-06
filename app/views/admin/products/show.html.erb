@@ -53,5 +53,9 @@
     <button type="button" class="btn btn-warning">編輯</button>
   <% end %>
 
+  <%= link_to product_path(@product) + "?preview=true", class: "action-btns" do %>
+    <button type="button" class="btn btn-warning">預覽</button>
+  <% end %>
+
   <br><br><br><br>
 </div>
