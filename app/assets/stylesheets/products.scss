@@ -8,10 +8,12 @@
 
   .details {
     .image {
+      display: inline-block;
+      width: 300px;
+
       img {
         width: 300px;
       }
-      display: inline-block;
     }
     .specs {
       padding: 0px 10px;

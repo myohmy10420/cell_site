@@ -23,6 +23,10 @@ class Product < ApplicationRecord
     self.product_images
   end
 
+  def first_image
+    self.product_images.first.image
+  end
+
   private
 
   def check_is_new_limit

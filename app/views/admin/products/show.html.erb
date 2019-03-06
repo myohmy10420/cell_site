@@ -1,14 +1,18 @@
 <div class="product">
   <div class="card">
-    <div>
-      <%# image_tag @product.image.url(:medium) %>
-    </div>
     <div class="card-body">
       <h5 class="card-title">
         <%= @product.name %>
       </h5>
       <div class="tag tag--red">
         <%= content_tag :span, @product.tag, class: "font--12p font--blue" %>
+      </div>
+      <div>
+        <% if @product.has_images? %>
+          <% @product.images.each do |product_image| %>
+            <%= image_tag product_image.image.url(:medium) %>
+          <% end %>
+        <% end %>
       </div>
       <hr>
       <p class="card-text">

@@ -5,7 +5,11 @@
   </div>
   <div class="details">
     <div class="image">
-      <%# image_tag @product.image.url(:medium) %>
+      <% if @product.has_images? %>
+        <% @product.images.each do |product_image| %>
+          <%= image_tag product_image.image.url(:medium) %>
+        <% end %>
+      <% end %>
     </div>
 
     <div class="specs">
