@@ -30,7 +30,6 @@ namespace :products do
         product.selling_price = attributes["selling_price"]&.to_i || nil
         product.shelved = true?(attributes["shelved"])
         product.priced = true?(attributes["priced"])
-        product.image = File.open(image_path)
         if product.save
           puts "新增或更新#{attributes["name"]}成功"
         else

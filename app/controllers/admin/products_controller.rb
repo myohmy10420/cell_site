@@ -68,7 +68,7 @@ module Admin
     private
 
     def product_params
-      params.require(:product).permit(:brand_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :priced, :image, :is_new, :is_pop)
+      params.require(:product).permit(:brand_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :priced, :is_new, :is_pop)
     end
   end
 end
