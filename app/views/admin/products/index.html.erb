@@ -47,7 +47,7 @@
             </td>
             <td width="160px">
               <%= render_shelved_status(product.shelved) %>
-              <%= render_priced_status(product.priced) %>
+              <%= render_on_sale_status(product.on_sale) %>
             </td>
             <td width="100px">
               <%= link_to edit_admin_product_path(product), class: "action-icons" do %>

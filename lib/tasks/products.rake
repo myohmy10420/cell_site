@@ -29,7 +29,7 @@ namespace :products do
         product.list_price = attributes["list_price"]&.to_i || nil
         product.selling_price = attributes["selling_price"]&.to_i || nil
         product.shelved = true?(attributes["shelved"])
-        product.priced = true?(attributes["priced"])
+        product.on_sale = true?(attributes["on_sale"])
         if product.save
           puts "新增或更新#{attributes["name"]}成功"
         else

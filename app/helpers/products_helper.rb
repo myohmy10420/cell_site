@@ -12,16 +12,16 @@ module ProductsHelper
     end
   end
 
-  def render_priced_status(priced)
-    if priced
-      content_tag :span, "已標價", class: "badge badge-info"
+  def render_on_sale_status(on_sale)
+    if on_sale
+      content_tag :span, "特價中", class: "badge badge-info"
     else
-      content_tag :span, "未標價", class: "badge badge-secondary"
+      content_tag :span, "特價中", class: "badge badge-secondary"
     end
   end
 
   def render_list_selling_price(product)
-    if !product.priced || !product.selling_price
+    if product.on_sale || !product.selling_price
       context = "特價中"
     else
       context = "$ "+product.selling_price.to_s
@@ -30,7 +30,7 @@ module ProductsHelper
   end
 
   def render_details_selling_price(product)
-    if !product.priced || !product.selling_price
+    if product.on_sale || !product.selling_price
       content = "特價中請來電詢問"
       price = 0
     else
