@@ -15,6 +15,14 @@ class Product < ApplicationRecord
   validate :check_is_new_limit
   validate :check_is_pop_limit
 
+  def has_images?
+    self.product_images.exists?
+  end
+
+  def images
+    self.product_images
+  end
+
   private
 
   def check_is_new_limit

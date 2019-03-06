@@ -15,11 +15,7 @@ module Admin
     def create
       @product = Product.new(product_params)
       if @product.save
-        if params[:product][:product_image]
-          params[:product][:product_image][:images].each { |image|
-            @product.product_images.create(image: image)
-          }
-        end
+        update_product_images
         redirect_to admin_product_path(@product)
       else
         render "new"
@@ -34,6 +30,7 @@ module Admin
       @product = Product.find(params[:id])
 
       if @product.update(product_params)
+        update_product_images
         redirect_to admin_product_path(@product)
       else
         render "edit"
@@ -69,6 +66,14 @@ module Admin
 
     def product_params
       params.require(:product).permit(:brand_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :priced, :is_new, :is_pop)
+    end
+
+    def update_product_images
+      if params[:product][:product_image]
+        params[:product][:product_image][:images].each { |image|
+          @product.product_images.create(image: image)
+        }
+      end
     end
   end
 end

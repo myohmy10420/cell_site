@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products
     post "search_products", to: "products#search"
+    resources :product_images, only: [:destroy]
     resources :brands
     post "search_brands", to: "brands#search"
     resources :telecommunications
