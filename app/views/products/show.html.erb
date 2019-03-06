@@ -24,7 +24,7 @@
         <%= content_tag :span, "$"+@product.list_price.to_s, class: "font font--delete" %>
       </div>
       <div>
-        <span class="font font--red">折扣價</span>:
+        <span class="font font--red">售價</span>:
         <%= render_details_selling_price(@product) %>
       </div>
       <%= render "products/discount_selector" %>
