@@ -14,8 +14,12 @@ module Admin
 
     def create
       @product = Product.new(product_params)
-
       if @product.save
+        if params[:product][:product_image]
+          params[:product][:product_image][:images].each { |image|
+            @product.product_images.create(image: image)
+          }
+        end
         redirect_to admin_product_path(@product)
       else
         render "new"
