@@ -31,5 +31,11 @@ Rails.application.routes.draw do
   resources :recoveries, only: [:index]
   resources :stores, only: [:index]
 
+  namespace :api do
+    namespace :v1 do
+      post "product/switch-shelved" => "products#switch_shelved"
+    end
+  end
+
   root "pages#home"
 end

@@ -1,4 +1,4 @@
-<div class="product">
+<div class="products">
   <%= link_to new_admin_product_path do %>
     <button type="button" class="btn btn-primary btn-add">新增商品</button>
   <% end %>
@@ -46,8 +46,8 @@
               </span>
             </td>
             <td width="160px">
-              <%= render_shelved_status(product.shelved) %>
-              <%= render_on_sale_status(product.on_sale) %>
+              <%= render_shelved_status(product) %>
+              <%= render_on_sale_status(product) %>
             </td>
             <td width="100px">
               <%= link_to edit_admin_product_path(product), class: "action-icons" do %>

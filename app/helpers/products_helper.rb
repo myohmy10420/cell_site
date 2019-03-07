@@ -4,16 +4,17 @@ module ProductsHelper
       content_tag :span, tag
     end if tag
   end
-  def render_shelved_status(shelved)
-    if shelved
-      content_tag :span, "已上架", class: "badge badge-success"
+  def render_shelved_status(product)
+    if product.shelved
+      class_name = "badge badge-shelved badge-success"
     else
-      content_tag :span, "未上架", class: "badge badge-secondary"
+      class_name = "badge badge-shelved badge-secondary"
     end
+    content_tag :span, "上架", class: class_name, data: { product_id: product.id }
   end
 
-  def render_on_sale_status(on_sale)
-    if on_sale
+  def render_on_sale_status(product)
+    if product.on_sale
       content_tag :span, "特價中", class: "badge badge-info"
     else
       content_tag :span, "特價中", class: "badge badge-secondary"

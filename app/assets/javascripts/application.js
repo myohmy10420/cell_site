@@ -3,5 +3,6 @@
 //= require popper
 //= require bootstrap-sprockets
 
-//= require variant_select
+//= require admin/products
+//= require products
 //= require devise/registrations
