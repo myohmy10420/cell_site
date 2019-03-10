@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get "admin", to: "admin/products#index"
   namespace :admin do
     resources :carousel_ads, only: [:index, :create, :destroy]
-    # post "setting/carousel_ads", to: "carousel_ads#setting"
     resources :products
     post "search_products", to: "products#search"
     resources :product_images, only: [:destroy]
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
     post "search_variants", to: "variants#search"
     resources :recoveries
     post "search_recoveries", to: "recoveries#search"
+    resources :side_bar_ads, only: [:index, :create, :destroy]
     resources :stores
     post "search_stores", to: "stores#search"
     resources :users

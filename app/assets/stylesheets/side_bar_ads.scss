@@ -1,0 +1,14 @@
+.side_bar_ads_image_editor {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+
+  .action-icons {
+    position: absolute;
+    top: 1px;
+    right: -4px;
+  }
+}
