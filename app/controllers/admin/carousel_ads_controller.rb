@@ -26,7 +26,7 @@ module Admin
 
     def carousel_ad_params
       params[:carousel_ad] ||= {image: nil}
-      params.require(:carousel_ad).permit(:image)
+      params.require(:carousel_ad).permit(:image, :url)
     end
   end
 end
