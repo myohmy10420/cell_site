@@ -1,19 +1,15 @@
 <div id="advertisement" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#advertisement" data-slide-to="0" class="active"></li>
-    <li data-target="#advertisement" data-slide-to="1"></li>
-    <li data-target="#advertisement" data-slide-to="2"></li>
+    <% @carousel_ads.each_with_index do |ad, index| %>
+      <li data-target="#advertisement" data-slide-to="<% index %>" class="<%= if index == 0 then "active" end %>"></li>
+    <% end %>
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= image_tag "advertisement/3840x2160.jpg" %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag "advertisement/640x474.png" %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag "advertisement/600x400.jpg" %>
-    </div>
+    <% @carousel_ads.each_with_index do |ad, index| %>
+      <div class="carousel-item <%= if index == 0 then "active" end %>">
+        <%= image_tag ad.image.url(:medium) %>
+      </div>
+    <% end %>
   </div>
   <a class="carousel-control-prev" href="#advertisement" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
