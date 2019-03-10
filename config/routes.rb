@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get "admin", to: "admin/products#index"
   namespace :admin do
+    resources :carousel_ads, only: [:index, :create, :destroy]
+    # post "setting/carousel_ads", to: "carousel_ads#setting"
     resources :products
     post "search_products", to: "products#search"
     resources :product_images, only: [:destroy]

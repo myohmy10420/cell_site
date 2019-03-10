@@ -1,0 +1,14 @@
+<%= simple_form_for @new_carousel_ad, url: admin_carousel_ads_path do |f| %>
+  <% @carousel_ads.each do |ad| %>
+    <div class="carousel_ads_image_editor">
+        <%= link_to admin_carousel_ad_path(ad), method: :delete, data: { confirm: "確定刪除此廣告圖片嗎？" }, class: "action-icons" do %>
+          <%= image_tag "icons/x.svg", class: "action-icons" %>
+        <% end %>
+      <%= image_tag ad.image.url(:medium) %>
+    </div>
+    <br>
+  <% end %>
+  <hr>
+  <%= f.input :image, label: "圖片", as: :file, hint: "圖片會自動裁減為676x400(px)" %>
+  <%= f.button :submit, "提交", class: "btn btn-primary" %>
+<% end %>
