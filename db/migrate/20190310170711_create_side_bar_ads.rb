@@ -1,6 +1,6 @@
-class CreateCarouselAds < ActiveRecord::Migration[5.2]
+class CreateSideBarAds < ActiveRecord::Migration[5.2]
   def change
-    create_table :carousel_ads do |t|
+    create_table :side_bar_ads do |t|
       t.string :url
       t.string :image_file_name
       t.string :image_content_type

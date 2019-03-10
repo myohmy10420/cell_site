@@ -1,0 +1,2 @@
+class SideBarAd < ApplicationRecord
+end
