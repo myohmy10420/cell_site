@@ -1,16 +1,21 @@
 nav.side-bar {
   min-height: 460px;
+  border: 1px solid #a9a9a9;
   border-radius: 5px;
-  background-color: #484848;
+  background-color: #ffffff;
   margin: 20px 0px 0px;
   padding: 8px 0px;
 
   a {
-    color: #ffffff;
+    color: #000000;
 
     &:hover {
-      background-color: #333333;
+      background-color: #0150CE;
     }
+  }
+
+  .btn {
+    color: #000000;
   }
 
   .form-inline {
@@ -42,14 +47,28 @@ nav.side-bar {
           text-align: left;
         }
       }
+
+      .collapse_0, .collapse_1, .collapse_2 {
+        display: block;
+        height: 109px;
+        overflow: hidden;
+      }
+
       .card-body {
-        padding: 10px 20px;
+        padding: 0px;
         color: #ffffff;
 
         a {
+          padding: 5px 10px;
           display: inline-block;
           width: 100%;
-          margin: 3px 0px;
+          border-top: 1px solid #a9a9a9;
+          border-bottom: 1px solid #a9a9a9;
+
+          &:hover {
+            color: #ffffff;
+            text-decoration: none;
+          }
         }
       }
     }

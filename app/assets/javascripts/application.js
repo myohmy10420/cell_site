@@ -4,5 +4,6 @@
 //= require bootstrap-sprockets
 
 //= require admin/products
-//= require products
 //= require devise/registrations
+//= require products
+//= require sideBar
