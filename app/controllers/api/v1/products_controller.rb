@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ProductsController < Admin::BaseController
+    class ProductsController < ApplicationController
       def switch_shelved
         product = Product.find(params[:productId])
         product.shelved = !product.shelved
