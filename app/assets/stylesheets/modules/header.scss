@@ -24,15 +24,15 @@ section.header {
         color: #000000;
       }
 
-      @media (max-width: 576px) {
-        .nav-link {
-          text-align: left;
+      // @media (max-width: 576px) {
+      //   .nav-link {
+      //     text-align: left;
 
-          img {
-            display: none;
-          }
-        }
-      }
+      //     img {
+      //       display: none;
+      //     }
+      //   }
+      // }
     }
 
     .navbar-toggler {
