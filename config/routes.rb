@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
       namespace :excel do
         get "brands/export" => "brands#export"
+        post "brands/import" => "brands#import"
       end
     end
   end

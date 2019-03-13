@@ -8,7 +8,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'rails-i18n', '~> 5.1'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'settingslogic'
-gem 'roo-xls'
+
+# xlsx
 gem 'roo', '~> 2.7.0'
 gem 'rubyzip', '>= 1.2.1'
 gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'

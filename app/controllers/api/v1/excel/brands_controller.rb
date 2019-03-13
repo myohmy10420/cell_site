@@ -11,6 +11,18 @@ module Api
             }
           end
         end
+
+        def import
+          require 'roo'
+
+          workbook = Roo::Excelx.new(params[:file].path)
+          workbook.drop(2).each do |row|
+            name = row[0]
+            Brand.create(name: name) if Brand.find_by(name: name).nil?
+          end
+
+          redirect_to admin_brands_path
+        end
       end
     end
   end
