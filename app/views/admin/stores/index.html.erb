@@ -2,6 +2,17 @@
   <%= link_to new_admin_store_path do %>
     <button type="button" class="btn btn-primary btn-add">新增門市</button>
   <% end %>
+  <%= link_to api_v1_excel_stores_export_path(format: :xlsx) do %>
+    <button type="button" class="btn btn-primary btn-add">匯出excel</button>
+  <% end %>
+
+  <%= form_tag api_v1_excel_stores_import_path, {
+    multipart: true,
+    style: "display: inline-block;"
+  } do %>
+    <%= file_field_tag :file, { style: "width: 200px;" } %>
+    <%= submit_tag "匯入excel", class: "btn btn-primary" %>
+  <% end %>
 
   <div style="float: right">
     <%= form_tag admin_search_stores_path,
