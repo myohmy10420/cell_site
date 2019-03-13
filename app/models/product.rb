@@ -30,13 +30,13 @@ class Product < ApplicationRecord
   private
 
   def check_is_new_limit
-    if Product.where(is_new: true).size >= 8 && self.is_new
+    if self.is_new && Product.where(is_new: true).size >= 8
       errors.add(:is_new, "輪播新產品最多不能超過8筆")
     end
   end
 
   def check_is_pop_limit
-    if Product.where(is_pop: true).size >= 8 && self.is_pop
+    if self.is_pop && Product.where(is_pop: true).size >= 8
       errors.add(:is_pop, "輪播熱門產品最多不能超過8筆")
     end
   end

@@ -1,0 +1,27 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "product") do |sheet|
+  sheet.add_row [
+    '品牌名稱',
+    '商品名稱',
+    '特色標籤',
+    '標題語',
+    '商品敘述',
+    '原價(數字)',
+    '售價(數字選填)',
+    '上架(O或X)',
+    '特價中(O或X)'
+  ]
+  @products.each do |product|
+    sheet.add_row [
+      product.brand.name,
+      product.name,
+      product.tag,
+      product.slogan,
+      product.content,
+      product.list_price,
+      product.selling_price,
+      product.shelved ? 'O' : 'X',
+      product.on_sale ? 'O' : 'X'
+    ]
+  end
+end
