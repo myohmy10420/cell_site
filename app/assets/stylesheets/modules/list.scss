@@ -44,9 +44,6 @@
 
 .list-link {
   display: block;
-  &:nth-child(2n) {
-    background-color: #e9edf1;
-  }
   &:hover {
     text-decoration: none;
   }

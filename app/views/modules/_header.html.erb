@@ -4,24 +4,9 @@
       <%= link_to root_path do %>
         <%= image_tag "logo.jpg" %>
       <% end %>
-
-      <% if !browser.device.mobile? %>
-        <ul class="nav justify-content-end">
-          <%= render "modules/nav_list" %>
-        </ul>
-      <% end %>
-
-      <% if browser.device.mobile? %>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent">
-          <%= image_tag "icons/grid-three-up.svg", class: "navbar-toggler-icon" %>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <%= render "modules/nav_list" %>
-          </ul>
-        </div>
-      <% end %>
+      <ul class="nav justify-content-end">
+        <%= render "modules/nav_list" %>
+      </ul>
     </nav>
   </div>
 </section>

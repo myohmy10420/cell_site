@@ -1,0 +1,26 @@
+<div id="carousel_ads" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <% @carousel_ads.each_with_index do |ad, index| %>
+      <li data-target="#carousel_ads" data-slide-to="<% index %>" class="<%= if index == 0 then "active" end %>"></li>
+    <% end %>
+  </ol>
+  <div class="carousel-inner">
+    <% @carousel_ads.each_with_index do |ad, index| %>
+      <div class="carousel-item <%= if index == 0 then "active" end %>">
+        <% if ad.url.empty? %>
+          <%= image_tag(ad.image.url(:medium)) %>
+        <% else %>
+          <%= link_to image_tag(ad.image.url(:medium)), ad.url %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#carousel_ads" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel_ads" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

@@ -1,0 +1,9 @@
+<div class="side_bar_ads">
+  <% SideBarAd.all.each do |ad| %>
+    <% if ad.url.empty? %>
+      <%= image_tag(ad.image.url(:medium)) %>
+    <% else %>
+      <%= link_to image_tag(ad.image.url(:medium)), ad.url %>
+    <% end %>
+  <% end %>
+</div>

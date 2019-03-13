@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @carousel_ads = CarouselAd.all
     @new_product_groups = slice_three_items_a_group(new_products)
     @pop_product_groups = slice_three_items_a_group(pop_products)
   end

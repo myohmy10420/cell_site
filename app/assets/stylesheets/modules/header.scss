@@ -3,6 +3,7 @@ section.header {
 
   .justify-content-end {
     flex-grow: 1;
+    height: 100%;
   }
 
   .navbar {
@@ -14,21 +15,24 @@ section.header {
     }
 
     .nav-item {
+      border-bottom: 1px solid;
+      padding-top: 15px;
+
       .nav-link {
         text-align: center;
         font-size: 16px;
         color: #000000;
       }
 
-      @media (max-width: 576px) {
-        .nav-link {
-          text-align: left;
+      // @media (max-width: 576px) {
+      //   .nav-link {
+      //     text-align: left;
 
-          img {
-            display: none;
-          }
-        }
-      }
+      //     img {
+      //       display: none;
+      //     }
+      //   }
+      // }
     }
 
     .navbar-toggler {

@@ -2,6 +2,9 @@
   <%= link_to new_admin_brand_path do %>
     <button type="button" class="btn btn-primary btn-add">新增品牌</button>
   <% end %>
+  <%= link_to api_v1_excel_brands_export_path(format: :xls) do %>
+    <button type="button" class="btn btn-primary btn-add">匯出excel</button>
+  <% end %>
 
   <div style="float: right">
     <%= form_tag admin_search_brands_path,

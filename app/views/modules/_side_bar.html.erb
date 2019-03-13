@@ -12,13 +12,13 @@
         <div class="card">
           <div class="card-header">
             <h5 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne_<%= index %>">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_<%= index %>">
                 <%= brand.name %>
               </button>
             </h5>
           </div>
 
-          <div id="collapseOne_<%= index %>" class="collapse" data-parent="#accordion_<%= index %>">
+          <div id="collapse_<%= index %>" class="collapse collapse_<%= index %>" data-parent="#accordion_<%= index %>">
             <div class="card-body">
               <% brand.products.each do |product| %>
                 <%= link_to product.name, product_path(product) %>
