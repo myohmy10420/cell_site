@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Buttons") do |sheet|
+  sheet.add_row ['品牌名稱', '圖片名稱']
+  sheet.add_row ['name', 'logo']
+  @brands.each do |brand|
+    sheet.add_row [brand.name, brand.logo_file_name]
+  end
+end
