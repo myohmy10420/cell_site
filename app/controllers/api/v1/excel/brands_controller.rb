@@ -16,7 +16,7 @@ module Api
           require 'roo'
 
           workbook = Roo::Excelx.new(params[:file].path)
-          workbook.drop(2).each do |row|
+          workbook.drop(1).each do |row|
             name = row[0]
             Brand.create(name: name) if Brand.find_by(name: name).nil?
           end
