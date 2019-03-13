@@ -46,6 +46,8 @@ Rails.application.routes.draw do
         post "stores/import" => "stores#import"
         get "telecommunications/export" => "telecommunications#export"
         post "telecommunications/import" => "telecommunications#import"
+        get "variants/export" => "variants#export"
+        post "variants/import" => "variants#import"
       end
     end
   end

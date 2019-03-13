@@ -1,0 +1,23 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "variant") do |sheet|
+  sheet.add_row [
+    '電信名稱',
+    '方案名稱',
+    '方案敘述',
+    '專案折扣(數字)',
+    '預繳金額(數字)',
+    '優惠流量',
+    '合約期'
+  ]
+  @variants.each do |variant|
+    sheet.add_row [
+      variant.telecommunication.name,
+      variant.name,
+      variant.content,
+      variant.discount,
+      variant.prepaid,
+      variant.traffic,
+      variant.period
+    ]
+  end
+end
