@@ -1,0 +1,11 @@
+<%= link_to export_url do %>
+  <button type="button" class="btn btn-primary btn-add">匯出excel</button>
+<% end %>
+
+<%= form_tag import_url, {
+  multipart: true,
+  style: "display: inline-block;"
+} do %>
+  <%= file_field_tag :file, { style: "width: 200px;" } %>
+  <%= submit_tag "匯入excel", class: "btn btn-primary" %>
+<% end %>
