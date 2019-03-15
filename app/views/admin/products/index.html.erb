@@ -1,4 +1,19 @@
 <div class="products">
+  <div class="section">
+    <%= render partial: "modules/admin_quick_add_images",
+      locals: {
+        url: admin_add_product_images_path,
+        hint: "會自動裁減為300x300(px),檔案名稱請與商品名稱一致"
+      } %>
+
+    <%= render partial: "modules/admin_products_search" %>
+    <div class="font font--08r font--grey">
+      多個同商品圖片請加雙底線,ex: iPhone 8.jpg, iPhone 8__1.jpg, iPhone 8__2.jpg
+    </div>
+  </div>
+
+  <hr>
+
   <%= link_to new_admin_product_path do %>
     <button type="button" class="btn btn-primary btn-add">新增商品</button>
   <% end %>
@@ -7,22 +22,6 @@
       export_url: api_v1_excel_products_export_path(format: :xlsx),
       import_url: api_v1_excel_products_import_path
     } %>
-
-  <div style="float: right">
-    <%= form_tag admin_search_products_path,
-      { class: "simple_form admin_search_form" } do %>
-      <%= search_field_tag "product_name", nil,
-        class: "form-control input",
-        placeholder: "輸入產品名稱"
-      %>
-      <%= select_tag "brand_id",
-        options_from_collection_for_select(Brand.all, "id", "name"),
-        prompt: "選擇品牌",
-        class: "form-control select"
-      %>
-      <%= submit_tag "收尋", class: "btn btn-primary" %>
-    <% end %>
-  </div>
 
   <div class="list">
     <table class="table">

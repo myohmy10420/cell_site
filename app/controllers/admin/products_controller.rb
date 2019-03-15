@@ -62,6 +62,19 @@ module Admin
       render "index"
     end
 
+    def quick_add_images
+      params[:files].each do |file|
+        extension_dot = file.original_filename.rindex(".")
+        double_dash = file.original_filename.rindex("__")
+        file_name = file.original_filename.slice(0, double_dash || extension_dot)
+
+        product = Product.find_by(name: file_name)
+        product.product_images.create(image: file) if product
+      end if params[:files].presence
+
+      redirect_to admin_products_path
+    end
+
     private
 
     def product_params
