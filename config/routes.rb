@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     post "add/brand/logos", to: "brands#quick_add_logos"
     resources :telecommunications
     post "search_telecommunications", to: "telecommunications#search"
+    post "add/telecommunication/logos", to: "telecommunications#quick_add_logos"
     resources :variants
     post "search_variants", to: "variants#search"
     resources :recoveries
