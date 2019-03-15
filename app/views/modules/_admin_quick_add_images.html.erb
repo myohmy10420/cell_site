@@ -1,0 +1,13 @@
+<div class="admin_quick_add_images">
+  <%= form_tag url, {
+    multipart: true,
+  } do %>
+    <div class="file_input">
+      <%= file_field_tag 'files[]', { multiple: true } %>
+      <span class="hint font font--08r font--grey">
+        <%= hint %>
+      </span>
+    </div>
+    <%= submit_tag "快速補圖", class: "btn btn-primary" %>
+  <% end %>
+</div>

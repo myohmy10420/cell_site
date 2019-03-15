@@ -1,5 +1,11 @@
 <div class="brand">
   <div class="section">
+    <%= render partial: "modules/admin_quick_add_images",
+      locals: {
+        url: admin_add_brand_logos_path,
+        hint: "會自動裁減為140x40(px),檔案名稱請與品牌名稱一致"
+      } %>
+
     <%= render partial: "modules/admin_search",
       locals: {
         url: admin_search_brands_path,

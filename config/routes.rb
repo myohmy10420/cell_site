@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :product_images, only: [:destroy]
     resources :brands
     post "search_brands", to: "brands#search"
+    post "add/brand/logos", to: "brands#quick_add_logos"
     resources :telecommunications
     post "search_telecommunications", to: "telecommunications#search"
     resources :variants
