@@ -54,6 +54,18 @@ module Admin
       render "index"
     end
 
+    def quick_add_images
+      params[:files].each do |file|
+        extension_dot = file.original_filename.rindex(".")
+        file_name = file.original_filename.slice(0, extension_dot)
+
+        store = Store.find_by(name: file_name)
+        store.update(image: file) if store
+      end if params[:files].presence
+
+      redirect_to admin_stores_path
+    end
+
     private
 
     def store_params

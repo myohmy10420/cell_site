@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :side_bar_ads, only: [:index, :create, :destroy]
     resources :stores
     post "search_stores", to: "stores#search"
+    post "add/store/images", to: "stores#quick_add_images"
     resources :users
     post "search_users", to: "users#search"
   end
