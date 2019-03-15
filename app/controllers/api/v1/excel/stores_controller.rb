@@ -15,7 +15,7 @@ module Api
         def import
           require 'roo'
 
-          workbook = Roo::Excelx.new(params[:file].path)
+          workbook = Roo::Excelx.new(params[:file].path) if params[:file]
           workbook.drop(1).each do |row|
             params = ActionController::Parameters.new({
               store: {
@@ -38,7 +38,7 @@ module Api
             else
               Store.create(store_params)
             end
-          end
+          end if workbook
 
           redirect_to admin_stores_path
         end

@@ -15,11 +15,11 @@ module Api
         def import
           require 'roo'
 
-          workbook = Roo::Excelx.new(params[:file].path)
+          workbook = Roo::Excelx.new(params[:file].path) if params[:file]
           workbook.drop(1).each do |row|
             name = row[0]
             Telecommunication.create(name: name) if Telecommunication.find_by(name: name).nil?
-          end
+          end if workbook
 
           redirect_to admin_telecommunications_path
         end

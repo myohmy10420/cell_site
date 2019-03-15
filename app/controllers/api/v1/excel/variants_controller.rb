@@ -15,7 +15,7 @@ module Api
         def import
           require 'roo'
 
-          workbook = Roo::Excelx.new(params[:file].path)
+          workbook = Roo::Excelx.new(params[:file].path) if params[:file]
           workbook.drop(1).each do |row|
             telecommunication = Telecommunication.find_by(name: row[0])
             params = ActionController::Parameters.new({
@@ -37,7 +37,7 @@ module Api
             else
               Variant.create(variant_params)
             end
-          end
+          end if workbook
 
           redirect_to admin_variants_path
         end

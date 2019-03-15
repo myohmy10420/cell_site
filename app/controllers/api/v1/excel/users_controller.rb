@@ -15,7 +15,7 @@ module Api
         def import
           require 'roo'
 
-          workbook = Roo::Excelx.new(params[:file].path)
+          workbook = Roo::Excelx.new(params[:file].path) if params[:file]
           workbook.drop(1).each do |row|
             store = Store.find_by(name: row[1])
             params = ActionController::Parameters.new({
@@ -34,7 +34,7 @@ module Api
 
             user = User.find_by(phone: row[0])
             user.update(user_params)
-          end
+          end if workbook
 
           redirect_to admin_users_path
         end
