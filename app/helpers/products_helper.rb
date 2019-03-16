@@ -21,6 +21,14 @@ module ProductsHelper
     end
   end
 
+  def render_pre_orderable_status(product)
+    if product.pre_orderable
+      content_tag :span, "可預購", class: "badge badge-primary"
+    else
+      content_tag :span, "可預購", class: "badge badge-secondary"
+    end
+  end
+
   def render_list_selling_price(product)
     if product.on_sale || !product.selling_price
       context = "特價中"

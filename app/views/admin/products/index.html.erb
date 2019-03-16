@@ -52,6 +52,7 @@
             <td width="160px">
               <%= render_shelved_status(product) %>
               <%= render_on_sale_status(product) %>
+              <%= render_pre_orderable_status(product) %>
             </td>
             <td width="100px">
               <%= link_to edit_admin_product_path(product), class: "action-icons" do %>
