@@ -1,6 +1,7 @@
 <%= simple_form_for @user, url: url do |f| %>
   <%= f.input :phone, label: "電話(帳號)", disabled: true %>
   <%= f.input :name, label: "姓名" %>
+  <%= f.input :comment, label: "評語", input_html: { rows: '6' } %>
   <%= f.input :sex,
               label: "性別",
               as: :radio_buttons,
