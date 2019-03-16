@@ -16,7 +16,11 @@
               required: true %>
   <%= f.input :line, label: "Line ID" %>
   <%= f.input :email, label: "E-mail" %>
-  <%= f.input :birthday, label: "生日", as: :date %>
+  <%= f.input :birthday,
+              label: "生日",
+              as: :date,
+              include_blank: true,
+              html5: true %>
   <%= f.association :roles,
               as: :check_boxes,
               label: "角色"%>
