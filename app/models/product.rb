@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images
 
   belongs_to :brand
+  has_many :pre_orders
 
   attr_reader :tele_id
   attr_reader :variant_id

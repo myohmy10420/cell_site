@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :store
+  has_many :pre_orders
 
   validates :phone, presence: true, uniqueness: true
   validates_presence_of :sex
