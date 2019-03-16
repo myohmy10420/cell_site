@@ -1,46 +1,33 @@
 <div class="user">
-  <div style="float: right">
-    <%= form_tag admin_search_users_path,
-      { class: "simple_form admin_search_form" } do %>
-      <%= search_field_tag "user_phone", nil,
-        class: "form-control input",
-        placeholder: "輸入會員手機"
-      %>
-      <%= select_tag "store_id",
-        options_from_collection_for_select(Store.all, "id", "name"),
-        prompt: "選擇註冊門市",
-        class: "form-control select"
-      %>
-      <%= submit_tag "收尋", class: "btn btn-primary" %>
-    <% end %>
+  <div class="section">
+    <%= render partial: "modules/admin_user_search" %>
+    <%= render partial: "modules/excel_maintainer",
+      locals: {
+        export_url: api_v1_excel_users_export_path(format: :xlsx),
+        import_url: api_v1_excel_users_import_path
+      } %>
   </div>
-
-  <%= render partial: "modules/excel_maintainer",
-    locals: {
-      export_url: api_v1_excel_users_export_path(format: :xlsx),
-      import_url: api_v1_excel_users_import_path
-    } %>
 
   <div class="list">
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">電話(帳號)</th>
-          <th scope="col">E-mail</th>
-          <th scope="col">Line ID</th>
-          <th scope="col">生日</th>
           <th scope="col">註冊門市</th>
+          <th scope="col">電話(帳號)</th>
+          <th scope="col">姓名</th>
+          <th scope="col">性別</th>
+          <th scope="col">角色</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= user.phone %></td>
-            <td><%= render_dash_if_empty(user.email) %></td>
-            <td><%= render_dash_if_empty(user.line) %></td>
-            <td><%= !!user.birthday ? user.birthday : '-' %></td>
             <td><%= user.store ? user.store.name : "-" %></td>
+            <td><%= user.phone %></td>
+            <td><%= render_dash_if_empty(user.name) %></td>
+            <td><%= render_human_sex(user.sex) %></td>
+            <td><%= render_roles(user.roles) %></td>
 
             <td width="100px">
               <%= link_to edit_admin_user_path(user), class: "action-icons" do %>
