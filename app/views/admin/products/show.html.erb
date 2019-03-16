@@ -4,9 +4,7 @@
       <h5 class="card-title">
         <%= @product.name %>
       </h5>
-      <div class="tag tag--red">
-        <%= content_tag :span, @product.tag, class: "font--12p font--blue" %>
-      </div>
+      <%= render_tag(@product.tag) %>
       <div>
         <% if @product.has_images? %>
           <% @product.images.each do |product_image| %>

@@ -2,7 +2,7 @@ module ProductsHelper
   def render_tag(tag)
     content_tag :div, "", class: "tag tag--red" do
       content_tag :span, tag
-    end if tag && tag != ""
+    end if tag.presence
   end
   def render_shelved_status(product)
     if product.shelved
