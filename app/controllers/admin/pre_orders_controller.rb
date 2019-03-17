@@ -47,6 +47,16 @@ module Admin
 	    redirect_to admin_pre_orders_path
     end
 
+    def search
+      if params[:user_phone].present?
+        @pre_orders = PreOrder.joins(:user).where("users.phone like ?", "%#{params[:user_phone]}%").order('updated_at DESC')
+      else
+        @pre_orders = PreOrder.all.order('updated_at DESC')
+      end
+
+      render "index"
+    end
+
     private
 
     def find_product

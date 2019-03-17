@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :carousel_ads, only: [:index, :create, :destroy]
     resources :pre_orders
+    post "search_pre_orders", to: "pre_orders#search"
     resources :products
     post "search_products", to: "products#search"
     post "add/product/images", to: "products#quick_add_images"
