@@ -63,5 +63,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :pages do
+    get "web_terms"
+    get "privacy_policy"
+    get "disclaimer"
+  end
+
   root "pages#home"
 end

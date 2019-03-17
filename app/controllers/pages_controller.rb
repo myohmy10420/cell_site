@@ -5,6 +5,15 @@ class PagesController < ApplicationController
     @pop_product_groups = slice_three_items_a_group(pop_products)
   end
 
+  def web_terms
+  end
+
+  def privacy_policy
+  end
+
+  def disclaimer
+  end
+
   private
 
   def new_products
