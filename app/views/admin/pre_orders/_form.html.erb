@@ -1,0 +1,14 @@
+<%= simple_form_for @pre_order, url: admin_pre_order_path(@pre_order) do |f| %>
+  <p>預購人:<%= @pre_order.user.name %></p>
+  <%= f.input :product_name, label: "預購商品名稱(當時):" %>
+  <%= f.input :selling_price, label: "預購商品售價(當時):" %>
+  <%= f.input :content, label: "預購人備註:", input_html: { row: 6 } %>
+  <%= f.input :note, label: "此預購單備註:", input_html: { row: 6 } %>
+
+  <%= link_to "商品連結", product_path(@pre_order.product), target: "_blank" %>
+
+  <p>預購時間:<%= @pre_order.created_at.to_s(:db) %></p>
+  <p>最後更新時間:<%= @pre_order.updated_at.to_s(:db) %></p>
+
+  <%= f.button :submit, "提交", class: "btn btn-primary" %>
+<% end %>
