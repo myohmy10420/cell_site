@@ -38,6 +38,15 @@ module Admin
       redirect_to product_path(@product)
     end
 
+    def destroy
+	    @pre_order = PreOrder.find(params[:id])
+
+	    @pre_order.destroy
+
+      flash[:notice] = "刪除預購單成功"
+	    redirect_to admin_pre_orders_path
+    end
+
     private
 
     def find_product
