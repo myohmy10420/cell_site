@@ -2,6 +2,10 @@ module Admin
   class PreOrdersController < Admin::BaseController
     before_action :find_product, only: [:create]
 
+    def index
+      @pre_orders = PreOrder.includes(:user).all
+    end
+
     def create
       pre_order = PreOrder.new(pre_order_params)
       pre_order.user = current_user
