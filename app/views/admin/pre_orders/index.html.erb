@@ -4,6 +4,7 @@
       <thead>
         <tr>
           <th scope="col">預購人</th>
+          <th scope="col">預購人電話(帳號)</th>
           <th scope="col">預購商品名稱(當時)</th>
           <th scope="col">預購時間</th>
           <th scope="col">預購備註</th>
@@ -14,6 +15,7 @@
         <% @pre_orders.each do |order| %>
           <tr>
             <td><%= order.user.name %></td>
+            <td><%= order.user.phone %></td>
             <td><%= order.product_name %></td>
             <td><%= order.created_at.to_s(:db) %></td>
             <td><%= order.content %></td>

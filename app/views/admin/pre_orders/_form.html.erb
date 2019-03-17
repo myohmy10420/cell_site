@@ -1,5 +1,7 @@
 <%= simple_form_for @pre_order, url: admin_pre_order_path(@pre_order) do |f| %>
   <p>預購人:<%= @pre_order.user.name %></p>
+  <p>預購人電話(帳號):<%= @pre_order.user.phone %></p>
+  <p>預購人門市:<%= @pre_order.user.store.name %></p>
   <%= f.input :product_name, label: "預購商品名稱(當時):" %>
   <%= f.input :selling_price, label: "預購商品售價(當時):" %>
   <%= f.input :content, label: "預購人備註:", input_html: { row: 6 } %>
