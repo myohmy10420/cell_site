@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     @telecommunications = Telecommunication.all
     @variants = []
     @brands = Brand.all
-    @pre_order = PreOrder.new if current_user
+    @pre_order = PreOrder.new
   end
 
   def search
