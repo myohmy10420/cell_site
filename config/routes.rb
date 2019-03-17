@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       namespace :excel do
         get "brands/export" => "brands#export"
         post "brands/import" => "brands#import"
+        get "pre_orders/export" => "pre_orders#export"
         get "products/export" => "products#export"
         post "products/import" => "products#import"
         get "recoveries/export" => "recoveries#export"
