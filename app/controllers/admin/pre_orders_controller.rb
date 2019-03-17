@@ -10,7 +10,9 @@ module Admin
       pre_order.selling_price = @product.selling_price
 
       if pre_order.save
+        flash[:notice] = "預購成功"
       else
+        flash[:alert] = "預購失敗，請聯絡我們"
       end
 
       redirect_to product_path(@product)
@@ -21,6 +23,7 @@ module Admin
     def find_product
       @product = Product.find(params[:pre_order][:product_id])
     rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "已經找不到此商品"
       redirect_to products_path
     end
 
