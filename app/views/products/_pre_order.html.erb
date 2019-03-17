@@ -15,19 +15,22 @@
 <div class="modal fade" id="pre_order_modal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <%= content_tag :h5, "預購#{@product.name}", id: "exampleModalLabel", class: "modal-title" %>
-        <button type="button" class="close" data-dismiss="modal">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">我要預購</button>
-      </div>
+      <%= simple_form_for @pre_order, url: admin_pre_orders_path do |f| %>
+        <div class="modal-header">
+          <%= content_tag :h5, "預購#{@product.name}", id: "exampleModalLabel", class: "modal-title" %>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= f.input :product_id, as: :hidden, input_html: { value: @product.id } %>
+          <%= f.input :content, label: "備註", input_html: { rows: '6' }, placeholder: "ex: 我要玻璃貼 選填" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          <%= f.button :submit, "我要預購", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
