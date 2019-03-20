@@ -1,6 +1,7 @@
 <%= simple_form_for @user, url: url do |f| %>
   <%= f.input :phone, label: "電話(帳號)", disabled: true %>
   <%= f.input :name, label: "姓名" %>
+  <%= f.input :comment, label: "評語", input_html: { rows: '6' } %>
   <%= f.input :sex,
               label: "性別",
               as: :radio_buttons,
@@ -15,7 +16,18 @@
               required: true %>
   <%= f.input :line, label: "Line ID" %>
   <%= f.input :email, label: "E-mail" %>
-  <%= f.input :birthday, label: "生日", as: :date %>
+  <%= f.input :birthday,
+              label: "生日",
+              as: :date,
+              include_blank: true,
+              html5: true %>
+  <%= f.association :roles,
+              as: :check_boxes,
+              label: "角色"%>
+  <p class="font font--08r font--grey">
+    admin: 管理員<br>
+    normal: 一般會員
+  </p>
 
   <%= f.button :submit, "提交", class: "btn btn-primary" %>
 <% end %>

@@ -2,7 +2,10 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-    <title>某某通訊</title>
+    <title>就是便宜</title>
+    <meta name="description" content="快速找手機來這就是便宜">
+    <meta name="keywords" content="js,jspe,就是便宜,手機便宜,手機就是便宜" />
+    <%= favicon_link_tag "favicon.jpg" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +15,7 @@
 
   <body>
     <%= render partial: "modules/header" %>
+    <%= render partial: "modules/flash" %>
     <div class="wrapper">
       <div class="wrapper-left">
         <%= render partial: "modules/side_bar" %>

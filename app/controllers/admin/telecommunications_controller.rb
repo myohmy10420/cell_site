@@ -49,6 +49,18 @@ module Admin
       render "index"
     end
 
+    def quick_add_logos
+      params[:files].each do |file|
+        extension_dot = file.original_filename.rindex(".")
+        file_name = file.original_filename.slice(0, extension_dot)
+
+        telecommunication = Telecommunication.find_by(name: file_name)
+        telecommunication.update(logo: file) if telecommunication
+      end if params[:files].presence
+
+      redirect_to admin_telecommunications_path
+    end
+
     private
 
     def telecommunication_params

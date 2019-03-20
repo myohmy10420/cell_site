@@ -11,6 +11,7 @@ module Admin
 
     def update
       @user = User.find(params[:id])
+      update_roles
 
       if @user.update(user_params)
         redirect_to admin_users_path
@@ -47,7 +48,17 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:store_id, :name, :sex, :address, :email, :line, :birthday)
+      params.require(:user).permit(:store_id, :name, :comment, :sex, :address, :email, :line, :birthday)
+    end
+
+    def update_roles
+      @user.roles.destroy_all
+      role_ids = params[:user][:role_ids]
+      role_ids.each do |id|
+        next if id.empty?
+        role = Role.find(id.to_i)
+        @user.add_role(role.name)
+      end
     end
   end
 end

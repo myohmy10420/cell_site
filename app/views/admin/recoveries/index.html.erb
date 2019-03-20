@@ -2,6 +2,11 @@
   <%= link_to new_admin_recovery_path do %>
     <button type="button" class="btn btn-primary btn-add">新增方案</button>
   <% end %>
+  <%= render partial: "modules/excel_maintainer",
+    locals: {
+      export_url: api_v1_excel_recoveries_export_path(format: :xlsx),
+      import_url: api_v1_excel_recoveries_import_path
+    } %>
 
   <div style="float: right">
     <%= form_tag admin_search_recoveries_path,

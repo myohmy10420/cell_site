@@ -6,10 +6,12 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    redirect_to root_path if !@product.shelved && !params[:preview]
+    check_product_viewable
+
     @telecommunications = Telecommunication.all
     @variants = []
     @brands = Brand.all
+    @pre_order = PreOrder.new
   end
 
   def search
@@ -57,4 +59,7 @@ class ProductsController < ApplicationController
     brands.uniq
   end
 
+  def check_product_viewable
+    redirect_to root_path if !@product.shelved && !params[:preview]
+  end
 end

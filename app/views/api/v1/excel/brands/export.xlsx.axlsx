@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "brand") do |sheet|
+  sheet.add_row ['品牌名稱']
+  @brands.each do |brand|
+    sheet.add_row [brand.name]
+  end
+end

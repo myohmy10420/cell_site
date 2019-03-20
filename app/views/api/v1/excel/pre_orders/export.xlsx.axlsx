@@ -1,0 +1,38 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "pre_orders") do |sheet|
+  sheet.add_row [
+    '預購人',
+    '預購人電話(帳號)',
+    '預購人門市',
+    '預購商品名稱(當時)',
+    '預購商品售價(當時)',
+    '預購人備註',
+    '此預購單備註',
+    '預購時間',
+    '最後更新時間'
+  ]
+  @pre_orders.each do |order|
+    sheet.add_row [
+      order.user.name,
+      order.user.phone,
+      order.user.store.name,
+      order.product_name,
+      order.selling_price,
+      order.content,
+      order.note,
+      order.created_at.to_s(:db),
+      order.updated_at.to_s(:db)
+    ],
+    types: [
+      :string,
+      :string,
+      :string,
+      :string,
+      :string,
+      :string,
+      :string,
+      :string,
+      :string
+    ]
+  end
+end

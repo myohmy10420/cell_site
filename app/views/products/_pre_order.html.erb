@@ -1,0 +1,26 @@
+<% if @product.pre_orderable %>
+  <%= render_pre_order_btn(@product) %>
+
+  <div class="modal fade" id="pre_order_modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <%= simple_form_for @pre_order, url: admin_pre_orders_path do |f| %>
+          <div class="modal-header">
+            <%= content_tag :h5, "預購#{@product.name}", id: "exampleModalLabel", class: "modal-title" %>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= f.input :product_id, as: :hidden, input_html: { value: @product.id } %>
+            <%= f.input :content, label: "備註", input_html: { rows: '6' }, placeholder: "請輸入顏色,取貨門市,加購配件,其他需求。 ex: 我要玻璃貼 選填" %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            <%= f.button :submit, "我要預購", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

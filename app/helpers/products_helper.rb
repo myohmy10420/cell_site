@@ -2,7 +2,7 @@ module ProductsHelper
   def render_tag(tag)
     content_tag :div, "", class: "tag tag--red" do
       content_tag :span, tag
-    end if tag && tag != ""
+    end if tag.presence
   end
   def render_shelved_status(product)
     if product.shelved
@@ -18,6 +18,14 @@ module ProductsHelper
       content_tag :span, "特價中", class: "badge badge-info"
     else
       content_tag :span, "特價中", class: "badge badge-secondary"
+    end
+  end
+
+  def render_pre_orderable_status(product)
+    if product.pre_orderable
+      content_tag :span, "可預購", class: "badge badge-primary"
+    else
+      content_tag :span, "可預購", class: "badge badge-secondary"
     end
   end
 

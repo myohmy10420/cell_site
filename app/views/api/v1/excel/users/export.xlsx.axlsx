@@ -1,0 +1,35 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "user") do |sheet|
+  sheet.add_row [
+    '電話(帳號,不可修改)',
+    '註冊門市',
+    '姓名',
+    '性別',
+    'E-mail',
+    'Line ID',
+    '地址',
+    '生日'
+  ]
+  @users.each do |user|
+    sheet.add_row [
+      user.phone,
+      user.store.name,
+      user.name,
+      user.sex,
+      user.email,
+      user.line,
+      user.address,
+      user.birthday
+    ],
+    types: [
+      :string,
+      :string,
+      :string,
+      :string,
+      :string,
+      :string,
+      :string,
+      :string
+    ]
+  end
+end
