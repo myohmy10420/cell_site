@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
-  before_action :set_search_key
   def index
     @brands = has_valid_products_brands
+    set_meta_tag
   end
 
   def show
     @product = Product.find(params[:id])
     check_product_viewable
+    set_meta_tag
 
     @telecommunications = Telecommunication.all
     @variants = []
@@ -43,6 +44,22 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_meta_tag
+    case action_name
+    when "index"
+      @page_title = "手機價格總覽"
+      @page_description = "手機價格總覽"
+      @page_keywords = ""
+      Brand.all.each do |brand|
+        @page_keywords += "," + brand.name
+      end
+    when "show"
+      @page_title = @product.name
+      @page_description = @product.slogan
+      @page_keywords = @product.name
+    end
+  end
 
   def set_search_key
     @search_key = params[:search_key] || ''
