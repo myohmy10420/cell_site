@@ -66,6 +66,13 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = {
+    host: "jspe.com.tw"
+  }
+
+  config.action_mailer.delivery_method = :smtp
+
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -105,5 +112,15 @@ Rails.application.configure do
       s3_region: AwsS3.s3_region,
     },
     bucket: AwsS3.bucket
+  }
+
+  config.action_mailer.smtp_settings = {
+    address: Email.address,
+    port: Email.port,
+    domain: Email.domain,
+    authentication: Email.authentication,
+    user_name: Email.user_name,
+    password: Email.password,
+    enable_starttls_auto: true
   }
 end
