@@ -19,7 +19,7 @@
     <%= image_tag "recoveries_standard.jpg" %>
   </div>
 
-  <section class="section list-products">
+  <section class="section">
     <% @brands.each do |brand| %>
       <% if brand.recoveries.any? %>
         <div class="list">
@@ -27,16 +27,22 @@
             <div class="topic" style="width:25%">
               <%= image_tag brand.logo.url(:medium) %>
             </div>
-            <div class="topic" style="flex-grow: 1">
+            <div class="topic topic--pt20" style="width:40%">
               <span class="font font--red">型號</span>
+            </div>
+            <div class="topic topic--pt20" style="width:30%">
+              <span class="font font--red">最低回收價</span>
             </div>
           </div>
           <div class="list-items">
             <% brand.recoveries.each do |recovery| %>
               <div class="item">
                 <div style="width: 25%"></div>
-                <div class="data" style="flex-grow: 1">
+                <div class="data" style="width:40%">
                   <span><%= recovery.name %></span>
+                </div>
+                <div class="data" style="width:30%">
+                  <span><%= recovery.min_price %></span>
                 </div>
               </div>
             <% end %>
