@@ -20,10 +20,10 @@
           <div class="topic" id="<%= brand.name %>" style="width:25%">
             <%= image_tag brand.logo.url(:medium), class: "topic-logo" %>
           </div>
-          <div class="topic topic--pt20" style="width:30%">
+          <div class="topic topic--pt20" style="width:50%">
             <span class="font font--red">型號</span>
           </div>
-          <div class="topic topic--pt20" style="width:45%">
+          <div class="topic topic--pt20" style="width:25%">
             <span class="font font--red">價格</span>
           </div>
         </div>
@@ -33,13 +33,13 @@
               <%= link_to product_path(product), class: 'list-link' do %>
                 <div class="item item--clickable">
                   <div style="width:25%"></div>
-                  <div class="data" style="width:30%">
+                  <div class="data" style="width:50%">
                     <span class="font font--black _product-name"><%= product.name %></span>
-                    <div style="display: inline-block; position:relative; top: 6px;">
+                    <div class="_product-tag">
                       <%= render_tag(product.tag) %>
                     </div>
                   </div>
-                  <div class="data" style="width:45%">
+                  <div class="data" style="width:25%">
                     <%= render_list_selling_price(product) %>
                   </div>
                 </div>
