@@ -6,12 +6,13 @@
     margin: 10px 0px;
     padding: 10px;
     display: flex;
-    img {
-      width: 240px;
-      height: 210px;
+
+    &-image {
+      margin-right: 10px;
     }
+
     .infos {
-      flex-grow: 1;
+      width: 420px;
       p {
         margin: 0px;
       }

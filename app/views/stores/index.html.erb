@@ -14,7 +14,9 @@
 
   <% @stores.each do |store| %>
     <div class="info_box" id="<%= store.name %>">
-      <%= image_tag store.image.url(:medium) %>
+      <div class="info_box-image">
+        <%= image_tag store.image.url(:medium) %>
+      </div>
 
       <div class="infos">
         <h4 class="font font--red"><%= store.name %></h4>
