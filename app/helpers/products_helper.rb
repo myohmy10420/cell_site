@@ -54,7 +54,7 @@ module ProductsHelper
   end
 
   def product_is_searched?(product, search_key)
-    return unless search_key.presence
+    return true unless search_key.presence
     product.name.downcase.include?(search_key.downcase)
   end
 
