@@ -11,6 +11,12 @@
     position:relative;
     top: 6px;
     margin-bottom: 10px;
+
+    &--show-page {
+      display: inline-block;
+      position:relative;
+      bottom: 5px;
+    }
   }
 
   .details {
