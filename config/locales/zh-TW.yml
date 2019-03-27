@@ -19,3 +19,6 @@ zh-TW:
         traffic: "優惠流量"
         period: "合約期"
         content: "方案敘述"
+      telecommunication:
+        name: "電信名稱"
+        logo: "圖片"
