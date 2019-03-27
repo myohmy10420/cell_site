@@ -1,10 +1,10 @@
 module Api
   module V1
     module Excel
-      class StoresController < ApplicationController
-        def export
-          @stores = Store.all.order('updated_at DESC')
+      class StoresController < Api::V1::Excel::BaseController
+        before_action :get_stores
 
+        def export
           respond_to do |format|
             format.xlsx {
               headers["Content-Disposition"] = "attachment; filename=門市.xlsx"
@@ -16,6 +16,7 @@ module Api
           require 'roo'
 
           workbook = Roo::Excelx.new(params[:file].path) if params[:file]
+          @excel_import_errors = ""
           workbook.drop(1).each do |row|
             params = ActionController::Parameters.new({
               store: {
@@ -36,11 +37,25 @@ module Api
             if store.present?
               store.update(store_params)
             else
-              Store.create(store_params)
+              new_store = Store.new(store_params)
+              next if new_store.save
+              @excel_import_errors += new_store.name + new_store.errors.full_messages.join(", ") + "<br>"
             end
           end if workbook
 
-          redirect_to admin_stores_path
+          if @excel_import_errors.presence
+            @excel_import_errors = @excel_import_errors.html_safe
+          else
+            flash[:notice] = "匯入成功！"
+          end
+
+          render "admin/stores/index"
+        end
+
+        private
+
+        def get_stores
+          @stores = Store.all.order('updated_at DESC')
         end
       end
     end
