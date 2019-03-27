@@ -29,7 +29,7 @@ module ProductsHelper
     end
   end
 
-  def render_list_selling_price(product)
+  def render_index_selling_price(product)
     if product.on_sale || !product.selling_price
       context = "特價中"
     else
@@ -51,6 +51,14 @@ module ProductsHelper
       class: "font font--red  font--16r",
       id:"selling_price",
       data: { price: price }
+  end
+
+  def render_details_list_price(product)
+    if product.list_price
+      content_tag :span, "$"+@product.list_price.to_s, class: "font font--delete"
+    else
+      content_tag :span, "市價請見官網", class: "font"
+    end
   end
 
   def product_is_searched?(product, search_key)

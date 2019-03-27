@@ -23,7 +23,7 @@
       <div><%= simple_format(@product.content) %></div>
       <div>
         <span class="font font--red">市價</span>:
-        <%= content_tag :span, "$"+@product.list_price.to_s, class: "font font--delete" %>
+        <%= render_details_list_price(@product) %>
       </div>
       <div>
         <span class="font font--red">售價</span>:
