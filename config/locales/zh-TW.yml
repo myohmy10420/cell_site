@@ -40,3 +40,14 @@ zh-TW:
       telecommunication:
         name: "電信名稱"
         logo: "圖片"
+      user:
+        phone: "電話(帳號)"
+        name: "姓名"
+        comment: "評語"
+        sex: "性別"
+        address: "地址"
+        line: "Line ID"
+        email: "E-mail"
+        birthday: "生日"
+        password: "密碼"
+        password_confirmation: "確認密碼"

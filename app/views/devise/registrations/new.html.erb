@@ -6,38 +6,29 @@
 
     <div class="form-inputs">
       <%= f.input :phone,
-                  label: "電話",
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "phone" }%>
       <%= f.input :password,
-                  label: "密碼",
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
-                  label: "確認密碼",
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
       <%= f.association :store,
                   label: "註冊門市",
                   prompt: "請選擇門市",
                   required: true %>
-      <%= f.input :name,
-                  label: "姓名"%>
+      <%= f.input :name %>
       <%= f.input :sex,
-                  label: "性別",
                   as: :radio_buttons,
                   collection: [["男性", "male"], ["女性", "female"]],
                   required: true %>
-      <%= f.input :address,
-                  label: "地址" %>
-      <%= f.input :email,
-                  label: "Email" %>
-      <%= f.input :line,
-                  label: "Line ID" %>
+      <%= f.input :address %>
+      <%= f.input :email %>
+      <%= f.input :line %>
       <%= f.input :birthday,
-                  label: "生日",
                   as: :date,
                   include_blank: true,
                   html5: true,

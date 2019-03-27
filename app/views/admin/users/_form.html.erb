@@ -1,23 +1,20 @@
 <%= simple_form_for @user, url: url do |f| %>
-  <%= f.input :phone, label: "電話(帳號)", disabled: true %>
-  <%= f.input :name, label: "姓名" %>
-  <%= f.input :comment, label: "評語", input_html: { rows: '6' } %>
+  <%= f.input :phone, disabled: true %>
+  <%= f.input :name %>
+  <%= f.input :comment, input_html: { rows: '6' } %>
   <%= f.input :sex,
-              label: "性別",
               as: :radio_buttons,
               collection: [["男性", "male"], ["女性", "female"]],
               required: true %>
-  <%= f.input :address,
-              label: "地址" %>
+  <%= f.input :address %>
   <%= f.association :store,
               label: "所屬門市",
               as: :select,
               prompt: "請選擇門市",
               required: true %>
-  <%= f.input :line, label: "Line ID" %>
-  <%= f.input :email, label: "E-mail" %>
+  <%= f.input :line %>
+  <%= f.input :email %>
   <%= f.input :birthday,
-              label: "生日",
               as: :date,
               include_blank: true,
               html5: true %>
