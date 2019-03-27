@@ -63,9 +63,7 @@
       <%= f.button :submit, "確認註冊",
                    class: "btn btn--red registrations_btn",
                    disabled: true %>
-      <%= link_to "已有會員", new_session_path(resource_name), class: "btn btn--red" %>
+      <%= render "devise/shared/links" %>
     </div>
   <% end %>
-
-  <%#% render "devise/shared/links" %>
 </div>
