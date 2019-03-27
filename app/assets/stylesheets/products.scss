@@ -19,6 +19,12 @@
     }
   }
 
+  ._product-variant_select_hint {
+    display: none;
+    position: relative;
+    bottom: 20px;
+  }
+
   .details {
     .image {
       display: inline-block;

@@ -1,7 +1,7 @@
 <%= simple_form_for @variant, url: url do |f| %>
   <%= f.association :telecommunication, label: "方案電信", as: :select, prompt: "請選擇電信" %>
   <%= f.input :name, label: "名稱" %>
-  <%= f.input :discount, label: "專案折扣", as: :integer %>
+  <%= f.input :discount, label: "專案折扣" %>
   <%= f.input :prepaid, label: "預繳金額", as: :integer %>
   <%= f.input :traffic, label: "優惠流量" %>
   <%= f.input :period, label: "合約期" %>

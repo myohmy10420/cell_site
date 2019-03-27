@@ -15,7 +15,13 @@ $(document).ready(function () {
   var registerSelectVariantEvent = function () {
     $('.variant_select_form #product_variant_id')
       .on('change', function () {
-        calculateSubtotal($(this)[0].value)
+        var value = $(this)[0].value
+        if (isNaN(value)) {
+          $('._product-variant_select_hint').show()
+        } else {
+          $('._product-variant_select_hint').hide()
+          calculateSubtotal(value)
+        }
       })
   }
 
