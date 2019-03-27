@@ -29,8 +29,8 @@ module Api
                 tag: row[2],
                 slogan: row[3],
                 content: row[4],
-                list_price: row[5].to_i,
-                selling_price: row[6].to_i,
+                list_price: row[5].to_i == 0 ? nil : row[5].to_i,
+                selling_price: row[6].to_i == 0 ? nil : row[6].to_i,
                 shelved: row[7] == 'O' ? true : false,
                 on_sale: row[8] == 'O' ? true : false
               }
