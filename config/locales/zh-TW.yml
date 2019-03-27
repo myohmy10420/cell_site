@@ -1,0 +1,14 @@
+zh-TW:
+  activerecord:
+    attributes:
+      product:
+        name: "商品名稱"
+        tag: "特色標籤"
+        slogan: "標題語"
+        content: "商品內文"
+        list_price: "市價"
+        selling_price: "售價"
+        on_sale: "特價中"
+        pre_orderable: "可預購"
+        is_new: "新產品輪播"
+        is_pop: "熱門產品輪播"
