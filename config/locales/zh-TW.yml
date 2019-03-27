@@ -1,6 +1,9 @@
 zh-TW:
   activerecord:
     attributes:
+      brand:
+        name: "品牌名稱"
+        logo: "圖片"
       product:
         name: "商品名稱"
         tag: "特色標籤"
