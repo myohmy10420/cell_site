@@ -1,15 +1,15 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "store") do |sheet|
   sheet.add_row [
-    '門市名稱',
-    '服務專線',
+    '門市名稱(必填)',
+    '服務專線(必填)',
     '傳真專線(選填)',
     '行動電話(選填)',
     'E-mail(選填)',
     'line ID(選填)',
-    '門市地址',
-    'google map 網址',
-    '營業時間'
+    '門市地址(必填)',
+    'google map 網址(必填)',
+    '營業時間(必填)'
   ]
   @stores.each do |store|
     sheet.add_row [
