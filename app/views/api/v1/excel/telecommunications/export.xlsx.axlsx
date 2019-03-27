@@ -1,6 +1,6 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "telecommunication") do |sheet|
-  sheet.add_row ['電信名稱']
+  sheet.add_row ['電信名稱(必填)']
   @telecommunications.each do |telecommunication|
     sheet.add_row [telecommunication.name]
   end
