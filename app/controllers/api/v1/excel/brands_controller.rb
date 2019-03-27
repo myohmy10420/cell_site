@@ -1,7 +1,7 @@
 module Api
   module V1
     module Excel
-      class BrandsController < Admin::BaseController
+      class BrandsController < Api::V1::Excel::BaseController
         before_action :get_brands
 
         def export

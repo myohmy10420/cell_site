@@ -1,7 +1,7 @@
 module Api
   module V1
     module Excel
-      class TelecommunicationsController < Admin::BaseController
+      class TelecommunicationsController < Api::V1::Excel::BaseController
         before_action :get_telecommunications
 
         def export

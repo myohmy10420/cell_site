@@ -1,7 +1,7 @@
 module Api
   module V1
     module Excel
-      class VariantsController < Admin::BaseController
+      class VariantsController < Api::V1::Excel::BaseController
         before_action :get_variants
 
         def export

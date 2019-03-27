@@ -1,7 +1,7 @@
 module Api
   module V1
     module Excel
-      class ProductsController < Admin::BaseController
+      class ProductsController < Api::V1::Excel::BaseController
         before_action :get_products
 
         def export
