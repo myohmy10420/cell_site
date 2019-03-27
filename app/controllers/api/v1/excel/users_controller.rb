@@ -1,10 +1,10 @@
 module Api
   module V1
     module Excel
-      class UsersController < ApplicationController
-        def export
-          @users = User.all.order('updated_at DESC')
+      class UsersController <  Api::V1::Excel::BaseController
+        before_action :get_users
 
+        def export
           respond_to do |format|
             format.xlsx {
               headers["Content-Disposition"] = "attachment; filename=會員.xlsx"
@@ -16,6 +16,7 @@ module Api
           require 'roo'
 
           workbook = Roo::Excelx.new(params[:file].path) if params[:file]
+          @excel_import_errors = ""
           workbook.drop(1).each do |row|
             store = Store.find_by(name: row[1])
             params = ActionController::Parameters.new({
@@ -36,7 +37,19 @@ module Api
             user.update(user_params)
           end if workbook
 
-          redirect_to admin_users_path
+          if @excel_import_errors.presence
+            @excel_import_errors = @excel_import_errors.html_safe
+          else
+            flash[:notice] = "匯入成功！"
+          end
+
+          render "admin/users/index"
+        end
+
+        private
+
+        def get_users
+          @users = User.all.order('updated_at DESC')
         end
       end
     end
