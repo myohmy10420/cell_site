@@ -1,10 +1,10 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "recovery") do |sheet|
   sheet.add_row [
-    '品牌名稱',
-    '二手商品名稱',
-    '最高回收金額(數字)',
-    '最低回收金額(數字)'
+    '品牌名稱(必填)',
+    '二手商品名稱(必填)',
+    '最高回收金額(必填,數字)',
+    '最低回收金額(必填,數字)'
   ]
   @recoveries.each do |recovery|
     sheet.add_row [
