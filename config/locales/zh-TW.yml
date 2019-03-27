@@ -26,6 +26,17 @@ zh-TW:
         traffic: "優惠流量"
         period: "合約期"
         content: "方案敘述"
+      store:
+        name: "門市名稱"
+        image: "門市圖片"
+        service_line: "服務專線"
+        fax: "傳真專線"
+        phone: "行動電話"
+        email: "E-mail"
+        line_ID: "line ID"
+        address: "門市地址"
+        google_map_url: "google map 網址"
+        time: "營業時間"
       telecommunication:
         name: "電信名稱"
         logo: "圖片"
