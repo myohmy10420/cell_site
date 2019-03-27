@@ -12,3 +12,10 @@ zh-TW:
         pre_orderable: "可預購"
         is_new: "新產品輪播"
         is_pop: "熱門產品輪播"
+      variant:
+        name: "方案名稱"
+        discount: "專案折扣"
+        prepaid: "預繳金額"
+        traffic: "優惠流量"
+        period: "合約期"
+        content: "方案敘述"
