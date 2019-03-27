@@ -15,6 +15,10 @@ zh-TW:
         pre_orderable: "可預購"
         is_new: "新產品輪播"
         is_pop: "熱門產品輪播"
+      recovery:
+        name: "回收機名稱"
+        max_price: "最高回收金額"
+        min_price: "最低回收金額"
       variant:
         name: "方案名稱"
         discount: "專案折扣"
