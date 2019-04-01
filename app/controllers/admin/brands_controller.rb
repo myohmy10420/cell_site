@@ -1,7 +1,7 @@
 module Admin
   class BrandsController < Admin::BaseController
     def index
-      @brands = Brand.all.order('updated_at DESC')
+      @brands = Brand.all.order('sort ASC')
     end
 
     def new
@@ -41,9 +41,9 @@ module Admin
 
     def search
       if params[:brand_name].present?
-        @brands = Brand.where("name like ?", "%#{params[:brand_name]}%").order('updated_at DESC')
+        @brands = Brand.where("name like ?", "%#{params[:brand_name]}%").order('updated_at ASC')
       else
-        @brands = Brand.all.order('updated_at DESC')
+        @brands = Brand.all.order('sort ASC')
       end
 
       render "index"

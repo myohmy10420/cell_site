@@ -39,7 +39,7 @@ module Api
         private
 
         def get_brands
-          @brands = Brand.all.order('updated_at DESC')
+          @brands = Brand.all.order('sort ASC')
         end
       end
     end
