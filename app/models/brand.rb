@@ -11,7 +11,13 @@ class Brand < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  before_create :init_sort
+
   def has_products?
     self.products.any?
+  end
+
+  def init_sort
+    self.sort = Brand.all.size + 1
   end
 end
