@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post "product/switch-shelved" => "products#switch_shelved"
+      post "brand/up_sort", to: "brands#up_sort"
+      post "brand/down_sort", to: "brands#down_sort"
 
       namespace :excel do
         get "brands/export" => "brands#export"

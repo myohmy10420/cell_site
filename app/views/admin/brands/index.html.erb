@@ -33,6 +33,7 @@
           <th scope="col"></th>
           <th scope="col">品牌名稱</th>
           <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -41,6 +42,10 @@
             <td width="130px"><%= image_tag brand.logo.url(:medium) if brand.logo %></td>
             <td><%= brand.name %></td>
 
+            <td width="150px">
+              <button type="button" class="btn btn-primary up_sort" data-sort="<%= brand.sort %>">向上</button>
+              <button type="button" class="btn btn-primary down_sort" data-sort="<%= brand.sort %>">向下</button>
+            </td>
             <td width="100px">
               <%= link_to edit_admin_brand_path(brand), class: "action-icons" do %>
                 <%= image_tag "icons/pencil.svg" %>
