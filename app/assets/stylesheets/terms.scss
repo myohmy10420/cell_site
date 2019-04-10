@@ -1,13 +1,34 @@
 .terms {
   padding: 20px;
 
-  &-privacy_policy {
-    .description {
-      padding: 0px 20px;
-    }
+  .description {
+    padding: 0px 20px;
+  }
 
+  &-privacy_policy {
     ul {
       padding: 0px 40px; list-style: disc;
+    }
+  }
+
+  &-web_terms {
+    ul.trad-chinese-informal {
+      padding: 0px 60px;
+      list-style: trad-chinese-informal;
+
+      .trad-chinese-informal-description {
+        position: relative;
+        right: 20px;
+        margin-top: 7px;
+      }
+    }
+
+    ul.decimal {
+      list-style: decimal;
+
+      li {
+        margin: 5px 0px;
+      }
     }
   }
 }
