@@ -20,7 +20,6 @@
           <%= render_tag(@product.tag) %>
         </div>
       </div>
-      <div><%= simple_format(@product.content) %></div>
       <div>
         <span class="font font--red">市價</span>:
         <%= render_details_list_price(@product) %>
@@ -29,6 +28,7 @@
         <span class="font font--red">售價</span>:
         <%= render_details_selling_price(@product) %>
       </div>
+      <div><%= simple_format(@product.content) %></div>
       <%= render "products/discount_selector" %>
       <%= render "products/pre_order" %>
     </div>
