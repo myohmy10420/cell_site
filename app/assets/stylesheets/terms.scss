@@ -7,7 +7,8 @@
 
   &-privacy_policy {
     ul {
-      padding: 0px 40px; list-style: disc;
+      padding: 0px 40px;
+      list-style: disc;
     }
   }
 
@@ -21,6 +22,21 @@
         right: 20px;
         margin-top: 7px;
       }
+    }
+
+    ul.decimal {
+      list-style: decimal;
+
+      li {
+        margin: 5px 0px;
+      }
+    }
+  }
+
+  &-disclaimer {
+    ul {
+      padding: 0px 40px;
+      list-style: disc;
     }
 
     ul.decimal {
