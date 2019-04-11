@@ -57,7 +57,7 @@ module ProductsHelper
     if product.list_price
       content_tag :span, "$"+@product.list_price.to_s, class: "font font--delete"
     else
-      content_tag :span, "市價請見官網", class: "font"
+      content_tag :span, "原價請見官網", class: "font"
     end
   end
 
