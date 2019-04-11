@@ -1,7 +1,7 @@
 <div id="carousel_ads" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <% @carousel_ads.each_with_index do |ad, index| %>
-      <li data-target="#carousel_ads" data-slide-to="<% index %>" class="<%= if index == 0 then "active" end %>"></li>
+      <li data-target="#carousel_ads" data-slide-to="<%= index %>" class="<%= if index == 0 then "active" end %>"></li>
     <% end %>
   </ol>
   <div class="carousel-inner">
