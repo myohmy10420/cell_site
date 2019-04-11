@@ -48,16 +48,16 @@
                   <span><%= variant.name %></span>
                 </div>
                 <div class="data" style="width: 15%">
-                  <span><%= variant.discount %></span>
+                  <span class="font font--red"><%= render_variant_discount(variant.discount) %></span>
                 </div>
                 <div class="data" style="width: 11.5%">
-                  <span><%= variant.prepaid %></span>
+                  <span class="font font--red">$<%= variant.prepaid %></span>
                 </div>
                 <div class="data" style="width: 15%">
                   <span><%= variant.traffic %></span>
                 </div>
                 <div class="data" style="width: 25%">
-                  <span><%= simple_format(variant.content) %></span>
+                  <span class="font font--09r"><%= simple_format(variant.content) %></span>
                 </div>
               </div>
             <% end %>
