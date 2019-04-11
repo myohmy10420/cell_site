@@ -11,6 +11,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates_presence_of :slogan
+  validates_presence_of :list_price
   validate :check_is_new_limit
   validate :check_is_pop_limit
 
