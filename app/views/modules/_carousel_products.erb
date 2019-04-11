@@ -19,7 +19,11 @@
                 </h5>
                 <div class="card-text">售價 <%= render_index_selling_price(product) %></div>
                 <hr>
-                <div class="card-text"><%= product.slogan %></div>
+                <div class="card-text">
+                  <span class="font font--blue">
+                    <%= product.slogan %>
+                  </span>
+                </div>
               </div>
             </div>
           <% end %>
