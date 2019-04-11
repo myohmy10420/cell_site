@@ -6,9 +6,7 @@
   <div class="details">
     <div class="image">
       <% if @product.has_images? %>
-        <% @product.images.each do |product_image| %>
-          <%= image_tag product_image.image.url(:medium) %>
-        <% end %>
+        <%= render partial: "products/product_images" %>
       <% end %>
     </div>
 

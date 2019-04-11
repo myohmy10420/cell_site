@@ -25,6 +25,30 @@
     bottom: 20px;
   }
 
+  #product_images {
+    margin-bottom: 40px;
+
+    ol {
+      bottom: -40px;
+      margin: 0;
+
+      li {
+        width: 42px;
+        height: 42px;
+        text-indent: 0;
+
+        &.active {
+          border: 1px solid #cccccc;
+        }
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+
   .details {
     .image {
       display: inline-block;
