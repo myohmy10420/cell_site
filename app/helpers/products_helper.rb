@@ -35,7 +35,7 @@ module ProductsHelper
     else
       context = "$ "+product.selling_price.to_s
     end
-    content_tag :span, context, class: "font font--red font--16r"
+    content_tag :span, context, class: "font font--red font--12r"
   end
 
   def render_details_selling_price(product)

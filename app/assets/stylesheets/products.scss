@@ -1,16 +1,10 @@
 .products {
   padding: 20px;
 
-  ._product-name {
-    position: relative;
-    top: 8px;
-  }
-
   ._product-tag {
     display: inline-block;
     position:relative;
-    top: 6px;
-    margin-bottom: 10px;
+    bottom: 2px;
 
     &--show-page {
       display: inline-block;
