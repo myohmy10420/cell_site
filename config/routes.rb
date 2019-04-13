@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       post "product/switch-shelved", to: "products#switch_shelved"
       post "brand/up_sort", to: "brands#up_sort"
       post "brand/down_sort", to: "brands#down_sort"
+      get "dashboard/visitor_count", to: "dashboards#visitor_count"
 
       namespace :excel do
         get "brands/export", to: "brands#export"

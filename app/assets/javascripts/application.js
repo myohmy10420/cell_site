@@ -8,3 +8,4 @@
 //= require devise/registrations
 //= require products
 //= require sideBar
+//= require visitorCount
