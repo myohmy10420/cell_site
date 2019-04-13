@@ -18,9 +18,7 @@ class ProductsController < ApplicationController
   def search
     @brands = has_valid_products_brands
 
-    respond_to do |format|
-      format.html { render :index }
-    end
+    render "index"
   end
 
   def search_varirnt
@@ -61,15 +59,12 @@ class ProductsController < ApplicationController
     end
   end
 
-  def set_search_key
-    @search_key = params[:search_key] || ''
-  end
-
   def has_valid_products_brands
-    products = Product.where("name like ?", "%#{@search_key}%")
+    @search_key = params[:search_key] || ''
+    products = Product.where("name like ?", "%#{@search_key}%").includes(:brand)
 
     brands = []
-    products.each do  |product|
+    products.each do |product|
       brands << product.brand
     end
 
