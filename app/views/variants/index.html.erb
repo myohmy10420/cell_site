@@ -57,7 +57,7 @@
                   <span><%= variant.traffic %></span>
                 </div>
                 <div class="data" style="width: 25%">
-                  <span class="font font--09r"><%= simple_format(variant.content) %></span>
+                  <span class="font font--09r"><%= simple_format(variant.content, style: "white-space: nowrap;") %></span>
                 </div>
               </div>
             <% end %>
