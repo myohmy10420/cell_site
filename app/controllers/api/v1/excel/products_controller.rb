@@ -18,8 +18,8 @@ module Api
           workbook = Roo::Excelx.new(params[:file].path) if params[:file]
           @excel_import_errors = ""
           workbook.drop(1).each do |row|
-            brand = Brand.find_by(name: row[0])
-            @excel_import_errors += row[1] + "找不到" + row[0] + "品牌<br>" if brand.nil?
+            brand = Brand.find_by(name: row[0].to_s)
+            @excel_import_errors += row[1].to_s + "找不到" + row[0].to_s + "品牌<br>" if brand.nil?
             next if brand.nil?
 
             params = ActionController::Parameters.new({
@@ -39,11 +39,12 @@ module Api
 
             product = Product.find_by(name: row[1])
             if product.present?
-              product.update(product_params)
+              next if product.update(product_params)
+              add_error(product)
             else
               new_product = Product.new(product_params)
               next if new_product.save
-              @excel_import_errors += new_product.name + new_product.errors.full_messages.join(", ") + "<br>"
+              add_error(new_product)
             end
           end if workbook
 
@@ -60,6 +61,10 @@ module Api
 
         def get_products
           @products = Product.all.order('updated_at DESC')
+        end
+
+        def add_error(product)
+          @excel_import_errors += product.name + product.errors.full_messages.join(", ") + "<br>"
         end
       end
     end

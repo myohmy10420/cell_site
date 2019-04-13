@@ -35,11 +35,12 @@ module Api
 
             store = Store.find_by(name: row[0])
             if store.present?
-              store.update(store_params)
+              next if store.update(store_params)
+              add_error(store)
             else
               new_store = Store.new(store_params)
               next if new_store.save
-              @excel_import_errors += new_store.name + new_store.errors.full_messages.join(", ") + "<br>"
+              add_error(new_store)
             end
           end if workbook
 
@@ -56,6 +57,10 @@ module Api
 
         def get_stores
           @stores = Store.all.order('updated_at DESC')
+        end
+
+        def add_error(store)
+          @excel_import_errors += store.name + store.errors.full_messages.join(", ") + "<br>"
         end
       end
     end

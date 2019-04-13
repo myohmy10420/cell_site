@@ -18,8 +18,8 @@ module Api
           workbook = Roo::Excelx.new(params[:file].path) if params[:file]
           @excel_import_errors = ""
           workbook.drop(1).each do |row|
-            telecommunication = Telecommunication.find_by(name: row[0])
-            @excel_import_errors += row[1] + "找不到" + row[0] + "電信<br>" if telecommunication.nil?
+            telecommunication = Telecommunication.find_by(name: row[0].to_s)
+            @excel_import_errors += row[1].to_s + "找不到" + row[0].to_s + "電信<br>" if telecommunication.nil?
             next if telecommunication.nil?
 
             params = ActionController::Parameters.new({
@@ -38,11 +38,12 @@ module Api
             variant = Variant.find_by(name: row[1])
             if variant.present?
               variant.update(variant_params)
+              next if add_error(variant)
             else
               Variant.create(variant_params)
               new_variant = Variant.new(variant_params)
               next if new_variant.save
-              @excel_import_errors += new_variant.name + new_variant.errors.full_messages.join(", ") + "<br>"
+              add_error(new_variant)
             end
           end if workbook
 
@@ -59,6 +60,10 @@ module Api
 
         def get_variants
           @variants = Variant.all.order('updated_at DESC')
+        end
+
+        def add_error(variant)
+          @excel_import_errors += variant.name + variant.errors.full_messages.join(", ") + "<br>"
         end
       end
     end

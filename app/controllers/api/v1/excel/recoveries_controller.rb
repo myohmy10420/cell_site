@@ -18,8 +18,8 @@ module Api
           workbook = Roo::Excelx.new(params[:file].path) if params[:file]
           @excel_import_errors = ""
           workbook.drop(1).each do |row|
-            brand = Brand.find_by(name: row[0])
-            @excel_import_errors += row[1] + "找不到" + row[0] + "品牌<br>" if brand.nil?
+            brand = Brand.find_by(name: row[0].to_s)
+            @excel_import_errors += row[1].to_s + "找不到" + row[0].to_s + "品牌<br>" if brand.nil?
             next if brand.nil?
 
             params = ActionController::Parameters.new({
@@ -34,11 +34,12 @@ module Api
 
             recovery = Recovery.find_by(name: row[1])
             if recovery.present?
-              recovery.update(recovery_params)
+              next if recovery.update(recovery_params)
+              add_error(recovery)
             else
               new_recovery = Recovery.new(recovery_params)
               next if new_recovery.save
-              @excel_import_errors += new_recovery.name + new_recovery.errors.full_messages.join(", ") + "<br>"
+              add_error(new_recovery)
             end
           end if workbook
 
@@ -55,6 +56,10 @@ module Api
 
         def get_recoveries
           @recoveries = Recovery.all.order('updated_at DESC')
+        end
+
+        def add_error(recovery)
+          @excel_import_errors += recovery.name + recovery.errors.full_messages.join(", ") + "<br>"
         end
       end
     end
