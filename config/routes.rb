@@ -41,26 +41,26 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      post "product/switch-shelved" => "products#switch_shelved"
+      post "product/switch-shelved", to: "products#switch_shelved"
       post "brand/up_sort", to: "brands#up_sort"
       post "brand/down_sort", to: "brands#down_sort"
 
       namespace :excel do
-        get "brands/export" => "brands#export"
-        post "brands/import" => "brands#import"
-        get "pre_orders/export" => "pre_orders#export"
-        get "products/export" => "products#export"
-        post "products/import" => "products#import"
-        get "recoveries/export" => "recoveries#export"
-        post "recoveries/import" => "recoveries#import"
-        get "stores/export" => "stores#export"
-        post "stores/import" => "stores#import"
-        get "telecommunications/export" => "telecommunications#export"
-        post "telecommunications/import" => "telecommunications#import"
-        get "users/export" => "users#export"
-        post "users/import" => "users#import"
-        get "variants/export" => "variants#export"
-        post "variants/import" => "variants#import"
+        get "brands/export", to: "brands#export"
+        post "brands/import", to: "brands#import"
+        get "pre_orders/export", to: "pre_orders#export"
+        get "products/export", to: "products#export"
+        post "products/import", to: "products#import"
+        get "recoveries/export", to: "recoveries#export"
+        post "recoveries/import", to: "recoveries#import"
+        get "stores/export", to: "stores#export"
+        post "stores/import", to: "stores#import"
+        get "telecommunications/export", to: "telecommunications#export"
+        post "telecommunications/import", to: "telecommunications#import"
+        get "users/export", to: "users#export"
+        post "users/import", to: "users#import"
+        get "variants/export", to: "variants#export"
+        post "variants/import", to: "variants#import"
       end
     end
   end
