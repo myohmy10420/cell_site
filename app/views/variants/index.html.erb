@@ -9,7 +9,7 @@
     <% @telecommunications.each do |telecommunication| %>
       <% if telecommunication.variants.any? %>
         <%= link_to "##{ telecommunication.name }", class: "btn-link" do %>
-          <div class="btn btn--red btn--group"><%= telecommunication.name %></div>
+          <div class="btn btn--blue btn--group"><%= telecommunication.name %></div>
         <% end %>
       <% end %>
     <% end %>
@@ -20,7 +20,7 @@
   <section class="list-variants">
     <% @telecommunications.each do |telecommunication| %>
       <% if telecommunication.variants.any? %>
-        <div class="logos">
+        <div class="logos" id="<%= telecommunication.name %>">
           <%= image_tag telecommunication.logo.url(:medium) %>
         </div>
         <div class="list">

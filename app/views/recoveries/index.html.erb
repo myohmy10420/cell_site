@@ -9,7 +9,7 @@
     <% @brands.each do |brand| %>
       <% if brand.recoveries.any? %>
         <%= link_to "##{ brand.name }", class: "btn-link" do %>
-          <div class="btn btn--red btn--group"><%= brand.name %></div>
+          <div class="btn btn--blue btn--group"><%= brand.name %></div>
         <% end %>
       <% end %>
     <% end %>
@@ -22,7 +22,7 @@
   <section class="section">
     <% @brands.each do |brand| %>
       <% if brand.recoveries.any? %>
-        <div class="list">
+        <div class="list" id="<%= brand.name %>">
           <div class="list-topics">
             <div class="topic" style="width:25%">
               <%= image_tag brand.logo.url(:medium) %>
