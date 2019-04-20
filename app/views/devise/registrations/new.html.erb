@@ -11,7 +11,7 @@
                   input_html: { autocomplete: "phone" }%>
       <%= f.input :password,
                   required: true,
-                  hint: ("最少 #{@minimum_password_length} 字元" if @minimum_password_length),
+                  hint: ("最少 #{@minimum_password_length} 字元, 請注意英文字母有大小寫區別" if @minimum_password_length),
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: true,
