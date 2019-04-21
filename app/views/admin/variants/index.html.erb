@@ -48,7 +48,12 @@
             <td><%= variant.prepaid %></td>
             <td><%= variant.traffic %></td>
             <td><%= variant.period %></td>
-            <td><%= simple_format(variant.content) %></td>
+            <td>
+              <%= simple_format(variant.content) %>
+              <span class="font font--blue">
+                <%= variant.content2 if variant.content2 %>
+              </span>
+            </td>
 
             <td width="100px">
               <%= link_to edit_admin_variant_path(variant), class: "action-icons" do %>

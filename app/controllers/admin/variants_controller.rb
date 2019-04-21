@@ -61,7 +61,7 @@ module Admin
     private
 
     def variant_params
-      params.require(:variant).permit(:telecommunication_id, :name, :discount, :prepaid, :traffic, :period, :content)
+      params.require(:variant).permit(:telecommunication_id, :name, :discount, :prepaid, :traffic, :period, :content, :content2)
     end
   end
 end

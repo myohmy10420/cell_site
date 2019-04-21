@@ -27,10 +27,11 @@ module Api
                 telecommunication_id: telecommunication.id,
                 name: row[1],
                 content: row[2],
-                discount: row[3].to_i,
-                prepaid: row[4].to_i,
-                traffic: row[5],
-                period: row[6]
+                content2: row[3],
+                discount: row[4].to_i,
+                prepaid: row[5].to_i,
+                traffic: row[6],
+                period: row[7]
               }
             })
             variant_params = params.require(:variant).permit(:telecommunication_id, :name, :discount, :prepaid, :traffic, :period, :content)
@@ -40,7 +41,6 @@ module Api
               variant.update(variant_params)
               next if add_error(variant)
             else
-              Variant.create(variant_params)
               new_variant = Variant.new(variant_params)
               next if new_variant.save
               add_error(new_variant)

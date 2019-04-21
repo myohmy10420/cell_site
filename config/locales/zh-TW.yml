@@ -26,6 +26,7 @@ zh-TW:
         traffic: "優惠流量"
         period: "合約期"
         content: "方案敘述"
+        content: "方案敘述2(一行藍字)"
       store:
         name: "門市名稱"
         image: "門市圖片"

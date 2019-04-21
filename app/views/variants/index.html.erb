@@ -58,6 +58,9 @@
                 </div>
                 <div class="data" style="width: 25%">
                   <span class="font font--09r"><%= simple_format(variant.content, style: "white-space: nowrap;") %></span>
+                  <span class="font font--09r font--blue">
+                    <%= variant.content2 if variant.content2 %>
+                  </span>
                 </div>
               </div>
             <% end %>
