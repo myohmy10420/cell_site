@@ -17,11 +17,11 @@ class PagesController < ApplicationController
   private
 
   def new_products
-    Product.where(is_new: true)
+    Product.where(is_new: true).order('updated_at DESC')
   end
 
   def pop_products
-    Product.where(is_pop: true)
+    Product.where(is_pop: true).order('updated_at DESC')
   end
 
   def slice_three_items_a_group(array)
