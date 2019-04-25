@@ -777,6 +777,8 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.25)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     htmlentities (4.3.4)
@@ -933,6 +935,7 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-puma (= 1.2.1)
   devise (~> 4.5.0)
+  friendly_id (~> 5.2.4)
   jquery-rails (= 4.3.3)
   meta-tags
   mysql2 (>= 0.3.18, < 0.5)
