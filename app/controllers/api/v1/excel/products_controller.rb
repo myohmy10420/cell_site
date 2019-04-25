@@ -2,9 +2,9 @@ module Api
   module V1
     module Excel
       class ProductsController < Api::V1::Excel::BaseController
-        before_action :get_products
-
         def export
+          @products = get_products
+
           respond_to do |format|
             format.xlsx {
               headers["Content-Disposition"] = "attachment; filename=商品.xlsx"
@@ -15,44 +15,37 @@ module Api
         def import
           require 'roo'
 
-          workbook = Roo::Excelx.new(params[:file].path) if params[:file]
-          @excel_import_errors = ""
-          workbook.drop(1).each do |row|
-            brand = Brand.find_by(name: row[0].to_s)
-            @excel_import_errors += row[1].to_s + "找不到" + row[0].to_s + "品牌<br>" if brand.nil?
-            next if brand.nil?
-
-            params = ActionController::Parameters.new({
-              product: {
-                brand_id: brand.id,
-                name: row[1],
-                tag: row[2],
-                slogan: row[3],
-                content: row[4],
-                list_price: row[5].to_i == 0 ? nil : row[5].to_i,
-                selling_price: row[6].to_i == 0 ? nil : row[6].to_i,
-                shelved: row[7] == 'O' ? true : false,
-                on_sale: row[8] == 'O' ? true : false
-              }
-            })
-            product_params = params.require(:product).permit(:brand_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop)
-
-            product = Product.find_by(name: row[1])
-            if product.present?
-              next if product.update(product_params)
-              add_error(product)
-            else
-              new_product = Product.new(product_params)
-              next if new_product.save
-              add_error(new_product)
-            end
-          end if workbook
-
-          if @excel_import_errors.presence
-            @excel_import_errors = @excel_import_errors.html_safe
+          if !params[:file]
+            flash[:alert] = "請選擇檔案"
           else
-            flash[:notice] = "匯入成功！"
+            @excel_import_errors = ""
+
+            excel_page = Roo::Excelx.new(params[:file].path)
+            excel_page.drop(1).each do |row|
+              find_brand(row)
+              next if @brand.nil?
+
+              product_params = build_params_by(row)
+
+              find_product(row)
+              if @product.present?
+                next if @product.update(product_params)
+                add_error(@product)
+              else
+                new_product = Product.new(product_params)
+                next if new_product.save
+                add_error(new_product)
+              end
+            end
+
+            if @excel_import_errors.presence
+              @excel_import_errors = @excel_import_errors.html_safe
+            else
+              flash[:notice] = "匯入成功！"
+            end
           end
+
+          @products = get_products
 
           render "admin/products/index"
         end
@@ -60,11 +53,41 @@ module Api
         private
 
         def get_products
-          @products = Product.all.order('updated_at DESC')
+          Product.all.order('updated_at DESC')
+        end
+
+        def find_brand(row)
+          @brand = Brand.find_by(name: row[0].to_s)
+          return if @brand.presence
+          add_error_brand_not_found(row)
+        end
+
+        def find_product(row)
+          @product = Product.find_by(name: row[1])
+        end
+
+        def add_error_brand_not_found(row)
+          @excel_import_errors += row[1].to_s + "找不到" + row[0].to_s + "品牌<br>"
         end
 
         def add_error(product)
           @excel_import_errors += product.name + product.errors.full_messages.join(", ") + "<br>"
+        end
+
+        def build_params_by(row)
+          ActionController::Parameters.new({
+            product: {
+              brand_id: @brand.id,
+              name: row[1],
+              tag: row[2],
+              slogan: row[3],
+              content: row[4],
+              list_price: row[5].to_i == 0 ? nil : row[5].to_i,
+              selling_price: row[6].to_i == 0 ? nil : row[6].to_i,
+              shelved: row[7] == 'O' ? true : false,
+              on_sale: row[8] == 'O' ? true : false
+            }
+          }).require(:product).permit(:brand_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop)
         end
       end
     end
