@@ -58,7 +58,8 @@ module Api
         end
 
         def add_error(store)
-          @excel_import_errors += store.name + store.errors.full_messages.join(", ") + "<br>"
+          name = store.name || 'Unknow'
+          @excel_import_errors += name + store.errors.full_messages.join(", ") + "<br>"
         end
 
         def build_params_by(row)

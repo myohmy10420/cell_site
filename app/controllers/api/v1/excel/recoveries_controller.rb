@@ -71,7 +71,8 @@ module Api
         end
 
         def add_error(recovery)
-          @excel_import_errors += recovery.name + recovery.errors.full_messages.join(", ") + "<br>"
+          name = recovery.name || 'Unknow'
+          @excel_import_errors += name + recovery.errors.full_messages.join(", ") + "<br>"
         end
 
         def build_params_by(row)

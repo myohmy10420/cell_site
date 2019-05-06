@@ -71,7 +71,8 @@ module Api
         end
 
         def add_error(product)
-          @excel_import_errors += product.name + product.errors.full_messages.join(", ") + "<br>"
+          name = product.name || 'Unknow'
+          @excel_import_errors += name + product.errors.full_messages.join(", ") + "<br>"
         end
 
         def build_params_by(row)

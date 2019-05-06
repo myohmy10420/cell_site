@@ -72,7 +72,8 @@ module Api
         end
 
         def add_error(user)
-          @excel_import_errors += "帳號" + user.phone + user.errors.full_messages.join(", ") + "<br>"
+          phone = user.phone || 'Unknow'
+          @excel_import_errors += "帳號" + phone + user.errors.full_messages.join(", ") + "<br>"
         end
 
         def build_params_by(row)

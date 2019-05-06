@@ -71,7 +71,8 @@ module Api
         end
 
         def add_error(variant)
-          @excel_import_errors += variant.name + variant.errors.full_messages.join(", ") + "<br>"
+          name = variant.name || 'Unknow'
+          @excel_import_errors += name + variant.errors.full_messages.join(", ") + "<br>"
         end
 
         def build_params_by(row)
