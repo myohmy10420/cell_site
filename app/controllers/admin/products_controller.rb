@@ -5,7 +5,7 @@ module Admin
     end
 
     def show
-      @product = Product.find(params[:id])
+      @product = Product.friendly.find(params[:id])
     end
 
     def new
@@ -23,11 +23,11 @@ module Admin
     end
 
     def edit
-      @product = Product.find(params[:id])
+      @product = Product.friendly.find(params[:id])
     end
 
     def update
-      @product = Product.find(params[:id])
+      @product = Product.friendly.find(params[:id])
 
       if @product.update(product_params)
         update_product_images
@@ -38,7 +38,7 @@ module Admin
     end
 
     def destroy
-	    @product = Product.find(params[:id])
+	    @product = Product.friendly.find(params[:id])
 
 	    @product.destroy
 

@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.friendly.find(params[:id])
     check_product_viewable
     set_meta_tag
 
@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def search_varirnt
-    @product = Product.find(params[:product_id])
+    @product = Product.friendly.find(params[:product_id])
     @brands = has_valid_products_brands
 
     tele_id = params[:product][:tele_id]
