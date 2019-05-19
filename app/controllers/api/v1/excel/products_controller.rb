@@ -88,7 +88,7 @@ module Api
               shelved: row[7] == 'O' ? true : false,
               on_sale: row[8] == 'O' ? true : false
             }
-          }).require(:product).permit(:brand_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop)
+          }).require(:product).permit(:brand_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :slug)
         end
       end
     end
