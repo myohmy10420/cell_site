@@ -44,8 +44,9 @@
   }
 
   .details {
+    display: flex;
+
     .image {
-      display: inline-block;
       width: 300px;
 
       img {
@@ -54,7 +55,6 @@
     }
     .specs {
       padding: 0px 10px;
-      display: inline-block;
       vertical-align: top;
     }
   }
