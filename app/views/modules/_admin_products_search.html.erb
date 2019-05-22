@@ -1,12 +1,13 @@
 <div class="admin_search">
-  <%= form_tag admin_search_products_path,
-    { class: "simple_form admin_search_form" } do %>
+  <%= form_tag admin_products_path,
+    { method: :get, class: "simple_form admin_search_form" } do %>
     <%= search_field_tag "product_name", nil,
       class: "form-control input",
+      value: @name_keyword,
       placeholder: "輸入產品名稱"
     %>
     <%= select_tag "brand_id",
-      options_from_collection_for_select(Brand.all, "id", "name"),
+      options_from_collection_for_select(Brand.all, "id", "name", @selected_brand),
       prompt: "選擇品牌",
       class: "form-control select"
     %>

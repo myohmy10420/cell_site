@@ -1,7 +1,7 @@
 module Admin
   class ProductsController < Admin::BaseController
     def index
-      @products = Product.all.order('updated_at DESC')
+      load_products
     end
 
     def show
@@ -42,37 +42,22 @@ module Admin
 
 	    @product.destroy
 
-	    redirect_to admin_products_path
-    end
-
-    def search
-      if params[:brand_id].present?
-        search_brand = Brand.find(params[:brand_id])
-        include_products = search_brand.products
-      else
-        include_products = Product.all
-      end
-
-      if params[:product_name].present?
-        @products = include_products.where("name like ?", "%#{params[:product_name]}%").order('updated_at DESC')
-      else
-        @products = include_products.order('updated_at DESC')
-      end
-
-      render "index"
+      redirect_back(fallback_location: admin_products_path)
     end
 
     def quick_add_images
-      params[:files].each do |file|
-        extension_dot = file.original_filename.rindex(".")
-        double_dash = file.original_filename.rindex("__")
-        file_name = file.original_filename.slice(0, double_dash || extension_dot)
+      if params[:files].presence
+        params[:files].each do |file|
+          extension_dot = file.original_filename.rindex(".")
+          double_dash = file.original_filename.rindex("__")
+          file_name = file.original_filename.slice(0, double_dash || extension_dot)
 
-        product = Product.find_by(name: file_name)
-        product.product_images.create(image: file) if product
-      end if params[:files].presence
+          product = Product.find_by(name: file_name)
+          product.product_images.create(image: file) if product
+        end
+      end
 
-      redirect_to admin_products_path
+      redirect_back(fallback_location: admin_products_path)
     end
 
     private
@@ -86,6 +71,24 @@ module Admin
         params[:product][:product_image][:images].each { |image|
           @product.product_images.create(image: image)
         }
+      end
+    end
+
+    def load_products
+      @name_keyword = params[:product_name]
+      @selected_brand = params[:brand_id]
+
+      if @selected_brand.present?
+        search_brand = Brand.find(@selected_brand)
+        include_products = search_brand.products
+      else
+        include_products = Product.all
+      end
+
+      if @name_keyword.present?
+        @products = include_products.where("name like ?", "%#{@name_keyword}%").order('updated_at DESC')
+      else
+        @products = include_products.order('updated_at DESC')
       end
     end
   end
