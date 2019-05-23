@@ -54,10 +54,10 @@ module ProductsHelper
   end
 
   def render_details_list_price(product)
-    if product.list_price
-      content_tag :span, "$"+@product.list_price.to_s, class: "font font--delete"
-    else
+    if product.list_price.to_i == 0
       content_tag :span, "原價請見官網", class: "font"
+    else
+      content_tag :span, "$"+@product.list_price.to_s, class: "font font--delete"
     end
   end
 
