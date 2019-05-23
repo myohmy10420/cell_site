@@ -20,7 +20,7 @@
 
           <div id="collapse_<%= index %>" class="collapse <%= expanded_brand?(brand, @product, 'collapse') %> collapse_<%= index %>" data-parent="#accordion_<%= index %>">
             <div class="card-body">
-              <% brand.products.each do |product| %>
+              <% brand.products.order('name DESC').each do |product| %>
                 <%= link_to product.name, product_path(product) %>
               <% end %>
             </div>
