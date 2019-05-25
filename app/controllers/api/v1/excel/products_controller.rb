@@ -79,7 +79,7 @@ module Api
           ActionController::Parameters.new({
             product: {
               brand_id: @brand.id,
-              name: row[1],
+              name: ActionController::Base.helpers.strip_tags(row[1]),
               tag: row[2],
               slogan: row[3],
               content: row[4],
