@@ -1,11 +1,4 @@
 <div id="product_images" class="carousel slide">
-  <ol class="carousel-indicators">
-    <% @product.images.each_with_index do |product_image, index| %>
-      <li data-target="#product_images" data-slide-to="<%= index %>" class="<%= if index == 0 then "active" end %>">
-        <%= image_tag product_image.image.url(:medium) %>
-      </li>
-    <% end %>
-  </ol>
   <div class="carousel-inner">
     <% @product.images.each_with_index do |product_image, index| %>
       <div class="carousel-item <%= if index == 0 then "active" end %>">
@@ -13,6 +6,13 @@
       </div>
     <% end %>
   </div>
+  <ol class="carousel-indicators">
+    <% @product.images.each_with_index do |product_image, index| %>
+      <li data-target="#product_images" data-slide-to="<%= index %>" class="<%= if index == 0 then "active" end %>">
+        <%= image_tag product_image.image.url(:medium) %>
+      </li>
+    <% end %>
+  </ol>
   <a class="carousel-control-prev" href="#product_images" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </a>
