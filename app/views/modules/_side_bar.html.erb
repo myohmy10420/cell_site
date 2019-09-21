@@ -12,13 +12,20 @@
         <div class="card">
           <div class="card-header">
             <h5 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_<%= index %>" aria-expanded="<%= expanded_brand?(brand, @product, 'btn') %>">
-                <%= brand.name %>
-              </button>
+              <%= button_tag brand.name,
+                type: 'button',
+                style: 'font-weight: bold;',
+                class: 'btn btn-link',
+                data: {
+                  toggle: 'collapse',
+                  target: "#collapse_#{index}"
+                } %>
             </h5>
           </div>
 
-          <div id="collapse_<%= index %>" class="collapse <%= expanded_brand?(brand, @product, 'collapse') %> collapse_<%= index %>" data-parent="#accordion_<%= index %>">
+          <div id="collapse_<%= index %>"
+               class="collapse collapse_<%= index %> <%= pre_expand_product_brand(brand, @product.try(:brand)) %>"
+               data-parent="#accordion_<%= index %>">
             <div class="card-body">
               <% brand.products.order('name DESC').each do |product| %>
                 <%= link_to product.name, product_path(product) %>

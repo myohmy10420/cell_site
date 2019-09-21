@@ -1,12 +1,5 @@
 module SideBarHelper
-  def expanded_brand?(brand, product, type)
-    return '' if !product
-
-    if brand == product.brand
-      return 'true' if type == 'btn'
-      return 'show' if type == 'collapse'
-    else
-      return ''
-    end
+  def pre_expand_product_brand(brand, brand_product)
+    'show' if brand == brand_product
   end
 end
