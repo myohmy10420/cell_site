@@ -46,4 +46,14 @@
   &--delete {
     text-decoration: line-through;
   }
+
+  &--100w {
+    font-weight: 100;
+  }
+  &--200w {
+    font-weight: 200;
+  }
+  &--400w {
+    font-weight: 400;
+  }
 }
