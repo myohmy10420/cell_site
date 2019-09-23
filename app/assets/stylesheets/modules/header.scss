@@ -7,17 +7,19 @@ section.header {
   }
 
   .navbar {
+    background-color: #EE1C29;
     width: 100%;
     padding: 0px;
+
+    .logo {
+      height: 57px;
+    }
 
     .navbar-collapse {
       padding-bottom: 10px;
     }
 
     .nav-item {
-      border-bottom: 1px solid;
-      padding-top: 15px;
-
       .nav-link {
         text-align: center;
         font-size: 16px;
