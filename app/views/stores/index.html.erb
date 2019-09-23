@@ -7,7 +7,7 @@
   <section>
     <% @stores.each do |store| %>
       <%= link_to "##{ store.name }", class: "btn-link" do %>
-        <div class="btn btn--blue btn--group"><%= store.name %></div>
+        <div class="btn btn--red btn--group"><%= store.name %></div>
       <% end %>
     <% end %>
   </section>
