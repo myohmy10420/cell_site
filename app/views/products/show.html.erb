@@ -6,7 +6,7 @@
   <div class="details">
     <div class="image">
       <% if @product.has_images? %>
-        <%= render partial: "products/product_images" %>
+        <%= render "products/product_images", product: @product %>
       <% end %>
     </div>
 
@@ -27,7 +27,7 @@
         <%= render_details_selling_price(@product) %>
       </div>
       <div><%= simple_format(@product.content) %></div>
-      <%= render "products/discount_selector" %>
+      <%= render "products/discount_selector", brands: @brands, product: @product %>
       <%= render "products/pre_order" %>
       <%= link_to stores_path do %>
         <span class="font font--blue">

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @brands = has_valid_products_brands
+    @brands = find_brands_with_products
     set_meta_tag
   end
 
@@ -11,23 +11,23 @@ class ProductsController < ApplicationController
 
     @telecommunications = Telecommunication.all
     @variants = []
-    @brands = Brand.all
+    @brands = Brand.includes(:recoveries).all
     @pre_order = PreOrder.new
   end
 
   def search
-    @brands = has_valid_products_brands
+    @brands = find_brands_with_products
 
     render "index"
   end
 
   def search_varirnt
     @product = Product.friendly.find(params[:product_id])
-    @brands = has_valid_products_brands
+    @brands = Brand.includes(:recoveries).join(:recoveries).uniq
 
     tele_id = params[:product][:tele_id]
 
-    if tele_id != ""
+    if tele_id.present?
       tele = Telecommunication.find(tele_id)
       @variants = tele.variants
     else
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html {
-        render partial: "products/discount_selector"
+        render partial: "products/discount_selector", locals: { brands: @brands, product: @product }
       }
     end
   end
@@ -59,16 +59,10 @@ class ProductsController < ApplicationController
     end
   end
 
-  def has_valid_products_brands
+  def find_brands_with_products
     @search_key = params[:search_key] || ''
-    products = Product.where("name like ?", "%#{@search_key}%").includes(:brand)
-
-    brands = []
-    products.each do |product|
-      brands << product.brand
-    end
-
-    brands.uniq
+    brand_ids = Product.where(shelved: true).where("name like ?", "%#{@search_key}%").pluck(:brand_id).uniq
+    Brand.where(id: brand_ids).includes(:products)
   end
 
   def check_product_viewable

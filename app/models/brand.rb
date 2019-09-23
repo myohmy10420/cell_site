@@ -9,13 +9,11 @@ class Brand < ApplicationRecord
   default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]
 
+  scope :has_products, -> { joins(:products).uniq }
+
   validates :name, presence: true, uniqueness: true
 
   before_create :init_sort
-
-  def has_products?
-    self.products.any?
-  end
 
   def init_sort
     self.sort = Brand.all.size + 1

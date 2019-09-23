@@ -62,8 +62,9 @@ module ProductsHelper
   end
 
   def product_is_searched?(product, search_key)
-    return true unless search_key.presence
-    product.name.downcase.include?(search_key.downcase)
+    key = search_key || ''
+
+    product.name.downcase.include?(key)
   end
 
   def tele_options
@@ -74,9 +75,9 @@ module ProductsHelper
     @variants.map { |variant| [variant.name, variant.discount] }
   end
 
-  def recovery_options
+  def recovery_options_by(brands)
     options = []
-    @brands.each do |brand|
+    brands.each do |brand|
       if brand.recoveries.any?
         options << ["品牌：(#{brand.name})", "0"]
         brand.recoveries.each do |recovery|

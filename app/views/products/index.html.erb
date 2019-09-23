@@ -29,7 +29,7 @@
         </div>
         <div class="list-items">
           <% brand.products.each do |product| %>
-            <% if product_is_searched?(product, @search_key) && product.shelved %>
+            <% if product.shelved && product_is_searched?(product, @search_key) %>
               <%= link_to product_path(product), class: 'list-link' do %>
                 <div class="item item--clickable">
                   <div style="width:25%"></div>

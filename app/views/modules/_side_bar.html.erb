@@ -6,34 +6,32 @@
     </button>
   <% end %>
 
-  <% Brand.all.order('sort ASC').each_with_index do |brand, index| %>
-    <% if brand.has_products? %>
-      <div class="accordion" id="accordion_<%= index %>">
-        <div class="card">
-          <div class="card-header">
-            <h5 class="mb-0">
-              <%= button_tag brand.name,
-                type: 'button',
-                style: 'font-weight: bold;',
-                class: 'btn btn-link',
-                data: {
-                  toggle: 'collapse',
-                  target: "#collapse_#{index}"
-                } %>
-            </h5>
-          </div>
+  <% Brand.includes(:products).order('sort ASC, products.name DESC').has_products.each_with_index do |brand, index| %>
+    <div class="accordion" id="accordion_<%= index %>">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <%= button_tag brand.name,
+              type: 'button',
+              style: 'font-weight: bold;',
+              class: 'btn btn-link',
+              data: {
+                toggle: 'collapse',
+                target: "#collapse_#{index}"
+              } %>
+          </h5>
+        </div>
 
-          <div id="collapse_<%= index %>"
-               class="collapse collapse_<%= index %> <%= pre_expand_product_brand(brand, @product.try(:brand)) %>"
-               data-parent="#accordion_<%= index %>">
-            <div class="card-body">
-              <% brand.products.order('name DESC').each do |product| %>
-                <%= link_to product.name, product_path(product) %>
-              <% end %>
-            </div>
+        <div id="collapse_<%= index %>"
+             class="collapse collapse_<%= index %> <%= pre_expand_product_brand(brand, @product.try(:brand)) %>"
+             data-parent="#accordion_<%= index %>">
+          <div class="card-body">
+            <% brand.products.each do |product| %>
+              <%= link_to product.name, product_path(product) %>
+            <% end %>
           </div>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
 </nav>
