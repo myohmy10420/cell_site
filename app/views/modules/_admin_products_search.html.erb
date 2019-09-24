@@ -6,11 +6,6 @@
       value: @name_keyword,
       placeholder: "輸入產品名稱"
     %>
-    <%= select_tag "brand_id",
-      options_from_collection_for_select(Brand.all, "id", "name", @selected_brand),
-      prompt: "選擇品牌",
-      class: "form-control select"
-    %>
     <%= submit_tag "收尋", class: "btn btn-primary" %>
   <% end %>
 </div>

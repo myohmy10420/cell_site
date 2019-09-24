@@ -1,7 +1,8 @@
 module Admin
   class ProductsController < Admin::BaseController
     def index
-      load_products
+      @name_keyword = params[:product_name] || ''
+      @products = Product.where("name like ?", "%#{@name_keyword}%").order('updated_at DESC')
     end
 
     def show
@@ -71,24 +72,6 @@ module Admin
         params[:product][:product_image][:images].each { |image|
           @product.product_images.create(image: image)
         }
-      end
-    end
-
-    def load_products
-      @name_keyword = params[:product_name]
-      @selected_brand = params[:brand_id]
-
-      if @selected_brand.present?
-        search_brand = Brand.find(@selected_brand)
-        include_products = search_brand.products
-      else
-        include_products = Product.all
-      end
-
-      if @name_keyword.present?
-        @products = include_products.where("name like ?", "%#{@name_keyword}%").order('updated_at DESC')
-      else
-        @products = include_products.order('updated_at DESC')
       end
     end
   end
