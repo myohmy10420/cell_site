@@ -27,7 +27,10 @@
              data-parent="#accordion_<%= index %>">
           <div class="card-body">
             <% brand.products.each do |product| %>
-              <%= link_to product.name, product_path(product) %>
+              <%= link_to product_path(product) do %>
+                <div><%= product.name %></div>
+                <div><%= product.color %></div>
+              <% end %>
             <% end %>
           </div>
         </div>

@@ -8,6 +8,7 @@ zh-TW:
         name: "商品名稱"
         tag: "特色標籤"
         slogan: "標題語"
+        color: "顏色"
         content: "商品內文"
         list_price: "原價"
         selling_price: "售價"

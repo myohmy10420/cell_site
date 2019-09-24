@@ -82,13 +82,14 @@ module Api
               name: ActionController::Base.helpers.strip_tags(row[1]),
               tag: row[2],
               slogan: row[3],
-              content: row[4],
-              list_price: row[5].to_i == 0 ? nil : row[5].to_i,
-              selling_price: row[6].to_i == 0 ? nil : row[6].to_i,
-              shelved: row[7] == 'O' ? true : false,
-              on_sale: row[8] == 'O' ? true : false
+              color: row[4],
+              content: row[5],
+              list_price: row[6].to_i == 0 ? nil : row[6].to_i,
+              selling_price: row[7].to_i == 0 ? nil : row[7].to_i,
+              shelved: row[8] == 'O' ? true : false,
+              on_sale: row[9] == 'O' ? true : false
             }
-          }).require(:product).permit(:brand_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :slug)
+          }).require(:product).permit(:brand_id, :name, :tag, :slogan, :color, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :slug)
         end
       end
     end
