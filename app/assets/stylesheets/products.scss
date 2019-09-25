@@ -61,6 +61,16 @@
       vertical-align: top;
     }
   }
+
+  .recoveriesStandard {
+    img {
+      width: 360px;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
 }
 
 .badge-shelved {
