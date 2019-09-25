@@ -32,6 +32,8 @@ module ProductsHelper
   def render_index_selling_price(product)
     if product.on_sale || !product.selling_price
       context = "特價中"
+    elsif product.is_unlisted
+      context = "特價中"
     else
       context = "$ "+product.selling_price.to_s
     end
@@ -40,6 +42,9 @@ module ProductsHelper
 
   def render_details_selling_price(product)
     if product.on_sale || !product.selling_price
+      content = "特價中請來電詢問"
+      price = 0
+    elsif product.is_unlisted
       content = "特價中請來電詢問"
       price = 0
     else

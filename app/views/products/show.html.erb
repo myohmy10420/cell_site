@@ -27,12 +27,15 @@
         <%= render_details_selling_price(@product) %>
       </div>
       <div><%= simple_format(@product.content) %></div>
-      <%= render "products/discount_selector", brands: @brands, product: @product %>
-      <%= render "products/pre_order" %>
-      <%= link_to stores_path do %>
-        <span class="font font--blue">
-          試算完立即聯絡門市
-        </span>
+
+      <% if !@product.is_unlisted %>
+        <%= render "products/discount_selector", brands: @brands, product: @product %>
+        <%= render "products/pre_order" %>
+        <%= link_to stores_path do %>
+          <span class="font font--blue">
+            試算完立即聯絡門市
+          </span>
+        <% end %>
       <% end %>
     </div>
   </div>

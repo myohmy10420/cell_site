@@ -87,9 +87,10 @@ module Api
               list_price: row[6].to_i == 0 ? nil : row[6].to_i,
               selling_price: row[7].to_i == 0 ? nil : row[7].to_i,
               shelved: row[8] == 'O' ? true : false,
-              on_sale: row[9] == 'O' ? true : false
+              on_sale: row[9] == 'O' ? true : false,
+              is_unlisted: row[10] == 'O' ? true : false
             }
-          }).require(:product).permit(:brand_id, :name, :tag, :slogan, :color, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :slug)
+          }).require(:product).permit(:brand_id, :name, :tag, :slogan, :color, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :is_unlisted, :slug)
         end
       end
     end

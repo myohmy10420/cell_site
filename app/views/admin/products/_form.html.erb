@@ -11,6 +11,7 @@
   <%= f.input :pre_orderable, as: :boolean %>
   <%= f.input :is_new, as: :boolean %>
   <%= f.input :is_pop, as: :boolean %>
+  <%= f.input :is_unlisted, as: :boolean %>
 
   <% if @product.has_images? %>
     <% @product.images.each do |product_image| %>
