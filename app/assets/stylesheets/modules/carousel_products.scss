@@ -1,7 +1,6 @@
 .carousel_products {
   margin: 0 auto;
   width: 100%;
-  border: #dedede 2px solid;
   padding: 5px;
 
   .carousel-inner {
@@ -31,6 +30,11 @@
             }
 
             .card-title {
+              a {
+                display: block;
+                height: 58px;
+                overflow: hidden;
+              }
               a, a:hover {
                 color: #000000;
                 text-decoration: none;

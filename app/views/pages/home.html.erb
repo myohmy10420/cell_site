@@ -5,31 +5,34 @@
 
   <br>
 
-  <section>
-    <div>
-      <div class="square  square--red"></div>
-      <span class="font font--grey">最新產品</span>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="is_new-tab" data-toggle="tab" href="#is_new" role="tab" aria-selected="true">
+        最新產品
+      </a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#is_pop" role="tab" aria-selected="false">
+        熱門產品
+      </a>
     </div>
-    <%= render partial: "modules/carousel_products",
-      locals: {
-        carousel_id: "new_products",
-        product_groups: @new_product_groups
-      } %>
-  </section>
+  </nav>
 
-  <br>
-
-  <section>
-    <div>
-      <div class="square  square--red"></div>
-      <span class="font font--grey">熱門產品</span>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="is_new" role="tabpanel" aria-labelledby="is_new-tab">
+      <%= render partial: "modules/carousel_products",
+        locals: {
+          carousel_id: "new_products",
+          product_groups: @new_product_groups
+        } %>
     </div>
-    <%= render partial: "modules/carousel_products",
-      locals: {
-        carousel_id: "pop_products",
-        product_groups: @pop_product_groups
-      } %>
-  </section>
+
+    <div class="tab-pane fade" id="is_pop" role="tabpanel" aria-labelledby="is_pop-tab">
+      <%= render partial: "modules/carousel_products",
+        locals: {
+          carousel_id: "pop_products",
+          product_groups: @pop_product_groups
+        } %>
+    </div>
+  </div>
 
   <br>
 </div>

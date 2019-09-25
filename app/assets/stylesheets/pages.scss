@@ -1,4 +1,30 @@
 .pages {
   width: 720px;
   padding: 20px;
+
+  .nav-tabs {
+    padding: 0 10px;
+    border-bottom: 1px solid #E9222E;
+  }
+
+  .nav-tabs .nav-link {
+    color: #495057;
+  }
+
+  .nav-tabs .nav-link.active {
+    color: #E9222E;
+  }
+
+  .nav-tabs .nav-link.active, .nav-tabs .nav-link:focus {
+    border-color: #E9222E #E9222E #fff;
+  }
+
+  .nav-tabs .nav-link:hover {
+    border-color: #ffcfd2;
+  }
+
+  .tab-content {
+    border: 1px solid #E9222E;
+    border-top: 0px;
+  }
 }
