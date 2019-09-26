@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post "search_pre_orders", to: "pre_orders#search"
     resources :products
     post "add/product/images", to: "products#quick_add_images"
-    resources :product_images, only: [:destroy]
+    post "/product_images/delete_images", to: "product_images#delete_images"
     resources :brands
     post "search_brands", to: "brands#search"
     post "add/brand/logos", to: "brands#quick_add_logos"

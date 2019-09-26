@@ -13,16 +13,19 @@
   <%= f.input :is_pop, as: :boolean %>
   <%= f.input :is_unlisted, as: :boolean %>
 
-  <% if @product.has_images? %>
-    <% @product.images.each do |product_image| %>
-      <div class="product_image_editor">
-        <%= link_to admin_product_image_path(product_image), method: :delete, data: { confirm: "確定刪除此照片嗎？" }, class: "action-icons" do %>
-          <%= image_tag "icons/x.svg", class: "action-icons" %>
-        <% end %>
-        <%= image_tag product_image.image.url(:medium) %>
-      </div>
+  <div class="product_images-editor">
+    <button type="button" class="product_images-editor__btn">
+      多選刪除商品圖片
+    </button>
+    <% if @product.has_images? %>
+      <% @product.images.each do |product_image| %>
+        <div class="product_images-editor__item">
+          <input type="checkbox" class="product_images-editor__item__checkbox" data-id="<%= product_image.id %>">
+          <%= image_tag product_image.image.url(:medium) %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
   <%= f.simple_fields_for @product.product_images do |i| %>
     <%= i.input :images, label: "圖片", as: :file, input_html: { multiple: true }, hint: "可選擇多個檔案，會自動裁減為300x300(px)" %>

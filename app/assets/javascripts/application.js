@@ -3,7 +3,8 @@
 //= require popper
 //= require bootstrap-sprockets
 
-//= require admin/products
+//= require admin/products/switchShelved
+//= require admin/product_images/deleteImages
 //= require admin/brands
 //= require devise/registrations
 //= require products
