@@ -42,11 +42,19 @@ class Product < ApplicationRecord
     if self.is_new && Product.is_new.except_ids(self.id).count >= 9
       errors.add(:is_new, "輪播新產品最多不能超過9筆")
     end
+
+    if self.is_new && self.is_unlisted
+      errors.add(:is_new, "不能同時為新產品以及新機發表")
+    end
   end
 
   def check_is_pop_limit
     if self.is_pop && Product.is_pop.except_ids(self.id).count >= 9
       errors.add(:is_pop, "輪播熱門產品最多不能超過9筆")
+    end
+
+    if self.is_pop && self.is_unlisted
+      errors.add(:is_pop, "不能同時為熱門產品以及新機發表")
     end
   end
 
