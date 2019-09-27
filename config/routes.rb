@@ -43,6 +43,11 @@ Rails.application.routes.draw do
       post "product/switch-shelved", to: "products#switch_shelved"
       post "brand/up_sort", to: "brands#up_sort"
       post "brand/down_sort", to: "brands#down_sort"
+      post "carousel_ad/up_sort", to: "carousel_ads#up_sort"
+      post "carousel_ad/down_sort", to: "carousel_ads#down_sort"
+      post "side_bar_ad/up_sort", to: "side_bar_ads#up_sort"
+      post "side_bar_ad/down_sort", to: "side_bar_ads#down_sort"
+
       get "dashboard/visitor_count", to: "dashboards#visitor_count"
 
       namespace :excel do

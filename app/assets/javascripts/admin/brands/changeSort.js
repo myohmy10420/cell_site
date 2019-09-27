@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  $(".up_sort").click(function() {
+  $(".up_sort", ".brand").click(function() {
     sort_brands("up_sort", this.dataset.sort)
   })
-  $(".down_sort").click(function() {
+  $(".down_sort", ".brand").click(function() {
     sort_brands("down_sort", this.dataset.sort)
   })
 

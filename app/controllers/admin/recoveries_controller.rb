@@ -6,7 +6,7 @@ module Admin
 
     def new
       @recovery = Recovery.new
-      @brands = Brand.all
+      @brands = Brand.order('sort ASC')
     end
 
     def create
@@ -20,7 +20,7 @@ module Admin
 
     def edit
       @recovery = Recovery.find(params[:id])
-      @brands = Brand.all
+      @brands = Brand.order('sort ASC')
     end
 
     def update

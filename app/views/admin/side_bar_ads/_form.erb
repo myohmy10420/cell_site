@@ -5,6 +5,8 @@
           <%= image_tag "icons/x.svg", class: "action-icons" %>
         <% end %>
       <%= image_tag ad.image.url(:medium) %>
+      <button type="button" class="btn btn-primary up_sort" data-sort="<%= ad.sort %>">向上</button>
+      <button type="button" class="btn btn-primary down_sort" data-sort="<%= ad.sort %>">向下</button>
     </div>
     <br>
   <% end %>

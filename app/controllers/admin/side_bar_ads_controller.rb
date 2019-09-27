@@ -1,12 +1,12 @@
 module Admin
   class SideBarAdsController < Admin::BaseController
     def index
-      @side_bar_ads = SideBarAd.all
+      @side_bar_ads = SideBarAd.order('sort ASC')
       @new_side_bar_ad = SideBarAd.new
     end
 
     def create
-      @side_bar_ads = SideBarAd.all
+      @side_bar_ads = SideBarAd.order('sort ASC')
       @new_side_bar_ad = SideBarAd.new(side_bar_ad_params)
       if @new_side_bar_ad.save
         redirect_to admin_side_bar_ads_path
@@ -17,7 +17,8 @@ module Admin
 
     def destroy
       @side_bar_ad = SideBarAd.find(params[:id])
-	    @side_bar_ad.destroy
+      @side_bar_ad.destroy
+      resort_side_bar_ads
 
 	    redirect_to admin_side_bar_ads_path
     end
@@ -27,6 +28,13 @@ module Admin
     def side_bar_ad_params
       params[:side_bar_ad] ||= {image: nil}
       params.require(:side_bar_ad).permit(:image, :url)
+    end
+
+    def resort_side_bar_ads
+      SideBarAd.order('sort ASC').each_with_index do |ad, index|
+        ad.sort = index + 1
+        ad.save
+      end
     end
   end
 end

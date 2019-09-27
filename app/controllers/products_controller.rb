@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
       @page_title = "手機價格總覽"
       @page_description = "手機價格總覽"
       @page_keywords = ""
-      Brand.all.each do |brand|
+      Brand.order('sort ASC').each do |brand|
         @page_keywords += "," + brand.name
       end
     when "show"

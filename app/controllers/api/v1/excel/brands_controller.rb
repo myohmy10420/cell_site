@@ -49,7 +49,7 @@ module Api
         private
 
         def get_brands
-          Brand.all.order('sort ASC')
+          Brand.order('sort ASC')
         end
 
         def find_brand(name)

@@ -1,6 +1,6 @@
 class RecoveriesController < ApplicationController
   def index
-    @brands = Brand.all
+    @brands = Brand.order('sort ASC')
     set_meta_tag
   end
 

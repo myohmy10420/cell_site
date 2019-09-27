@@ -1,7 +1,7 @@
 module Admin
   class BrandsController < Admin::BaseController
     def index
-      @brands = Brand.all.order('sort ASC')
+      @brands = Brand.order('sort ASC')
     end
 
     def new
@@ -33,8 +33,8 @@ module Admin
 
     def destroy
 	    @brand = Brand.find(params[:id])
-
-	    @brand.destroy
+      @brand.destroy
+      resort_brands
 
 	    redirect_to admin_brands_path
     end
@@ -43,7 +43,7 @@ module Admin
       if params[:brand_name].present?
         @brands = Brand.where("name like ?", "%#{params[:brand_name]}%").order('updated_at ASC')
       else
-        @brands = Brand.all.order('sort ASC')
+        @brands = Brand.order('sort ASC')
       end
 
       render "index"
@@ -65,6 +65,13 @@ module Admin
 
     def brand_params
       params.require(:brand).permit(:logo, :name)
+    end
+
+    def resort_brands
+      Brand.order('sort ASC').each_with_index do |brand, index|
+        brand.sort = index + 1
+        brand.save
+      end
     end
   end
 end
