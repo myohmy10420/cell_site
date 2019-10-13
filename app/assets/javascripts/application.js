@@ -10,5 +10,4 @@
 //= require admin/side_bar_ads/changeSort
 //= require devise/registrations
 //= require products
-//= require sideBar
 //= require visitorCount

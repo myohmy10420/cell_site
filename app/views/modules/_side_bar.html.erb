@@ -6,8 +6,8 @@
     </button>
   <% end %>
 
-  <% Brand.includes(:products).order('sort ASC, products.name DESC').has_products.each_with_index do |brand, index| %>
-    <div class="accordion" id="accordion_<%= index %>">
+  <div class="side-bar__collapse" id="side-bar__collapse">
+    <% Brand.includes(:products).order('sort ASC, products.name DESC').has_products.each_with_index do |brand, index| %>
       <div class="card">
         <div class="card-header">
           <h5 class="mb-0">
@@ -24,7 +24,7 @@
 
         <div id="collapse_<%= index %>"
              class="collapse collapse_<%= index %> <%= pre_expand_product_brand(brand, @product.try(:brand)) %>"
-             data-parent="#accordion_<%= index %>">
+             data-parent="#side-bar__collapse">
           <div class="card-body">
             <% brand.products.each do |product| %>
               <%= link_to product_path(product) do %>
@@ -35,6 +35,6 @@
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </nav>

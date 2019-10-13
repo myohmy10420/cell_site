@@ -1,7 +1,5 @@
 $(document).ready(function () {
-  console.log('init')
   $(".up_sort", ".side_bar_ads_image_editor").click(function() {
-    console.log(this.dataset.sort)
     sort_side_bar_ads("up_sort", this.dataset.sort)
   })
   $(".down_sort", ".side_bar_ads_image_editor").click(function() {

@@ -1,4 +1,4 @@
-nav.side-bar {
+.side-bar {
   min-height: 460px;
   border: 1px solid #a9a9a9;
   border-radius: 5px;
@@ -36,7 +36,7 @@ nav.side-bar {
     }
   }
 
-  .accordion {
+  &__collapse {
     .card {
       background-color: transparent;
       .card-header {
