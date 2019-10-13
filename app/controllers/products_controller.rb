@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 
   def search_varirnt
     @product = Product.friendly.find(params[:product_id])
-    @brands = Brand.includes(:recoveries).join(:recoveries).uniq
+    @brands = Brand.includes(:recoveries).joins(:recoveries).uniq
 
     tele_id = params[:product][:tele_id]
 
