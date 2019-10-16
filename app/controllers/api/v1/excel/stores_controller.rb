@@ -71,11 +71,12 @@ module Api
               phone: row[3],
               email: row[4],
               line_ID: row[5],
-              address: row[6],
-              google_map_url: row[7],
-              time: row[8]
+              line_url: row[6],
+              address: row[7],
+              google_map_url: row[8],
+              time: row[9]
             }
-          }).require(:store).permit(:name, :service_line, :fax, :phone, :email, :line_ID, :address, :google_map_url, :time)
+          }).require(:store).permit(:name, :service_line, :fax, :phone, :email, :line_ID, :line_url, :address, :google_map_url, :time)
         end
       end
     end

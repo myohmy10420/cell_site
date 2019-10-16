@@ -37,6 +37,7 @@ zh-TW:
         phone: "行動電話"
         email: "E-mail"
         line_ID: "line ID"
+        line_url: "line 網址"
         address: "門市地址"
         google_map_url: "google map 網址"
         time: "營業時間"

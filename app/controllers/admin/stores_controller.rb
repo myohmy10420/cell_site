@@ -69,7 +69,7 @@ module Admin
     private
 
     def store_params
-      params.require(:store).permit(:name, :image, :service_line, :fax, :phone, :email, :line_ID, :address, :google_map_url, :time)
+      params.require(:store).permit(:name, :image, :service_line, :fax, :phone, :email, :line_ID, :line_url, :address, :google_map_url, :time)
     end
   end
 end
