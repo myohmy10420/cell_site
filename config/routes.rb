@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get "admin", to: "admin/products#index"
+  get "admin", to: "admin#index"
   namespace :admin do
     resources :carousel_ads, only: [:index, :create, :destroy]
     resources :pre_orders
