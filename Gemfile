@@ -38,7 +38,7 @@ gem 'rb-readline'
 
 # authentication gems
 gem 'devise', '~> 4.5.0'
-gem 'cancan', '~> 1.6'
+gem 'cancancan', '~> 3'
 gem 'rolify', '~> 5.2'
 
 # images gems
