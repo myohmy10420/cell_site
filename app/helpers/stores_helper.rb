@@ -15,4 +15,8 @@ module StoresHelper
       '-'
     end
   end
+
+  def can_update_store?(user, store)
+    store.id == user.store_id || user.has_role?(:admin)
+  end
 end

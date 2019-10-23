@@ -1,34 +1,34 @@
 <div class="admin_nav">
   <ul class="nav navbar-dark bg-primary justify-content-end">
     <li class="nav-item">
-      <%= link_to "輪播廣告管理", admin_carousel_ads_path, class: "nav-link" %>
+      <%= link_to "輪播廣告管理", admin_carousel_ads_path, class: "nav-link" if can? :read, CarouselAd %>
     <li>
     <li class="nav-item">
-      <%= link_to "小廣告管理", admin_side_bar_ads_path, class: "nav-link" %>
+      <%= link_to "小廣告管理", admin_side_bar_ads_path, class: "nav-link" if can? :read, SideBarAd %>
     <li>
     <li class="nav-item">
-      <%= link_to "電信管理", admin_telecommunications_path, class: "nav-link" %>
+      <%= link_to "電信管理", admin_telecommunications_path, class: "nav-link" if can? :read, Telecommunication %>
     <li>
     <li class="nav-item">
-      <%= link_to "方案管理", admin_variants_path, class: "nav-link" %>
+      <%= link_to "方案管理", admin_variants_path, class: "nav-link" if can? :read, Variant %>
     <li>
     <li class="nav-item">
-      <%= link_to "品牌管理", admin_brands_path, class: "nav-link" %>
+      <%= link_to "品牌管理", admin_brands_path, class: "nav-link" if can? :read, Brand %>
     <li>
     <li class="nav-item">
-      <%= link_to "回收價格管理", admin_recoveries_path, class: "nav-link" %>
+      <%= link_to "回收價格管理", admin_recoveries_path, class: "nav-link" if can? :read, Recovery %>
     <li>
     <li class="nav-item">
-      <%= link_to "商品管理", admin_products_path, class: "nav-link" %>
+      <%= link_to "商品管理", admin_products_path, class: "nav-link" if can? :read, Product %>
     </li>
     <li class="nav-item">
-      <%= link_to "門市管理", admin_stores_path, class: "nav-link" %>
+      <%= link_to "門市管理", admin_stores_path, class: "nav-link" if can? :read, Store %>
     </li>
     <li class="nav-item">
-      <%= link_to "預購管理", admin_pre_orders_path, class: "nav-link" %>
+      <%= link_to "預購管理", admin_pre_orders_path, class: "nav-link" if can? :read, PreOrder %>
     </li>
     <li class="nav-item">
-      <%= link_to "會員管理", admin_users_path, class: "nav-link" %>
+      <%= link_to "會員管理", admin_users_path, class: "nav-link" if can? :read, User %>
     </li>
     <li class="nav-item">
       <%= link_to "回首頁", root_path, class: "nav-link" %>

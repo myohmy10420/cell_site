@@ -1,7 +1,16 @@
 module Admin
   class UsersController < Admin::BaseController
+    load_and_authorize_resource
+
     def index
       @users = User.all.order('updated_at DESC')
+      if current_user.has_role? :admin
+        @users = User.all.order('updated_at DESC')
+      elsif current_user.has_role? :store_manager
+        @users = User.where(store_id: current_user.store_id).order('updated_at DESC')
+      else
+        @users = []
+      end
     end
 
     def edit
@@ -11,7 +20,7 @@ module Admin
 
     def update
       @user = User.find(params[:id])
-      update_roles
+      update_roles if current_user.has_role? :admin
 
       if @user.update(user_params)
         redirect_to admin_users_path

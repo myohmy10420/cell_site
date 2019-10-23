@@ -18,13 +18,17 @@
               as: :date,
               include_blank: true,
               html5: true %>
-  <%= f.association :roles,
-              as: :check_boxes,
-              label: "角色"%>
-  <p class="font font--08r font--grey">
-    admin: 管理員<br>
-    normal: 一般會員
-  </p>
+
+  <% if current_user.has_role? :admin %>
+    <%= f.association :roles,
+                as: :check_boxes,
+                label: "角色"%>
+    <p class="font font--08r font--grey">
+      admin: 管理員<br>
+      store_manager: 店長<br>
+      normal: 一般會員
+    </p>
+  <% end %>
 
   <%= f.button :submit, "提交", class: "btn btn-primary" %>
 <% end %>

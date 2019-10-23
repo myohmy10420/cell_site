@@ -38,7 +38,7 @@
     <% end %>
   </li>
 
-  <% if current_user.has_role? :admin %>
+  <% if can? :go_manage_system, 'control_center' %>
     <li class="nav-item">
       <%= link_to admin_path, class: "nav-link" do %>
         <%= image_tag "icons/home.svg" %>

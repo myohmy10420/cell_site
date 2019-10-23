@@ -48,12 +48,15 @@
             <td><%= store.time %></td>
 
             <td width="100px">
-              <%= link_to edit_admin_store_path(store), class: "action-icons" do %>
-                <%= image_tag "icons/pencil.svg" %>
+              <% if can_update_store?(current_user, store) %>
+                <%= link_to edit_admin_store_path(store), class: "action-icons" do %>
+                  <%= image_tag "icons/pencil.svg" %>
+                <% end if can? :update, Store %>
               <% end %>
+
               <%= link_to admin_store_path(store), method: :delete, data: { confirm: "確定刪除此門市嗎？" }, class: "action-icons" do %>
                 <%= image_tag "icons/x.svg", class: "action-icons" %>
-              <% end %>
+              <% end if can? :delete, Store %>
             </td>
           </tr>
         <% end %>

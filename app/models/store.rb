@@ -13,4 +13,8 @@ class Store < ApplicationRecord
   validates_presence_of :address
   validates_presence_of :google_map_url
   validates_presence_of :time
+
+  def editable?(user)
+    user.in?(users)
+  end
 end

@@ -45,13 +45,15 @@
     <button type="button" class="btn btn-primary">回門市列表</button>
   <% end %>
 
-  <%= link_to admin_store_path(@store), method: :delete, data: { confirm: "確定刪除此商品嗎？" }, class: "action-btns" do %>
-    <button type="button" class="btn btn-danger">刪除</button>
+  <% if can_update_store?(current_user, @store) %>
+    <%= link_to edit_admin_store_path(@store), class: "action-btns" do %>
+      <button type="button" class="btn btn-warning">編輯</button>
+    <% end if can? :update, Store %>
   <% end %>
 
-  <%= link_to edit_admin_store_path(@store), class: "action-btns" do %>
-    <button type="button" class="btn btn-warning">編輯</button>
-  <% end %>
+  <%= link_to admin_store_path(@store), method: :delete, data: { confirm: "確定刪除此商品嗎？" }, class: "action-btns" do %>
+    <button type="button" class="btn btn-danger">刪除</button>
+  <% end if can? :delete, Store %>
 
   <br><br><br><br>
 </div>

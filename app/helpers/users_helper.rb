@@ -22,6 +22,8 @@ module UsersHelper
     case name
     when "admin"
       "管理員"
+    when "store_manager"
+      "店長"
     when "normal"
       "一般會員"
     else

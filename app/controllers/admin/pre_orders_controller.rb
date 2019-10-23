@@ -1,9 +1,16 @@
 module Admin
   class PreOrdersController < Admin::BaseController
+    load_and_authorize_resource
     before_action :find_product, only: [:create]
 
     def index
-      @pre_orders = PreOrder.includes(:user).all.order('updated_at DESC')
+      if current_user.has_role? :admin
+        @pre_orders = PreOrder.includes(:user).all.order('updated_at DESC')
+      elsif current_user.has_role? :store_manager
+        @pre_orders = PreOrder.includes(:user).where(user_id: current_user.id).order('updated_at DESC')
+      else
+        @pre_orders = []
+      end
     end
 
     def edit
