@@ -13,6 +13,7 @@ module Api
         end
 
         def import
+          authorize! :export, Store
           require 'roo'
 
           if !params[:file]

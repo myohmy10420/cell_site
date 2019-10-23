@@ -3,7 +3,6 @@ module Admin
     load_and_authorize_resource
 
     def index
-      @users = User.all.order('updated_at DESC')
       if current_user.has_role? :admin
         @users = User.all.order('updated_at DESC')
       elsif current_user.has_role? :store_manager

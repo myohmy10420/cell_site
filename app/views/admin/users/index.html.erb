@@ -1,12 +1,14 @@
 <%= @excel_import_errors || "" %>
 <div class="user">
-  <div class="section">
+  <div class="section" style="min-height: 38.75px;">
     <%= render partial: "modules/admin_user_search" %>
-    <%= render partial: "modules/excel_maintainer",
-      locals: {
-        export_url: api_v1_excel_users_export_path(format: :xlsx),
-        import_url: api_v1_excel_users_import_path
-      } %>
+    <% if can? :import, User %>
+      <%= render partial: "modules/excel_maintainer",
+        locals: {
+          export_url: api_v1_excel_users_export_path(format: :xlsx),
+          import_url: api_v1_excel_users_import_path
+        } %>
+    <% end %>
   </div>
 
   <div class="list">

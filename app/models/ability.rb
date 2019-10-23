@@ -16,8 +16,8 @@ class Ability
       can :update, Store do |store|
         store.editable?(user)
       end
-      can [:read, :create, :update, :delete, :search], PreOrder, user_id: user.id
-      can [:read, :update, :search], User, store_id: user.store_id
+      can [:read, :create, :update, :delete, :search, :export], PreOrder, user_id: user.id
+      can [:read, :update, :search, :export], User, store_id: user.store_id
     elsif user.has_role? :normal
       can :create, PreOrder
     end

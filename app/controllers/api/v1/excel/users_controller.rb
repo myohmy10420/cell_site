@@ -5,6 +5,8 @@ module Api
         def export
           @users = get_users
 
+          authorize! :export, User
+
           respond_to do |format|
             format.xlsx {
               headers["Content-Disposition"] = "attachment; filename=會員.xlsx"
@@ -13,6 +15,7 @@ module Api
         end
 
         def import
+          authorize! :import, User
           require 'roo'
 
           if !params[:file]
@@ -48,7 +51,13 @@ module Api
         private
 
         def get_users
-          User.all.order('updated_at DESC')
+          if current_user.has_role? :admin
+            User.all.order('updated_at DESC')
+          elsif current_user.has_role? :store_manager
+            User.where(store_id: current_user.store_id).order('updated_at DESC')
+          else
+            []
+          end
         end
 
         def find_store(row)
