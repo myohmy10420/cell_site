@@ -18,6 +18,10 @@ class Ability
       end
       can [:read, :create, :update, :delete, :search, :export], PreOrder, user_id: user.id
       can [:read, :update, :search, :export], User, store_id: user.store_id
+    elsif user.has_role? :product_manager
+      can :go_manage_system, 'control_center'
+      can :read, Admin
+      can :manage, [CarouselAd, SideBarAd, Telecommunication, Variant, Brand, Recovery, Product]
     elsif user.has_role? :normal
       can :create, PreOrder
     end
