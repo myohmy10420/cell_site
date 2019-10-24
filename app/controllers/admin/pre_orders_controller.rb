@@ -7,7 +7,7 @@ module Admin
       if current_user.has_role? :admin
         @pre_orders = PreOrder.includes(:user).all.order('updated_at DESC')
       elsif current_user.has_role? :store_manager
-        @pre_orders = PreOrder.includes(:user).where(user_id: current_user.id).order('updated_at DESC')
+        @pre_orders = PreOrder.includes(:user).where(store_id: current_user.store_id).order('updated_at DESC')
       else
         @pre_orders = []
       end
@@ -32,6 +32,7 @@ module Admin
     def create
       pre_order = PreOrder.new(pre_order_params)
       pre_order.user = current_user
+      pre_order.store = current_user.store
       pre_order.product = @product
       pre_order.product_name = @product.name
       pre_order.selling_price = @product.selling_price

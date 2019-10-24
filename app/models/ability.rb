@@ -16,12 +16,13 @@ class Ability
       can :update, Store do |store|
         store.editable?(user)
       end
-      can [:read, :create, :update, :delete, :search, :export], PreOrder, user_id: user.id
+      can :manage, PreOrder, store_id: user.store_id
       can [:read, :update, :search, :export], User, store_id: user.store_id
     elsif user.has_role? :product_manager
       can :go_manage_system, 'control_center'
       can :read, Admin
       can :manage, [CarouselAd, SideBarAd, Telecommunication, Variant, Brand, Recovery, Product]
+      can :create, PreOrder
     elsif user.has_role? :normal
       can :create, PreOrder
     end

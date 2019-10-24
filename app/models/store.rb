@@ -7,6 +7,7 @@ class Store < ApplicationRecord
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]
 
   has_many :users, dependent: :nullify
+  has_many :pre_orders, dependent: :nullify
 
   validates :name, presence: true, uniqueness: true
   validates_presence_of :service_line
