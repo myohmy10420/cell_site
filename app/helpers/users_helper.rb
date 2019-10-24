@@ -24,6 +24,8 @@ module UsersHelper
       "管理員"
     when "store_manager"
       "店長"
+    when "product_manager"
+      "商品管理員"
     when "normal"
       "一般會員"
     else
