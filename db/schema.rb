@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_03_134528) do
+ActiveRecord::Schema.define(version: 2019_11_16_071300) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_134528) do
     t.string "slug"
     t.string "color"
     t.boolean "is_unlisted", default: false
+    t.integer "category_id"
     t.index ["name"], name: "index_products_on_name", unique: true
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
