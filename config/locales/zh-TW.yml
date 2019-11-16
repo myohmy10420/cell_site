@@ -1,58 +1,72 @@
 zh-TW:
   activerecord:
+    errors:
+      full_messages:
+        format: "%{attribute} %{message}"
+    models:
+      category: 子分類
+      brand: 品牌
+      product: 商品
+      recovery: recovery
+      variant: 方案
+      store: 門市
+      telecommunication: 電信
+      user: 使用者
     attributes:
+      category:
+        name: 子分類名稱
       brand:
-        name: "品牌名稱"
-        logo: "圖片"
+        name: 品牌名稱
+        logo: 圖片
       product:
-        name: "商品名稱"
-        tag: "特色標籤"
-        slogan: "標題語"
-        color: "顏色"
-        content: "商品內文"
-        list_price: "原價"
-        selling_price: "售價"
-        on_sale: "特價中"
-        pre_orderable: "可預購"
-        is_new: "新產品輪播"
-        is_pop: "熱門產品輪播"
-        is_unlisted: "新機發表輪播"
+        name: 商品名稱
+        tag: 特色標籤
+        slogan: 標題語
+        color: 顏色
+        content: 商品內文
+        list_price: 原價
+        selling_price: 售價
+        on_sale: 特價中
+        pre_orderable: 可預購
+        is_new: 新產品輪播
+        is_pop: 熱門產品輪播
+        is_unlisted: 新機發表輪播
       recovery:
-        name: "回收機名稱"
-        max_price: "最高回收金額"
-        min_price: "最低回收金額"
+        name: 回收機名稱
+        max_price: 最高回收金額
+        min_price: 最低回收金額
       variant:
-        name: "方案名稱"
-        discount: "專案折扣"
-        prepaid: "預繳金額"
-        traffic: "優惠流量"
-        period: "合約期"
-        content: "方案敘述"
-        content2: "方案敘述2(一行藍字)"
+        name: 方案名稱
+        discount: 專案折扣
+        prepaid: 預繳金額
+        traffic: 優惠流量
+        period: 合約期
+        content: 方案敘述
+        content2: 方案敘述2(一行藍字)
       store:
-        name: "門市名稱"
-        image: "門市圖片"
-        service_line: "服務專線"
-        fax: "傳真專線"
-        phone: "行動電話"
-        email: "E-mail"
-        line_ID: "line ID"
-        line_url: "line 網址"
-        address: "門市地址"
-        google_map_url: "google map 網址"
-        time: "營業時間"
+        name: 門市名稱
+        image: 門市圖片
+        service_line: 服務專線
+        fax: 傳真專線
+        phone: 行動電話
+        email: E-mail
+        line_ID: line ID
+        line_url: line 網址
+        address: 門市地址
+        google_map_url: google map 網址
+        time: 營業時間
       telecommunication:
-        name: "電信名稱"
-        logo: "圖片"
+        name: 電信名稱
+        logo: 圖片
       user:
-        phone: "電話(帳號)"
-        name: "姓名"
-        store: "註冊門市"
-        comment: "評語"
-        sex: "性別"
-        address: "地址"
-        line: "Line ID"
-        email: "E-mail"
-        birthday: "生日"
-        password: "密碼"
-        password_confirmation: "確認密碼"
+        phone: 電話(帳號)
+        name: 姓名
+        store: 註冊門市
+        comment: 評語
+        sex: 性別
+        address: 地址
+        line: Line ID
+        email: E-mail
+        birthday: 生日
+        password: 密碼
+        password_confirmation: 確認密碼

@@ -1,16 +1,12 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
-
-  # Code is not reloaded between requests.
+  # 開啟後會在啟動 server 時就都載入並執行 class 檔案, 行為是 require 檔案, 除非重啟 server, 不然因為已經載入過該路徑的檔案所以即使檔案內容更新都不會再重載, 雖然會變慢但便於開發
   config.cache_classes = true
 
-  # Eager load code on boot. This eager loads most of Rails and
-  # your application in memory, allowing both threaded web servers
-  # and those relying on copy on write to perform better.
-  # Rake tasks automatically ignore this option for performance.
+  # 開啟 eager_load 雖然會造成啟動 server 時因為要先載入很多東西變慢, 但之後整個 app 會節省許多記憶體, 因為所有 threaded web servers 都不用再建立執行緒去處理這些事情, 可以做到 copy on write
+  # 注意跑 Rake tasks 不包含在這個 congif 裡面
   config.eager_load = true
 
-  # Full error reports are disabled and caching is turned on.
+  # 將發生錯誤時的Call stack trace資訊給瀏覽器顯示(紅畫面), 正式站不使用
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
@@ -80,8 +76,9 @@ Rails.application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
+  config.i18n.available_locales = 'zh-TW'
 
-  # Send deprecation notices to registered listeners.
+  # 設定用哪種方法提醒之後有什麼功能會在之後的 rails 版本被棄用
   config.active_support.deprecation = :notify
 
   # Use default logging formatter so that PID and timestamp are not suppressed.

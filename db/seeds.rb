@@ -1,5 +1,5 @@
 require 'csv'
-Rake::Task["name_and_image:creates_or_updates"].invoke(['brands', 'telecommunications'])
+Rake::Task["name_and_image:creates_or_updates"].invoke(['telecommunications'])
 
 Rake::Task["stores:creates_or_updates"].invoke
 

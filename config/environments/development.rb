@@ -1,15 +1,11 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
-
-  # In the development environment your application's code is reloaded on
-  # every request. This slows down response time but is perfect for development
-  # since you don't have to restart the web server when you make code changes.
+  # 關閉後會讓每一次的 request 都重新載入 class 檔案, 行為是 load 檔案, 每次需要執行到 class 檔案就會載入一次, 雖然會變慢但便於開發
   config.cache_classes = false
 
-  # Do not eager load code on boot.
+  # 參考 production 環境的敘述
   config.eager_load = false
 
-  # Show full error reports.
+  # 將發生錯誤時的Call stack trace資訊給瀏覽器顯示(紅畫面), 開發端使用
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
@@ -41,7 +37,9 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  # Print deprecation notices to the Rails logger.
+  config.i18n.available_locales = 'zh-TW'
+
+  # 設定用哪種方法提醒之後有什麼功能會在之後的 rails 版本被棄用
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
