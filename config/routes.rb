@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :brands
     post "search_brands", to: "brands#search"
     post "add/brand/logos", to: "brands#quick_add_logos"
+    post "add/brand/category", to: "brands#add_category"
     resources :telecommunications
     post "search_telecommunications", to: "telecommunications#search"
     post "add/telecommunication/logos", to: "telecommunications#quick_add_logos"

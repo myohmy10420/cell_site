@@ -1,0 +1,25 @@
+.form-container {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  width: 720px;
+  margin: 20px auto;
+  padding: 45px 45px 85px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.brand-categories-form {
+  .category-box {
+    display: inline-block;
+    .badge {
+      a {
+        position: relative;
+        bottom: 1px;
+        img {
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+  }
+}

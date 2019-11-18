@@ -1,6 +1,43 @@
-<%= simple_form_for @brand, url: url do |f| %>
-  <%= f.input :name %>
-  <%= image_tag @brand.logo.url(:medium) if @brand.logo.present? %>
-  <%= f.input :logo, hint: "會自動裁減為140x40(px)", as: :file %>
-  <%= f.button :submit, "提交", class: "btn btn-primary" %>
-<% end %>
+<div class="form-container">
+  <%= simple_form_for @brand, url: url do |f| %>
+    <div class="form-row">
+      <div class="col-md-3">
+        <span>現在圖片</span>
+        <%= image_tag @brand.logo.url(:medium) if @brand.logo.present? %>
+      </div>
+      <div class="col-md-5">
+        <span>編輯圖片</span>
+        <%= f.input :logo, label: false, hint: "會自動裁減為140x40(px)", as: :file %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :name %>
+      </div>
+    </div>
+    <%= f.button :submit, "提交", class: "btn btn-primary float-right" %>
+  <% end %>
+</div>
+
+<div class="form-container brand-categories-form">
+  <% @brand.categories.each do |c| %>
+    <h4 class="category-box">
+      <span class="badge badge-info">
+        <%= c.name %>
+        <%= link_to admin_side_bar_ad_path(c), method: :delete, data: { confirm: "確定刪除此廣告圖片嗎？" }, class: "action-icons" do %>
+          <%= image_tag "icons/x.svg" %>
+        <% end %>
+      </span>
+    </h4>
+  <% end %>
+
+  <%= form_tag admin_add_brand_category_path do %>
+    <div class="form-row">
+      <div class="col-md-4">
+        <%= content_tag(:input, "", name: "category[brand_id]", value: @brand.id, hidden: true) %>
+        <%= content_tag(:input, "", name: "category[name]", class: "form-control string required", placeholder: "請輸入子分類名稱") %>
+      </div>
+      <div class="col-md-3">
+        <%= submit_tag "新增子分類", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

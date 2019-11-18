@@ -61,6 +61,18 @@ module Admin
       redirect_to admin_brands_path
     end
 
+    def add_category
+      category = Category.new(category_params)
+
+      if category.save
+        flash[:notice] = "新增子分類成功"
+      else
+        flash[:alert] = category.errors.full_messages.join(', ')
+      end
+
+      redirect_to edit_admin_brand_path(params[:category][:brand_id])
+    end
+
     private
 
     def brand_params
@@ -72,6 +84,10 @@ module Admin
         brand.sort = index + 1
         brand.save
       end
+    end
+
+    def category_params
+      params.require(:category).permit(:brand_id, :name)
     end
   end
 end
