@@ -10,6 +10,12 @@ development:
   database: jsweb_development
   password:
 
+test:
+  <<: *default
+  adapter: mysql2
+  database: jsweb_test
+  password:
+
 production:
   <<: *default
   adapter: postgresql
