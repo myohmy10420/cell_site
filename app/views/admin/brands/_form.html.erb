@@ -22,7 +22,7 @@
     <h4 class="category-box">
       <span class="badge badge-info">
         <%= c.name %>
-        <%= link_to admin_side_bar_ad_path(c), method: :delete, data: { confirm: "確定刪除此廣告圖片嗎？" }, class: "action-icons" do %>
+        <%= link_to admin_category_path(c), method: :delete, data: { confirm: "確定刪除此子分類嗎？" }, class: "action-icons" do %>
           <%= image_tag "icons/x.svg" %>
         <% end %>
       </span>
