@@ -136,4 +136,36 @@ RSpec.describe Admin::BrandsController, type: :controller do
       expect(response).to redirect_to admin_brands_path
     end
   end
+
+  describe "POST add_category" do
+    it "create a new category record" do
+      brand = create(:brand)
+      category = create(:category)
+
+      params = {
+        category: {
+          brand_id: brand.id
+        }.merge(attributes_for(:category))
+      }
+
+      expect do
+        post :add_category, params: params
+      end.to change{ Category.count }.by(1)
+    end
+
+    it "redirects to brands_path" do
+      brand = create(:brand)
+      category = create(:category)
+
+      params = {
+        category: {
+          brand_id: brand.id
+        }.merge(attributes_for(:category))
+      }
+
+      post :add_category, params: params
+
+      expect(response).to redirect_to edit_admin_brand_path(brand.id)
+    end
+  end
 end
