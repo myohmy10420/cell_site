@@ -1,35 +1,38 @@
-<%= simple_form_for @product, url: url do |f| %>
-  <%= f.association :brand, label: "商品品牌", as: :select, prompt: "請選擇品牌" %>
-  <%= f.input :name %>
-  <%= f.input :tag %>
-  <%= f.input :slogan %>
-  <%= f.input :color %>
-  <%= f.input :content, input_html: { rows: '6' } %>
-  <%= f.input :list_price, as: :integer %>
-  <%= f.input :selling_price, as: :integer %>
-  <%= f.input :on_sale, as: :boolean %>
-  <%= f.input :pre_orderable, as: :boolean %>
-  <%= f.input :is_new, as: :boolean %>
-  <%= f.input :is_pop, as: :boolean %>
-  <%= f.input :is_unlisted, as: :boolean %>
+<div class="form-container">
+  <%= simple_form_for @product, url: url do |f| %>
+    <%= f.association :brand, label: "商品品牌", as: :select, prompt: "請選擇品牌" %>
+    <%= f.association :category, label: "子分類", as: :select, prompt: "請選擇品牌" %>
+    <%= f.input :name %>
+    <%= f.input :tag %>
+    <%= f.input :slogan %>
+    <%= f.input :color %>
+    <%= f.input :content, input_html: { rows: '6' } %>
+    <%= f.input :list_price, as: :integer %>
+    <%= f.input :selling_price, as: :integer %>
+    <%= f.input :on_sale, as: :boolean %>
+    <%= f.input :pre_orderable, as: :boolean %>
+    <%= f.input :is_new, as: :boolean %>
+    <%= f.input :is_pop, as: :boolean %>
+    <%= f.input :is_unlisted, as: :boolean %>
 
-  <div class="product_images-editor">
-    <button type="button" class="product_images-editor__btn">
-      多選刪除商品圖片
-    </button>
-    <% if @product.has_images? %>
-      <% @product.images.each do |product_image| %>
-        <div class="product_images-editor__item">
-          <input type="checkbox" class="product_images-editor__item__checkbox" data-id="<%= product_image.id %>">
-          <%= image_tag product_image.image.url(:medium) %>
-        </div>
+    <div class="product_images-editor">
+      <button type="button" class="product_images-editor__btn">
+        多選刪除商品圖片
+      </button>
+      <% if @product.has_images? %>
+        <% @product.images.each do |product_image| %>
+          <div class="product_images-editor__item">
+            <input type="checkbox" class="product_images-editor__item__checkbox" data-id="<%= product_image.id %>">
+            <%= image_tag product_image.image.url(:medium) %>
+          </div>
+        <% end %>
       <% end %>
+    </div>
+
+    <%= f.simple_fields_for @product.product_images do |i| %>
+      <%= i.input :images, label: "圖片", as: :file, input_html: { multiple: true }, hint: "可選擇多個檔案，會自動裁減為300x300(px)" %>
     <% end %>
-  </div>
 
-  <%= f.simple_fields_for @product.product_images do |i| %>
-    <%= i.input :images, label: "圖片", as: :file, input_html: { multiple: true }, hint: "可選擇多個檔案，會自動裁減為300x300(px)" %>
+    <%= f.button :submit, "提交", class: "btn btn-primary" %>
   <% end %>
-
-  <%= f.button :submit, "提交", class: "btn btn-primary" %>
-<% end %>
+</div>

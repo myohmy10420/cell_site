@@ -6,18 +6,20 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images
 
   belongs_to :brand
+  belongs_to :category, optional: true
   has_many :pre_orders
 
   attr_reader :tele_id
   attr_reader :variant_id
   attr_reader :recovery_id
 
+  validates_presence_of :category_id, on: :update
   validates :name, presence: true, uniqueness: true
-  validates_presence_of :slogan
+  validates_presence_of :slogan, on: :update
   # validates_presence_of :list_price
-  validate :check_is_new_limit
-  validate :check_is_pop_limit
-  validate :check_is_unlisted_limit
+  validate :check_is_new_limit, on: :update
+  validate :check_is_pop_limit, on: :update
+  validate :check_is_unlisted_limit, on: :update
 
   scope :is_new, -> { where(is_new: true) }
   scope :is_pop, -> { where(is_pop: true) }
