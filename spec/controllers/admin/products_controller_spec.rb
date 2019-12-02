@@ -111,7 +111,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
 
       put :update , params: params
 
-      expect(response).to redirect_to admin_product_path(product)
+      expect(response).to redirect_to edit_admin_product_path(product)
     end
   end
 

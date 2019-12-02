@@ -5,10 +5,6 @@ module Admin
       @products = Product.where("name like ?", "%#{@name_keyword}%").order('updated_at DESC')
     end
 
-    def show
-      @product = Product.friendly.find(params[:id])
-    end
-
     def new
       @product = Product.new
     end
@@ -31,8 +27,10 @@ module Admin
 
       if @product.update(update_product_params)
         update_product_images
-        redirect_to admin_product_path(@product)
+        flash[:notice] = "更新成功"
+        redirect_to edit_admin_product_path(@product)
       else
+        flash[:alert] = "更新失敗"
         render "edit"
       end
     end
