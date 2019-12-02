@@ -1,7 +1,9 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "product") do |sheet|
   sheet.add_row [
+    'product_id(勿動, 新增請留白)',
     '品牌名稱',
+    '子分類名稱',
     '商品名稱',
     '特色標籤',
     '標題語',
@@ -15,7 +17,9 @@ wb.add_worksheet(name: "product") do |sheet|
   ]
   @products.each do |product|
     sheet.add_row [
+      product.id,
       product.brand.name,
+      product.category.name,
       product.name,
       product.tag,
       product.slogan,
