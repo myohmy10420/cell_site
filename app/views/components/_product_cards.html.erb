@@ -1,0 +1,36 @@
+<div class="product-cards">
+  <% products.each do |product| %>
+    <% if product.shelved %>
+      <%= link_to product_path(product), class: 'card' do %>
+        <div class="card-image-content">
+          <%= image_tag product.first_image.url(:medium) if product.has_images? %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <div class="card-title__name">
+              <span class="font font--red">
+                <%= product.name %>
+              </span>
+            </div>
+            <div class="card-title__color">
+              <span class="font font--red">
+                <%= product.color %>
+              </span>
+            </div>
+          </h5>
+          <div class="card-text">
+            <span>
+              售價 <%= render_index_selling_price(product) %>
+            </span>
+            <hr>
+            <div class="card-text__slogan">
+              <span class="font font--blue">
+                <%= product.slogan %>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

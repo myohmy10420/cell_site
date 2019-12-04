@@ -7,7 +7,7 @@
   <% end %>
 
   <div class="side-bar__collapse" id="side-bar__collapse">
-    <% Brand.includes(:products).order('sort ASC, products.name DESC').has_products.each_with_index do |brand, index| %>
+    <% Brand.has_categories.order('sort ASC').each_with_index do |brand, index| %>
       <div class="card">
         <div class="card-header">
           <h5 class="mb-0">
@@ -26,10 +26,9 @@
              class="collapse collapse_<%= index %> <%= pre_expand_product_brand(brand, @product.try(:brand)) %>"
              data-parent="#side-bar__collapse">
           <div class="card-body">
-            <% brand.products.each do |product| %>
-              <%= link_to product_path(product) do %>
-                <div><%= product.name %></div>
-                <div><%= product.color %></div>
+            <% brand.categories.each do |c| %>
+              <%= link_to category_path(c) do %>
+                <div><%= c.name %></div>
               <% end %>
             <% end %>
           </div>

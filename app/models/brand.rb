@@ -10,7 +10,11 @@ class Brand < ApplicationRecord
   default_url: "/images/:style/missing.png"
   validates_attachment_content_type :logo, content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]
 
-  scope :has_products, -> { joins(:products).uniq }
+  # scope :has_products, -> { joins(:products).uniq }
+
+  # scope :has_categories, -> { left_outer_joins(:products).distinct.where('products.id IS NULL') }
+
+  scope :has_categories, -> { joins(:categories).distinct }
 
   validates :name, presence: true, uniqueness: true
 

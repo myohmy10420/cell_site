@@ -1,23 +1,19 @@
 .wrapper {
   display: flex;
-  width: 80%;
   width: 1200px;
   margin: 0 auto;
 }
 
 .wrapper-left {
-  display: inline-block;
   width: 240px;
   min-width: 240px;
 }
 
 .wrapper-body {
-  display: inline-block;
   flex-grow: 1;
 }
 
 .wrapper-right {
-  display: inline-block;
   width: 240px;
   min-width: 240px;
 }
