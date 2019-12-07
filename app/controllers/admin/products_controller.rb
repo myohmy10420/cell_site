@@ -65,7 +65,7 @@ module Admin
     end
 
     def update_product_params
-      params.require(:product).permit(:brand_id, :category_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :on_sale, :pre_orderable, :is_new, :is_pop, :is_unlisted, :slug, :color)
+      params.require(:product).permit(:category_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :on_sale, :pre_orderable, :is_new, :is_pop, :is_unlisted, :slug, :color)
     end
 
     def update_product_images
