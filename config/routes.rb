@@ -29,9 +29,9 @@ Rails.application.routes.draw do
     post "search_users", to: "users#search"
   end
 
-  resources :categories, only: [:show]
+  resources :categories, only: [:index, :show]
 
-  resources :products, only: [:index, :show] do
+  resources :products, only: [:show] do
     collection do
       post "search"
     end

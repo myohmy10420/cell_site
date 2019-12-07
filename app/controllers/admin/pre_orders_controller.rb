@@ -71,7 +71,7 @@ module Admin
       @product = Product.find(params[:pre_order][:product_id])
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = "已經找不到此商品"
-      redirect_to products_path
+      redirect_to root_path
     end
 
     def pre_order_params

@@ -51,7 +51,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
       end.to change{ Product.count }.by(1)
     end
 
-    it "redirects to products_path" do
+    it "redirects to edit_admin_product_path" do
       brand = create(:brand)
       product = build(:product, brand_id: brand.id)
 

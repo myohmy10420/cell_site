@@ -1,9 +1,4 @@
 class ProductsController < ApplicationController
-  def index
-    @brands = find_brands_with_products
-    set_meta_tag
-  end
-
   def show
     @product = Product.friendly.find(params[:id])
     check_product_viewable
