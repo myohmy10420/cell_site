@@ -16,3 +16,9 @@ section.footer {
     margin-left: 75px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  section.footer {
+    min-width: initial;
+  }
+}

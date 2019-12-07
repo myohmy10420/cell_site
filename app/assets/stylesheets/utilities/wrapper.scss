@@ -17,3 +17,17 @@
   width: 240px;
   min-width: 240px;
 }
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    width: initial;
+  }
+
+  .wrapper-left {
+    display: none;
+  }
+
+  .wrapper-right {
+    display: none;
+  }
+}

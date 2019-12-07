@@ -25,20 +25,16 @@ section.header {
         font-size: 16px;
         color: #000000;
       }
-
-      // @media (max-width: 576px) {
-      //   .nav-link {
-      //     text-align: left;
-
-      //     img {
-      //       display: none;
-      //     }
-      //   }
-      // }
     }
 
     .navbar-toggler {
       border: 1px solid;
     }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  section.header {
+    min-width: initial;
   }
 }
