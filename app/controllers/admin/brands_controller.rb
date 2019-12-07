@@ -49,18 +49,6 @@ module Admin
       render "index"
     end
 
-    def quick_add_logos
-      params[:files].each do |file|
-        extension_dot = file.original_filename.rindex(".")
-        file_name = file.original_filename.slice(0, extension_dot)
-
-        brand = Brand.find_by(name: file_name)
-        brand.update(logo: file) if brand
-      end if params[:files].presence
-
-      redirect_to admin_brands_path
-    end
-
     def add_category
       category = Category.new(category_params)
 
