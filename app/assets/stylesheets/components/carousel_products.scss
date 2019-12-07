@@ -3,48 +3,6 @@
   width: 100%;
   padding: 5px;
 
-  .carousel-inner {
-    .carousel-item {
-      .cards {
-        display: flex;
-
-        .card {
-          padding: 10px;
-          margin: 0 5px;
-          flex-grow: 1;
-          max-width: 33.33%;
-
-          .card-image-content {
-            width: 100%;
-            min-height: 200px;
-            img {
-              width: 100%;
-            }
-          }
-
-          .card-body {
-            padding: 0px;
-
-            hr {
-              margin: 5px 0px;
-            }
-
-            .card-title {
-              a {
-                display: block;
-                height: 58px;
-                overflow: hidden;
-              }
-              a, a:hover {
-                color: #000000;
-                text-decoration: none;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
   .carousel-control-prev, .carousel-control-next {
     width: 7%;
   }

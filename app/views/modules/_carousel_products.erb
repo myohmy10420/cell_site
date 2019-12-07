@@ -3,32 +3,7 @@
   <div class="carousel-inner">
     <% product_groups.each_with_index do |product_group, index| %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
-        <div class="cards">
-          <% product_group.each do |product| %>
-            <div class="card">
-              <div class="card-image-content">
-                <%= link_to product_path(product) do %>
-                  <% image_tag product.first_image.url(:medium) if product.has_images? %>
-                <% end %>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">
-                  <%= link_to product_path(product) do %>
-                    <%= content_tag :div, product.name, class: "font font--red" %>
-                    <%= content_tag :div, product.color, class: "font font--red" %>
-                  <% end %>
-                </h5>
-                <div class="card-text">售價 <%= render_index_selling_price(product) %></div>
-                <hr>
-                <div class="card-text">
-                  <span class="font font--blue">
-                    <%= product.slogan %>
-                  </span>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
+        <%= render "components/product_cards", products: product_group %>
       </div>
     <% end %>
   </div>
