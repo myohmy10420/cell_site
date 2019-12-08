@@ -1,0 +1,6 @@
+<%= form_tag search_products_path, method: :post, class: "search_products_input" do %>
+  <input class="font font--08r" name="search_key" placeholder="快速查詢">
+  <button class="btn btn-secondary" type="submit">
+    <%= image_tag "icons/magnifying-glass.svg" %>
+  </button>
+<% end %>

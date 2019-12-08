@@ -1,10 +1,7 @@
 <nav class="nav flex-column side-bar">
-  <%= form_tag search_products_path, method: :post, class: "form-inline" do %>
-    <input class="font font--08r" name="search_key" placeholder="快速查詢">
-    <button class="btn btn-secondary" type="submit">
-      <%= image_tag "icons/magnifying-glass.svg" %>
-    </button>
-  <% end %>
+  <div class="side-bar__search_products_input">
+    <%= render "components/search_products_input" %>
+  </div>
 
   <div class="side-bar__collapse" id="side-bar__collapse">
     <% Brand.has_categories.order('sort ASC').each_with_index do |brand, index| %>

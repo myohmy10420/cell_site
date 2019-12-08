@@ -1,0 +1,16 @@
+.search_products_input {
+  display: flex;
+
+  input {
+    width: 70%;
+    padding: 6px;
+    border: 1px solid #ced4da;
+    border-radius: 5px 0px 0px 5px;
+  }
+
+  button {
+    padding: 1px 0px 6px;
+    flex-grow: 1;
+    border-radius: 0px 5px 5px 0px;
+  }
+}
