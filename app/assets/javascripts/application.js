@@ -9,5 +9,6 @@
 //= require admin/product_images/deleteImages
 //= require admin/side_bar_ads/changeSort
 //= require devise/registrations
+//= require headerDropdownIcon
 //= require products
 //= require visitorCount

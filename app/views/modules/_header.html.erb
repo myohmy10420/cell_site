@@ -2,11 +2,10 @@
   <div class="wrapper">
     <nav class="navbar">
       <%= link_to root_path do %>
-        <%= image_tag "logo.jpg", class: 'logo' %>
+        <%= image_tag("logo.jpg", class: "logo") %>
       <% end %>
-      <ul class="nav justify-content-end">
-        <%= render "modules/nav_list" %>
-      </ul>
+      <%= render "components/over_420_width_nav_items"%>
+      <%= render "components/less_420_width_nav_items"%>
     </nav>
   </div>
 </section>

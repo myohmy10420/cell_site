@@ -7,9 +7,43 @@ section.header {
     height: 100%;
   }
 
+  .nav-less420width-items {
+    display: none;
+    &__mask {
+      transition: all 0.3s;
+      position: fixed;
+      top: 0px;
+      left: 100%;
+      bottom: 0px;
+      right: 0px;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 998;
+      text-align: right;
+    }
+    &__panel {
+      position: relative;
+      display: inline-block;
+      right: 0;
+      min-width: 225px;
+      background-color: #636363;
+      z-index: 999;
+      text-align: left;
+      .nav-link {
+        border-top: 1px solid #ffffff;
+        padding: 10px 15px;
+        zoom: 1.1;
+      }
+    }
+  }
+
+  .menu-icon {
+    margin-right: 15px;
+  }
+
   .navbar {
     width: 100%;
     padding: 0px;
+    flex-wrap: initial;
 
     .logo {
       height: 57px;
@@ -26,15 +60,23 @@ section.header {
         color: #000000;
       }
     }
-
-    .navbar-toggler {
-      border: 1px solid;
-    }
   }
 }
 
 @media screen and (max-width: 767px) {
   section.header {
     min-width: initial;
+  }
+}
+
+// for nav_list
+@media screen and (max-width: 420px) {
+  section.header {
+    .nav-over420width-items {
+      display: none;
+    }
+    .nav-less420width-items {
+      display: initial;
+    }
   }
 }

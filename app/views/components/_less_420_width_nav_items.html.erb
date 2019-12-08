@@ -1,0 +1,42 @@
+<ul class="nav nav-less420width-items">
+  <%= image_tag("icons/spreadsheet.svg", id: "header-menu-icon", class: "menu-icon") %>
+</ul>
+
+<div class="nav-less420width-items__mask">
+  <nav class="nav flex-column nav-less420width-items__panel">
+    <%= link_to categories_path, class: "nav-link" do %>
+      <%= image_tag "icons/phone.svg" %>
+      <span class="font font--white font--08r">商品導覽</span>
+    <% end %>
+    <%= link_to variants_path, class: "nav-link" do %>
+      <%= image_tag "icons/calculator.svg" %>
+      <span class="font font--white font--08r">門號折扣</span>
+    <% end %>
+    <%= link_to recoveries_path, class: "nav-link" do %>
+      <%= image_tag "icons/loop-circular.svg" %>
+      <span class="font font--white font--08r">二手折扣</span>
+    <% end %>
+    <%= link_to stores_path, class: "nav-link" do %>
+      <%= image_tag "icons/map-marker.svg" %>
+      <span class="font font--white font--08r">門市據點</span>
+    <% end %>
+
+      <% if !current_user %>
+        <%= link_to new_user_session_path, class: "nav-link" do %>
+          <%= image_tag "icons/people.svg" %>
+          <span class="font font--white font--08r">會員登入</span>
+        <% end %>
+      <% else %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+          <%= image_tag "icons/external-link.svg" %>
+          <span class="font font--white font--08r">會員登出</span>
+        <% end %>
+        <% if can? :go_manage_system, 'control_center' %>
+          <%= link_to admin_path, class: "nav-link" do %>
+            <%= image_tag "icons/home.svg" %>
+            <span class="font font--white font--08r">後台管理</span>
+          <% end %>
+        <% end %>
+      <% end %>
+  </nav>
+</div>
