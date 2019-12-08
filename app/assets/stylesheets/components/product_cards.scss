@@ -56,3 +56,36 @@
     }
   }
 }
+
+.carousel_products {
+  .card {
+    width: 215px;
+
+    .card-image-content {
+      width: 213px;
+      height: 213px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product-cards {
+    .card {
+      width: 48.2%;
+      .card-image-content {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .carousel_products {
+    .card {
+      width: 48%;
+      .card-image-content {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

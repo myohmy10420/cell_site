@@ -1,6 +1,6 @@
 <div class="pages">
   <section>
-    <%= render "modules/carousel_ads" %>
+    <%= render "components/carousel_ads" %>
   </section>
 
   <br>
@@ -21,26 +21,26 @@
 
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="is_new" role="tabpanel" aria-labelledby="is_new-tab">
-      <%= render partial: "modules/carousel_products",
+      <%= render partial: "components/carousel_products",
         locals: {
           carousel_id: "new_products",
-          product_groups: @new_product_groups
+          product_groups: slice_items_a_group(@new_products)
         } %>
     </div>
 
     <div class="tab-pane fade" id="is_unlisted" role="tabpanel" aria-labelledby="is_unlisted-tab">
-      <%= render partial: "modules/carousel_products",
+      <%= render partial: "components/carousel_products",
         locals: {
           carousel_id: "pop_products",
-          product_groups: @unlisted_products_groups
+          product_groups: slice_items_a_group(@unlisted_products)
         } %>
     </div>
 
     <div class="tab-pane fade" id="is_pop" role="tabpanel" aria-labelledby="is_pop-tab">
-      <%= render partial: "modules/carousel_products",
+      <%= render partial: "components/carousel_products",
         locals: {
           carousel_id: "pop_products",
-          product_groups: @pop_product_groups
+          product_groups: slice_items_a_group(@pop_products)
         } %>
     </div>
   </div>

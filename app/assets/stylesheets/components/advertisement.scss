@@ -4,20 +4,23 @@
   height: 404px;
   border: #dedede 2px solid;
 
-  .carousel-inner {
-    .carousel-item {
-      img {
-        width: 676px;
-        height: 400px;
-      }
-    }
-  }
-
   ol {
     li {
       width: 12px;
       height: 12px;
       border-radius: 999px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #carousel_ads {
+    width: 100%;
+    height: inherit;
+    .carousel-item {
+      img {
+        max-width: 100%;
+      }
     }
   }
 }
