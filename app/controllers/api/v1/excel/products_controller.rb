@@ -23,6 +23,7 @@ module Api
             excel_page = Roo::Excelx.new(params[:file].path)
             excel_page.drop(1).each do |row|
               @product = Product.find_or_create_by(id: row[0])
+              @product.name = row[3]
               next if brand_not_found_by_name(row[1])
               next if category_not_found_by_name(row[2])
 
@@ -33,16 +34,16 @@ module Api
               end
             end
 
+            @products = get_products
+
             if @excel_import_errors.presence
               @excel_import_errors = @excel_import_errors.html_safe
+              render 'admin/products/index'
             else
               flash[:notice] = "匯入成功！"
+              redirect_to admin_products_path
             end
           end
-
-          @products = get_products
-
-          redirect_to admin_products_path
         end
 
         private
