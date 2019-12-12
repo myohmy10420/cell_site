@@ -17,9 +17,9 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{app@18.222.195.47}
-role :web, %w{app@18.222.195.47}
-role :db,  %w{app@18.222.195.47}
+role :app, %w{jspe.com.tw}
+role :web, %w{jspe.com.tw}
+role :db,  %w{jspe.com.tw}
 
 set :rvm_custom_path, "/usr/share/rvm/"
 
