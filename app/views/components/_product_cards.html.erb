@@ -7,24 +7,24 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">
-            <div class="card-title__name">
-              <span class="font font--red">
-                <%= product.name %>
+            <span class="font font--black">
+              <%= product.name %>
+            </span>
+            <br>
+            <% if product.color.present? %>
+              <span class="font font--black">
+                (<%= product.color %>)
               </span>
-            </div>
-            <div class="card-title__color">
-              <span class="font font--red">
-                <%= product.color %>
-              </span>
-            </div>
+            <% end %>
           </h5>
           <div class="card-text">
-            <span>
-              售價 <%= render_index_selling_price(product) %>
+            <span class="font font--grey">
+              售價
             </span>
+            <%= render_index_selling_price(product) %>
             <hr>
             <div class="card-text__slogan">
-              <span class="font font--blue">
+              <span class="font font--red">
                 <%= product.slogan %>
               </span>
             </div>
