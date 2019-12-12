@@ -57,7 +57,7 @@ module Admin
 
     def search
       if params[:user_phone].present?
-        @pre_orders = PreOrder.joins(:user).where("users.phone like ?", "%#{params[:user_phone]}%").order('updated_at DESC')
+        @pre_orders = PreOrder.joins(:user).where(["users.phone like ?", "%#{params[:user_phone]}%"]).order('updated_at DESC')
       else
         @pre_orders = PreOrder.all.order('updated_at DESC')
       end

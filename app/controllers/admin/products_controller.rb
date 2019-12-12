@@ -2,7 +2,7 @@ module Admin
   class ProductsController < Admin::BaseController
     def index
       @name_keyword = params[:product_name] || ''
-      @products = Product.where("name like ?", "%#{@name_keyword}%").order('updated_at DESC')
+      @products = Product.where(["name like ?", "%#{@name_keyword}%"]).order('updated_at DESC')
     end
 
     def new

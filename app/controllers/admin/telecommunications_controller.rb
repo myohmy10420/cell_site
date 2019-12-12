@@ -41,7 +41,7 @@ module Admin
 
     def search
       if params[:tele_name].present?
-        @telecommunications = Telecommunication.where("name like ?", "%#{params[:tele_name]}%").order('updated_at DESC')
+        @telecommunications = Telecommunication.where(["name like ?", "%#{params[:tele_name]}%"]).order('updated_at DESC')
       else
         @telecommunications = Telecommunication.all.order('updated_at DESC')
       end

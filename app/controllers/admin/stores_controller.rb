@@ -48,7 +48,7 @@ module Admin
 
     def search
       if params[:store_name].present?
-        @stores = Store.where("name like ?", "%#{params[:store_name]}%").order('updated_at DESC')
+        @stores = Store.where(["name like ?", "%#{params[:store_name]}%"]).order('updated_at DESC')
       else
         @stores = Store.all.order('updated_at DESC')
       end

@@ -41,7 +41,7 @@ module Admin
 
     def search
       if params[:brand_name].present?
-        @brands = Brand.where("name like ?", "%#{params[:brand_name]}%").order('updated_at ASC')
+        @brands = Brand.where(["name like ?", "%#{params[:brand_name]}%"]).order('updated_at ASC')
       else
         @brands = Brand.order('sort ASC')
       end

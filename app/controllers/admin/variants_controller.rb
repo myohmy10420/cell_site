@@ -50,7 +50,7 @@ module Admin
       end
 
       if params[:variant_name].present?
-        @variants = include_variants.where("name like ?", "%#{params[:variant_name]}%").order('updated_at DESC')
+        @variants = include_variants.where(["name like ?", "%#{params[:variant_name]}%"]).order('updated_at DESC')
       else
         @variants = include_variants.order('updated_at DESC')
       end

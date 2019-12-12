@@ -11,9 +11,9 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @brands = find_brands_with_products
+    @products = Product.where(shelved: true).where(["name like ?", "%#{params[:search_key]}%"])
 
-    render "index"
+    render "categories/show"
   end
 
   def search_varirnt
@@ -52,12 +52,6 @@ class ProductsController < ApplicationController
       @page_description = @product.slogan
       @page_keywords = @product.name
     end
-  end
-
-  def find_brands_with_products
-    @search_key = params[:search_key] || ''
-    brand_ids = Product.where(shelved: true).where("name like ?", "%#{@search_key}%").pluck(:brand_id).uniq
-    Brand.where(id: brand_ids).includes(:products)
   end
 
   def check_product_viewable

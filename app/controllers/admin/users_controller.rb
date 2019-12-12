@@ -45,7 +45,7 @@ module Admin
       end
 
       if params[:user_phone].present?
-        @users = include_users.where("phone like ?", "%#{params[:user_phone]}%").order('updated_at DESC')
+        @users = include_users.where(["phone like ?", "%#{params[:user_phone]}%"]).order('updated_at DESC')
       else
         @users = include_users.order('updated_at DESC')
       end

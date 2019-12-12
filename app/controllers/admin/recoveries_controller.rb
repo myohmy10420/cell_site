@@ -43,7 +43,7 @@ module Admin
 
     def search
       if params[:recovery_name].present?
-        @recoveries = Recovery.where("name like ?", "%#{params[:recovery_name]}%").order('updated_at DESC')
+        @recoveries = Recovery.where(["name like ?", "%#{params[:recovery_name]}%"]).order('updated_at DESC')
       else
         @recoveries = Recovery.all.order('updated_at DESC')
       end
