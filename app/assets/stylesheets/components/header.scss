@@ -1,3 +1,7 @@
+.header__search_products_input-container--mobile {
+  display: none;
+}
+
 section.header {
   min-width: 1200px;
   background-color: #EE1C29;
@@ -71,6 +75,10 @@ section.header {
 
 // for nav_list
 @media screen and (max-width: 420px) {
+  .header__search_products_input-container--mobile {
+    display: initial;
+  }
+
   section.header {
     .nav-over420width-items {
       display: none;
