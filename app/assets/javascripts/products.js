@@ -38,9 +38,9 @@ $(document).ready(function () {
     var recoveryDiscount = parseInt(document.getElementById("product_recovery_id").value || 0)
 
     if (!!recoveryDiscount) {
-      $(".recoveriesStandard").show()
+      $(".recoveries-standard").show()
     } else {
-      $(".recoveriesStandard").hide()
+      $(".recoveries-standard").hide()
     }
 
     var subtotal = sellingPrice - variantDiscount - recoveryDiscount

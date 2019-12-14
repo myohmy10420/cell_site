@@ -62,7 +62,7 @@
     }
   }
 
-  .recoveriesStandard {
+  .recoveries-standard {
     img {
       width: 360px;
     }
@@ -101,6 +101,12 @@
 
       .image {
         margin: 0 auto 15px;
+      }
+    }
+
+    .recoveries-standard {
+      img {
+        width: 100%;
       }
     }
   }

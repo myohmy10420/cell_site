@@ -1,7 +1,7 @@
 .recoveries {
   padding: 20px;
 
-  .recoveriesStandard {
+  .recoveries-standard {
     img {
       width: 680px;
     }
@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 767px) {
   .recoveries {
-    .recoveriesStandard {
+    .recoveries-standard {
       img {
         width: 100%;
       }
