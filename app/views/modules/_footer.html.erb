@@ -1,10 +1,33 @@
 <section class="footer">
   <div class="wrapper">
-    <%= link_to "網站使用條款", pages_web_terms_path %>
-    <%= link_to "隱私權政策", pages_privacy_policy_path %>
-    <%= link_to "免責聲明", pages_disclaimer_path %>
-    <span class="visitor_count font font--white">
-      累積訪客人數: <span class="count"></span> 人
-    </span>
+    <div class="row">
+      <div class="col">
+        <ul>
+          <li>
+            <div class="footer-items-title">
+              <span class="font font--12r">關於我們</span>
+            </div>
+          </li>
+          <li><%= link_to "門市據點", stores_path %></li>
+          <li>
+            <span class="visitor_count font font--white">
+              累積訪客人數: <span class="count"></span> 人
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li>
+            <div class="footer-items-title">
+              <span class="font font--12r">條款政策</span>
+            </div>
+          </li>
+          <li><%= link_to "網站使用條款", pages_web_terms_path %></li>
+          <li><%= link_to "隱私權政策", pages_privacy_policy_path %></li>
+          <li><%= link_to "免責聲明", pages_disclaimer_path %></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>

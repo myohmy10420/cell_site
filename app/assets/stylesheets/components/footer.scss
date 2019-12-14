@@ -1,24 +1,45 @@
 section.footer {
   min-width: 1200px;
   background-color: #E9222E;
-  padding-bottom: 20px;
+
+  .footer-items-title {
+    color: #e0e0e0;
+  }
+
+  .row {
+    padding: 10px 0px;
+    width: 100%;
+
+    .col {
+      padding-left: 15%;
+    }
+  }
+
+  ul {
+    margin: 0px;
+
+    li {
+      margin-bottom: 5px;
+    }
+  }
 
   a {
     color: #ffffff;
-    margin: 0px 5px;
 
     &:hover {
       text-decoration: none;
     }
-  }
-
-  .visitor_count {
-    margin-left: 75px;
   }
 }
 
 @media screen and (max-width: 767px) {
   section.footer {
     min-width: initial;
+
+    .row {
+      .col {
+        padding-left: 10%;
+      }
+    }
   }
 }
