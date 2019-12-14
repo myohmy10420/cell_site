@@ -39,16 +39,6 @@ module Admin
 	    redirect_to admin_brands_path
     end
 
-    def search
-      if params[:brand_name].present?
-        @brands = Brand.where(["name like ?", "%#{params[:brand_name]}%"]).order('updated_at ASC')
-      else
-        @brands = Brand.order('sort ASC')
-      end
-
-      render "index"
-    end
-
     def add_category
       category = Category.new(category_params)
 

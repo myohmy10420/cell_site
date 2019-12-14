@@ -1,24 +1,5 @@
 <%= @excel_import_errors || "" %>
 <div class="store">
-  <div class="section" style="min-height: 38.75px;">
-    <% if can? :quick_add_images, Store %>
-      <%= render partial: "modules/admin_quick_add_images",
-        locals: {
-          url: admin_add_store_images_path,
-          hint: "會自動裁減為250x250(px),檔案名稱請與門市名稱一致"
-        } %>
-
-      <hr>
-    <% end %>
-
-    <%= render partial: "modules/admin_search",
-      locals: {
-        url: admin_search_stores_path,
-        search_target: "store_name",
-        placeholder: "輸入門市名稱"
-      } %>
-  </div>
-
   <% if can? :creat, Store %>
     <%= link_to new_admin_store_path do %>
       <button type="button" class="btn btn-primary btn-add">新增門市</button>
