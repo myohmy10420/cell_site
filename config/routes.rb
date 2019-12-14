@@ -10,8 +10,6 @@ Rails.application.routes.draw do
     post "add/product/images", to: "products#quick_add_images"
     post "/product_images/delete_images", to: "product_images#delete_images"
     resources :brands
-    post "search_brands", to: "brands#search"
-    post "add/brand/logos", to: "brands#quick_add_logos"
     post "add/brand/category", to: "brands#add_category"
     resources :categories, only: [:destroy]
     resources :telecommunications
@@ -21,8 +19,6 @@ Rails.application.routes.draw do
     post "search_recoveries", to: "recoveries#search"
     resources :side_bar_ads, only: [:index, :create, :destroy]
     resources :stores
-    post "search_stores", to: "stores#search"
-    post "add/store/images", to: "stores#quick_add_images"
     resources :users
     post "search_users", to: "users#search"
   end

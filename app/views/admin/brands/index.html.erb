@@ -1,14 +1,5 @@
 <%= @excel_import_errors || "" %>
 <div class="brand">
-  <div class="section">
-    <%= render partial: "modules/admin_search",
-      locals: {
-        url: admin_search_brands_path,
-        search_target: "brand_name",
-        placeholder: "輸入品牌名稱"
-      } %>
-  </div>
-
   <%= link_to new_admin_brand_path do %>
     <button type="button" class="btn btn-primary btn-add">新增品牌</button>
   <% end %>
