@@ -7,12 +7,13 @@
     padding: 10px;
     display: flex;
 
-    &-image {
+    .info_box-image {
+      width: 250px;
       margin-right: 10px;
     }
 
     .infos {
-      width: 420px;
+      flex-grow: 1;
       p {
         margin: 0px;
       }
@@ -23,5 +24,17 @@
     position: relative;
     bottom: 2px;
     left: 5px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .stores {
+    .info_box {
+      display: block;
+
+      .info_box-image {
+        margin: 0 auto 10px;
+      }
+    }
   }
 }
