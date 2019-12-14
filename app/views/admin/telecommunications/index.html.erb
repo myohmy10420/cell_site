@@ -1,22 +1,5 @@
 <%= @excel_import_errors || "" %>
 <div class="telecommunication">
-  <div class="section">
-    <%= render partial: "modules/admin_quick_add_images",
-      locals: {
-        url: admin_add_telecommunication_logos_path,
-        hint: "會自動裁減為140x40(px),檔案名稱請與電信名稱一致"
-      } %>
-
-    <%= render partial: "modules/admin_search",
-      locals: {
-        url: admin_search_telecommunications_path,
-        search_target: "tele_name",
-        placeholder: "輸入電信名稱"
-      } %>
-  </div>
-
-  <hr>
-
   <%= link_to new_admin_telecommunication_path do %>
     <button type="button" class="btn btn-primary btn-add">新增電信</button>
   <% end %>
