@@ -87,8 +87,8 @@ module Api
               slogan: row[5],
               color: row[6],
               content: row[7],
-              list_price: row[8].to_i == 0 ? nil : row[6].to_i,
-              selling_price: row[9].to_i == 0 ? nil : row[7].to_i,
+              list_price: row[8].to_i == 0 ? nil : row[8].to_i,
+              selling_price: row[9].to_i == 0 ? nil : row[9].to_i,
               shelved: row[10] == 'O' ? true : false,
               on_sale: row[11] == 'O' ? true : false,
               is_unlisted: row[12] == 'O' ? true : false
