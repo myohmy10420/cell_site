@@ -7,3 +7,23 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .recoveries {
+    .recoveriesStandard {
+      img {
+        width: 100%;
+      }
+    }
+
+    .list {
+      .list-topics {
+        img {
+          position: relative;
+          top: 12px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
