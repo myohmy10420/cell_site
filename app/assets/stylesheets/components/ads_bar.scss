@@ -1,4 +1,8 @@
-div.side_bar_ads {
+.side_bar_ads__mobile-container--in-home-page {
+  display: none;
+}
+
+.side_bar_ads {
   background-color: #ffffff;
   margin: 20px 0px 0px;
   padding: 8px 0px;
@@ -7,5 +11,16 @@ div.side_bar_ads {
     display: inline-block;
     margin-bottom: 5px;
     width: 225px;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .side_bar_ads__mobile-container--in-home-page {
+    display: initial;
+  }
+  .side_bar_ads {
+    text-align: center;
+    margin: 0px;
   }
 }
