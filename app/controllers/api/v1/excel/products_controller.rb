@@ -93,7 +93,7 @@ module Api
               on_sale: row[11] == 'O' ? true : false,
               is_unlisted: row[12] == 'O' ? true : false
             }
-          }).require(:product).permit(:brand_id, :name, :tag, :slogan, :color, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :is_unlisted, :slug)
+          }).require(:product).permit(:brand_id, :category_id, :name, :tag, :slogan, :color, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :is_unlisted, :slug)
         end
       end
     end
