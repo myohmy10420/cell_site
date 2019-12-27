@@ -63,7 +63,7 @@ module Api
         end
 
         def category_not_found_by_name(category_name)
-          @category = Category.find_by(name: category_name)
+          @category = @brand.categories.find_by(name: category_name)
 
           if @category.nil?
             @excel_import_errors += @product.name + "找不到" + category_name + "子分類<br>"
