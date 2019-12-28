@@ -13,7 +13,8 @@ wb.add_worksheet(name: "product") do |sheet|
     '售價(數字選填)',
     '上架(O或X)',
     '特價中(O或X)',
-    '新機發表(O或X)'
+    '新機發表(O或X)',
+    '販售時間'
   ]
   @products.each do |product|
     sheet.add_row [
@@ -29,7 +30,8 @@ wb.add_worksheet(name: "product") do |sheet|
       product.selling_price,
       product.shelved ? 'O' : 'X',
       product.on_sale ? 'O' : 'X',
-      product.is_unlisted ? 'O' : 'X'
+      product.is_unlisted ? 'O' : 'X',
+      product.selling_time.to_s(:db)
     ]
   end
 end

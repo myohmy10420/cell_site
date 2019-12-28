@@ -91,9 +91,10 @@ module Api
               selling_price: row[9].to_i == 0 ? nil : row[9].to_i,
               shelved: row[10] == 'O' ? true : false,
               on_sale: row[11] == 'O' ? true : false,
-              is_unlisted: row[12] == 'O' ? true : false
+              is_unlisted: row[12] == 'O' ? true : false,
+              selling_time: Time.zone.parse(row[13])
             }
-          }).require(:product).permit(:brand_id, :category_id, :name, :tag, :slogan, :color, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :is_unlisted, :slug)
+          }).require(:product).permit(:brand_id, :category_id, :name, :tag, :slogan, :color, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :is_unlisted, :slug, :selling_time)
         end
       end
     end
