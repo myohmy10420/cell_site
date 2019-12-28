@@ -31,6 +31,7 @@ zh-TW:
         is_new: 新產品輪播
         is_pop: 熱門產品輪播
         is_unlisted: 新機發表輪播
+        selling_time: 販售時間
       recovery:
         name: 回收機名稱
         max_price: 最高回收金額

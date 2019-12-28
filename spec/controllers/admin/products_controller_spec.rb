@@ -5,12 +5,12 @@ RSpec.describe Admin::ProductsController, type: :controller do
 
   describe "GET index" do
     it "assigns @products" do
-      product1 = create(:complete_datas_product)
-      product2 = create(:complete_datas_product)
+      product1 = create(:complete_datas_product, selling_time: Time.zone.now.yesterday)
+      product2 = create(:complete_datas_product, selling_time: Time.zone.now)
 
       get :index
 
-      expect(assigns[:products]).to eq([product1, product2])
+      expect(assigns[:products]).to eq([product2, product1])
     end
 
     it "render template" do
@@ -37,12 +37,13 @@ RSpec.describe Admin::ProductsController, type: :controller do
   describe "POST create" do
     it "create a new product record" do
       brand = create(:brand)
-      product = build(:product, brand_id: brand.id)
+      product = build(:product, brand_id: brand.id, selling_time: Time.zone.now)
 
       params = {
         product: {
           brand_id: product.brand.id,
-          name: product.name
+          name: product.name,
+          selling_time: Time.zone.now
         }
       }
 
@@ -53,12 +54,13 @@ RSpec.describe Admin::ProductsController, type: :controller do
 
     it "redirects to edit_admin_product_path" do
       brand = create(:brand)
-      product = build(:product, brand_id: brand.id)
+      product = build(:product, brand_id: brand.id, selling_time: Time.zone.now)
 
       params = {
         product: {
           brand_id: product.brand.id,
-          name: product.name
+          name: product.name,
+          selling_time: Time.zone.now
         }
       }
 

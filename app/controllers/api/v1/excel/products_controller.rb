@@ -49,7 +49,7 @@ module Api
         private
 
         def get_products
-          Product.includes(:brand, :category).all.order('updated_at DESC')
+          Product.includes(:brand, :category).all.order('selling_time DESC')
         end
 
         def brand_not_found_by_name(brand_name)

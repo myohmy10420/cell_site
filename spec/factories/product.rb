@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :product do
     brand
     name { Faker::Name.unique.name }
+    selling_time { Time.zone.now }
 
     trait :complete_datas do
       category

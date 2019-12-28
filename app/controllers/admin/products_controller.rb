@@ -2,7 +2,7 @@ module Admin
   class ProductsController < Admin::BaseController
     def index
       @name_keyword = params[:product_name] || ''
-      @products = Product.where(["name like ?", "%#{@name_keyword}%"]).order('updated_at DESC')
+      @products = Product.where(["name like ?", "%#{@name_keyword}%"]).order('selling_time DESC')
     end
 
     def new
@@ -61,11 +61,11 @@ module Admin
     private
 
     def create_product_params
-      params.require(:product).permit(:brand_id, :name)
+      params.require(:product).permit(:brand_id, :name, :selling_time)
     end
 
     def update_product_params
-      params.require(:product).permit(:category_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :on_sale, :pre_orderable, :is_new, :is_pop, :is_unlisted, :slug, :color)
+      params.require(:product).permit(:category_id, :name, :tag, :slogan, :content, :list_price, :selling_price, :shelved, :on_sale, :pre_orderable, :is_new, :is_pop, :is_unlisted, :slug, :color, :selling_time)
     end
 
     def update_product_images

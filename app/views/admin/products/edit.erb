@@ -32,6 +32,8 @@
       <%= i.input :images, label: "圖片", as: :file, input_html: { multiple: true }, hint: "可選擇多個檔案，會自動裁減為300x300(px)" %>
     <% end %>
 
+    <%= f.input :selling_time %>
+
     <%= f.button :submit, "提交", class: "btn btn-primary" %>
   <% end %>
 </div>

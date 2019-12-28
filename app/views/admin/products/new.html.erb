@@ -1,5 +1,6 @@
 <%= simple_form_for @product, url: admin_products_path do |f| %>
   <%= f.association :brand, label: "商品品牌", as: :select, prompt: "請選擇品牌" %>
   <%= f.input :name %>
+  <%= f.input :selling_time %>
   <%= f.button :submit, "提交", class: "btn btn-primary" %>
 <% end %>
