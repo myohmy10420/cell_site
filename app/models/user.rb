@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :phone, presence: true, uniqueness: true
   validates_presence_of :sex
   validates_presence_of :name
+  validates_presence_of :email
 
   after_create :assign_default_role
 

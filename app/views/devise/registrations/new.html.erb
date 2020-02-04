@@ -25,8 +25,8 @@
                   as: :radio_buttons,
                   collection: [["男性", "male"], ["女性", "female"]],
                   required: true %>
+      <%= f.input :email, required: true %>
       <%= f.input :address %>
-      <%= f.input :email %>
       <%= f.input :line %>
       <%= f.input :birthday,
                   as: :date,
