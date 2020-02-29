@@ -837,7 +837,7 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    puma (3.11.4)
+    puma (3.12.3)
     rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -975,7 +975,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   paperclip (~> 6.0.0)
   pry
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.0)
   rails-controller-testing
   rails-i18n (~> 5.1)
