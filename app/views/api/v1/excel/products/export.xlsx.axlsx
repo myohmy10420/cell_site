@@ -19,8 +19,8 @@ wb.add_worksheet(name: "product") do |sheet|
   @products.each do |product|
     sheet.add_row [
       product.id,
-      product.brand.name,
-      product.category.name,
+      product.brand&.name,
+      product.category&.name,
       product.name,
       product.tag,
       product.slogan,
