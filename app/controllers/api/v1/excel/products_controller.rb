@@ -66,7 +66,11 @@ module Api
           @category = @brand.categories.find_by(name: category_name)
 
           if @category.nil?
-            @excel_import_errors += @product.name + "找不到" + category_name + "子分類<br>"
+            if category_name.nil?
+              @excel_import_errors += @product.name + "未給子分類" + "<br>"
+            else
+              @excel_import_errors += @product.name + "找不到" + category_name + "子分類<br>"
+            end
           end
 
           @category.nil?
@@ -92,9 +96,16 @@ module Api
               shelved: row[10] == 'O' ? true : false,
               on_sale: row[11] == 'O' ? true : false,
               is_unlisted: row[12] == 'O' ? true : false,
-              selling_time: Time.zone.parse(row[13])
+              selling_time: parse_date!(row[13])
             }
           }).require(:product).permit(:brand_id, :category_id, :name, :tag, :slogan, :color, :content, :list_price, :selling_price, :shelved, :on_sale, :is_new, :is_pop, :is_unlisted, :slug, :selling_time)
+        end
+
+        def parse_date!(str)
+          parsed_time = Time.zone.parse(str)
+          parsed_time.nil? ? Time.zone.now : parsed_time
+        rescue
+          Time.zone.now
         end
       end
     end
