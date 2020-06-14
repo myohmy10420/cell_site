@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
 
     if tele_id.present?
       tele = Telecommunication.find(tele_id)
-      @variants = tele.variants
+      @variants = tele.variants.enabled
     else
       @variants = []
     end

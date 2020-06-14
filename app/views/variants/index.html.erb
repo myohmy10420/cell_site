@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="list-items">
-            <% telecommunication.variants.each do |variant| %>
+            <% telecommunication.variants.enabled.each do |variant| %>
               <div class="item">
                 <div class="data" style="width: 30%">
                   <span><%= variant.name %></span>

@@ -1,6 +1,8 @@
 class Variant < ApplicationRecord
   belongs_to :telecommunication
 
+  scope :enabled, -> { where(enable: true) }
+
   validates_presence_of :telecommunication_id
   validates :name, presence: true, uniqueness: true
   validates_presence_of :discount

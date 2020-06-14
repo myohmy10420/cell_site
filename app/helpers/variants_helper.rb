@@ -11,4 +11,15 @@ module VariantsHelper
       "$" + discount.to_s
     end
   end
+
+  def render_model_enable(model)
+    return if model.try(:enable).nil?
+
+    if model.enable
+      class_name = "badge badge-shelved badge-success"
+    else
+      class_name = "badge badge-shelved badge-secondary"
+    end
+    content_tag :span, "啟用", class: class_name, data: { model_id: model.id }
+  end
 end

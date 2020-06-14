@@ -4,6 +4,7 @@ module ProductsHelper
       content_tag :span, tag
     end if tag.presence
   end
+
   def render_shelved_status(product)
     if product.shelved
       class_name = "badge badge-shelved badge-success"

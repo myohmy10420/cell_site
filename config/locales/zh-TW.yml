@@ -44,6 +44,7 @@ zh-TW:
         period: 合約期
         content: 方案敘述
         content2: 方案敘述2(一行藍字)
+        enable: 是否啟用
       store:
         name: 門市名稱
         image: 門市圖片

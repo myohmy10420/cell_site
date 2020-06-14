@@ -57,37 +57,39 @@ module Api
         end
 
         def find_telecommunication(row)
-          @telecommunication = Telecommunication.find_by(name: row[0].to_s)
+          @telecommunication = Telecommunication.find_by(name: row[1].to_s)
           return if @telecommunication.presence
           add_error_telecommunication_not_found(row)
         end
 
         def find_variant(row)
-          @variant = Variant.find_by(name: row[1])
+          @variant = Variant.find_by(id: row[0])
         end
 
         def add_error_telecommunication_not_found(row)
-          @excel_import_errors += row[1].to_s + "找不到" + row[0].to_s + "電信<br>"
+          @excel_import_errors += row[2].to_s + "找不到" + row[1].to_s + "電信<br>"
         end
 
         def add_error(variant)
           name = variant.name || 'Unknow'
-          @excel_import_errors += name + variant.errors.full_messages.join(", ") + "<br>"
+          tele_name = @telecommunication.name
+          @excel_import_errors += tele_name + ' 的 ' + name + variant.errors.full_messages.join(", ") + "<br>"
         end
 
         def build_params_by(row)
           ActionController::Parameters.new({
             variant: {
               telecommunication_id: @telecommunication.id,
-              name: row[1],
-              content: row[2],
-              content2: row[3],
-              discount: row[4].to_i,
-              prepaid: row[5].to_i,
-              traffic: row[6],
-              period: row[7]
+              name: row[2],
+              content: row[3],
+              content2: row[4],
+              discount: row[5].to_i,
+              prepaid: row[6].to_i,
+              traffic: row[7],
+              period: row[8],
+              enable: row[9] == 'O' ? true : false
             }
-          }).require(:variant).permit(:telecommunication_id, :name, :discount, :prepaid, :traffic, :period, :content, :content2)
+          }).require(:variant).permit(:telecommunication_id, :name, :discount, :prepaid, :traffic, :period, :content, :content2, :enable)
         end
       end
     end

@@ -1,4 +1,10 @@
-<%= @excel_import_errors || "" %>
+<% if @excel_import_errors.present? %>
+  <div class="alert alert-dismissable alert-danger">
+    <button class="close" data-dismiss="alert">×</button>
+    <%= @excel_import_errors %>
+  </div>
+<% end %>
+
 <div class="variant">
   <%= link_to new_admin_variant_path do %>
     <button type="button" class="btn btn-primary btn-add">新增方案</button>
@@ -29,6 +35,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th scope="col">No.</th>
           <th scope="col">方案電信</th>
           <th scope="col">名稱</th>
           <th scope="col">專案折扣</th>
@@ -36,12 +43,14 @@
           <th scope="col">優惠流量</th>
           <th scope="col">合約期</th>
           <th scope="col">方案敘述</th>
+          <th scope="col">啟用</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <% @variants.each do |variant| %>
           <tr>
+            <td><%= variant.id %></td>
             <td><%= render_telecommunication_name(variant) %></td>
             <td><%= variant.name %></td>
             <td><%= variant.discount %></td>
@@ -54,6 +63,7 @@
                 <%= variant.content2 if variant.content2 %>
               </span>
             </td>
+            <td><%= variant.enable ? '是' : '否' %></td>
 
             <td width="100px">
               <%= link_to edit_admin_variant_path(variant), class: "action-icons" do %>

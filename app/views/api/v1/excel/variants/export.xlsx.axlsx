@@ -1,6 +1,7 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "variant") do |sheet|
   sheet.add_row [
+    '序號(勿更動, 新增請留白)',
     '電信名稱(必填)',
     '方案名稱(必填)',
     '方案敘述(必填)',
@@ -8,10 +9,12 @@ wb.add_worksheet(name: "variant") do |sheet|
     '專案折扣(必填)',
     '預繳金額(必填,數字)',
     '優惠流量(必填)',
-    '合約期(必填)'
+    '合約期(必填)',
+    '是否啟用(O或X)'
   ]
   @variants.each do |variant|
     sheet.add_row [
+      variant.id,
       variant.telecommunication.name,
       variant.name,
       variant.content,
@@ -19,7 +22,8 @@ wb.add_worksheet(name: "variant") do |sheet|
       variant.discount,
       variant.prepaid,
       variant.traffic,
-      variant.period
+      variant.period,
+      variant.enable ? 'O' : 'X'
     ]
   end
 end

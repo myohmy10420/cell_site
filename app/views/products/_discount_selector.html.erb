@@ -7,7 +7,7 @@
 
   <%= f.input :tele_id, label: "選擇電信", collection: tele_options, prompt: "請選擇電信" %>
   <div class="variant_select_panel">
-    <%= f.input :variant_id, label: "選擇方案", collection: variant_options, prompt: "請選擇方案" %>
+    <%= f.input :variant_id, label: "選擇方案(請先選擇電信)", collection: variant_options, prompt: "請選擇方案" %>
     <span class="font font--red font--08r _product-variant_select_hint">
       此方案正在下殺中，請來電詢問隱藏優惠唷！
     </span>
