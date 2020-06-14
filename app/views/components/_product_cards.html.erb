@@ -18,10 +18,17 @@
             <% end %>
           </h5>
           <div class="card-text">
-            <span class="font font--grey">
-              售價
-            </span>
-            <%= render_index_selling_price(product) %>
+            <% if carousel_id == 'unlisted_products' %>
+              <span class="font font--grey">
+                市價
+              </span>
+              <%= render_index_list_price(product) %>
+            <% else %>
+              <span class="font font--grey">
+                售價
+              </span>
+              <%= render_index_selling_price(product) %>
+            <% end %>
             <hr>
             <div class="card-text__slogan">
               <span class="font font--red">

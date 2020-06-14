@@ -59,11 +59,19 @@ module ProductsHelper
       data: { price: price }
   end
 
+  def render_index_list_price(product)
+    if product.list_price.to_i == 0
+      content_tag :span, "原價請見官網", class: "font font--red font--12r"
+    else
+      content_tag :span, "$" + product.list_price.to_s, class: "font font--red font--12r"
+    end
+  end
+
   def render_details_list_price(product)
     if product.list_price.to_i == 0
       content_tag :span, "原價請見官網", class: "font"
     else
-      content_tag :span, "$" + @product.list_price.to_s, class: "font font--delete"
+      content_tag :span, "$" + product.list_price.to_s, class: "font font--delete"
     end
   end
 

@@ -3,7 +3,9 @@
   <div class="carousel-inner">
     <% product_groups.each_with_index do |product_group, index| %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
-        <%= render "components/product_cards", products: product_group %>
+        <%= render "components/product_cards",
+            products: product_group,
+            carousel_id: carousel_id %>
       </div>
     <% end %>
   </div>
