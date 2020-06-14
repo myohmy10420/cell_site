@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "product") do |sheet|
   sheet.add_row [
-    'product_id(勿動, 新增請留白)',
+    'No.(勿動, 新增請留白)',
     '品牌名稱',
     '子分類名稱',
     '商品名稱',

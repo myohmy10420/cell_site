@@ -34,6 +34,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th scope="col">No.</th>
           <th scope="col">商品名稱</th>
           <th scope="col">標題語</th>
           <th scope="col">原價</th>
@@ -45,6 +46,7 @@
       <tbody>
         <% @products.each do |product| %>
           <tr>
+            <td><%= product.id %></td>
             <td>
               <%= product.name %>
               <%= render_tag(product.tag) %>

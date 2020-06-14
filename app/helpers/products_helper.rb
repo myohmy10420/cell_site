@@ -36,7 +36,7 @@ module ProductsHelper
     elsif product.is_unlisted
       context = "特價中"
     else
-      context = "$ "+product.selling_price.to_s
+      context = "$ " + product.selling_price.to_s
     end
     content_tag :span, context, class: "font font--red font--12r"
   end
@@ -49,7 +49,7 @@ module ProductsHelper
       content = "特價中請來電詢問"
       price = 0
     else
-      content = "$ "+product.selling_price.to_s
+      content = "$ " + product.selling_price.to_s
       price = product.selling_price.to_s
     end
 
@@ -63,7 +63,7 @@ module ProductsHelper
     if product.list_price.to_i == 0
       content_tag :span, "原價請見官網", class: "font"
     else
-      content_tag :span, "$"+@product.list_price.to_s, class: "font font--delete"
+      content_tag :span, "$" + @product.list_price.to_s, class: "font font--delete"
     end
   end
 

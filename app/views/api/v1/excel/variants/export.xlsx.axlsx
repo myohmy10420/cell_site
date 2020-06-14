@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "variant") do |sheet|
   sheet.add_row [
-    '序號(勿更動, 新增請留白)',
+    'No.(勿更動, 新增請留白)',
     '電信名稱(必填)',
     '方案名稱(必填)',
     '方案敘述(必填)',
