@@ -12,16 +12,19 @@
       此方案正在下殺中，請來電詢問隱藏優惠唷！
     </span>
   </div>
-
-  <%= f.input :recovery_id, label: "手機回收折扣", collection: recovery_options_by(brands), prompt: "請選擇型號", disabled: ["0"] %>
 <% end %>
 
-<div class="recoveries-standard recoveries-standard--hidden">
-  <%= image_tag "recoveries_standard.jpg" %>
+<div>
+  <%= link_to variants_path do %>
+    <span class="font font--blue">
+      查看更多詳細方案折扣
+    </span>
+  <% end %>
 </div>
+
 <div>
   <span class="font font--red">小計</span>:
   <span class="font font--red font--16r">
-    $ <%= content_tag :span, product.selling_price || 0, id: "subtotal", class: "font--16r" %>
+    <%= render_subtotal(product) %>
   </span>
 </div>

@@ -9,7 +9,10 @@ $(document).ready(function () {
       $data = $('<div>').html(responds)
       $variant_selector = $('.variant_select_panel', $data).html()
       $('.variant_select_panel').html($variant_selector)
-      registerSelectVariantEvent()
+
+      if (!!document.getElementById('subtotal')) {
+        registerSelectVariantEvent()
+      }
     })
 
   var registerSelectVariantEvent = function () {
@@ -25,25 +28,16 @@ $(document).ready(function () {
       })
   }
 
-  $('.variant_select_form #product_recovery_id')
-      .on('change', function () {
-        calculateSubtotal($(this)[0].value)
-      })
-
   var calculateSubtotal = function (value) {
     var sellingPriceTag = document.getElementById('selling_price');
     var sellingPrice = parseInt(sellingPriceTag.dataset.price)
 
     var variantDiscount = parseInt(document.getElementById("product_variant_id").value || 0)
-    var recoveryDiscount = parseInt(document.getElementById("product_recovery_id").value || 0)
 
-    if (!!recoveryDiscount) {
-      $(".recoveries-standard").show()
-    } else {
-      $(".recoveries-standard").hide()
-    }
+    var subtotal = sellingPrice - variantDiscount
+    console.log('subtotal', subtotal)
+    if (subtotal < 0) subtotal = 0
 
-    var subtotal = sellingPrice - variantDiscount - recoveryDiscount
     document.getElementById('subtotal').innerHTML = subtotal
   }
 })

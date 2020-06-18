@@ -75,6 +75,19 @@ module ProductsHelper
     end
   end
 
+  def render_subtotal(product)
+    if product.on_sale || product.is_unlisted
+      content_tag :span, '特價中請來電詢問', class: "font font--red"
+    else
+      content_tag :span do
+        [
+          content_tag(:span, "$ ", class: "font--16r"),
+          content_tag(:span, product.selling_price, id: "subtotal", class: "font--16r")
+        ].join('').html_safe
+      end
+    end
+  end
+
   def product_is_searched?(product, search_key)
     key = search_key || ''
 
@@ -87,18 +100,5 @@ module ProductsHelper
 
   def variant_options
     @variants.map { |variant| [variant.name, variant.discount] }
-  end
-
-  def recovery_options_by(brands)
-    options = []
-    brands.each do |brand|
-      if brand.recoveries.any?
-        options << ["品牌：(#{brand.name})", "0"]
-        brand.recoveries.each do |recovery|
-          options << [recovery.name, recovery.min_price]
-        end
-      end
-    end
-    options
   end
 end

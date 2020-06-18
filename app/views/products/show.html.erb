@@ -28,15 +28,28 @@
       </div>
       <div><%= simple_format(@product.content) %></div>
 
-      <% if !@product.is_unlisted %>
-        <%= render "products/discount_selector", brands: @brands, product: @product %>
-        <%= render "products/pre_order" %>
-        <%= link_to stores_path do %>
+      <div>
+        <% if !@product.is_unlisted %>
+          <%= render "products/discount_selector", brands: @brands, product: @product %>
+          <%= render "products/pre_order" %>
+          <%= link_to stores_path do %>
+            <span class="font font--blue">
+              試算完立即聯絡門市
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div>
+        <%= link_to recoveries_path do %>
           <span class="font font--blue">
-            試算完立即聯絡門市
+            查看更多回收價格
           </span>
         <% end %>
-      <% end %>
+        <div class="recoveries-standard">
+          <%= image_tag "recoveries_standard.jpg" %>
+        </div>
+      </div>
     </div>
   </div>
 </section>
