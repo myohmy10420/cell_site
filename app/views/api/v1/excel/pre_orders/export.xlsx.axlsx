@@ -15,7 +15,7 @@ wb.add_worksheet(name: "pre_orders") do |sheet|
     sheet.add_row [
       order.user.name,
       order.user.phone,
-      order.user.store.name,
+      order.user.store.try(:name),
       order.product_name,
       order.selling_price,
       order.content,

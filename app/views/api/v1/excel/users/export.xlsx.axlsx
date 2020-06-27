@@ -13,7 +13,7 @@ wb.add_worksheet(name: "user") do |sheet|
   @users.each do |user|
     sheet.add_row [
       user.phone,
-      user.store.name,
+      user.store.try(:name),
       user.name,
       user.sex,
       user.email,
