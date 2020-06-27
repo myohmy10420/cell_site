@@ -21,7 +21,7 @@
     <section class="section">
         <% @brands.each do |b| %>
           <div>
-            <%= image_tag b.logo.url(:medium), class: "topic-logo" %>
+            <%= image_tag b.logo.url(:medium), id: "#{b.name}", class: "topic-logo" %>
             <span><%= b.name %></span>
           </div>
           <div class="category-box-container">
