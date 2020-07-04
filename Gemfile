@@ -30,7 +30,7 @@ gem 'capistrano-rvm'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'browser', '~>2.5.0'
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.3.1'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails', '4.3.3'
 gem 'simple_form', '4.0.0'
