@@ -37,7 +37,7 @@ gem 'simple_form', '4.0.0'
 gem 'rb-readline'
 
 # authentication gems
-gem 'devise', '~> 4.5.0'
+gem 'devise', '~> 4.7.1'
 gem 'cancancan', '~> 3'
 gem 'rolify', '~> 5.2'
 
