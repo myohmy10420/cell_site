@@ -8,7 +8,7 @@ module Api
 
           respond_to do |format|
             format.xlsx {
-              headers["Content-Disposition"] = "attachment; filename=電信.xlsx"
+              headers["Content-Disposition"] = "attachment; filename=telecommunications.xlsx"
             }
           end
         end
