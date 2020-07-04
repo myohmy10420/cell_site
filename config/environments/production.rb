@@ -75,7 +75,7 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = true
+  config.i18n.fallbacks = [I18n.default_locale]
   config.i18n.available_locales = 'zh-TW'
 
   # 設定用哪種方法提醒之後有什麼功能會在之後的 rails 版本被棄用
