@@ -33,7 +33,7 @@ gem 'browser', '~>2.5.0'
 gem 'bootstrap', '~> 4.3.1'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails', '4.3.3'
-gem 'simple_form', '4.0.0'
+gem 'simple_form', '5.0.0'
 gem 'rb-readline'
 
 # authentication gems
