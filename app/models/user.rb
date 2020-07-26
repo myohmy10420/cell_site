@@ -8,18 +8,12 @@ class User < ApplicationRecord
   belongs_to :store
   has_many :pre_orders
 
-  validates :phone, presence: true, uniqueness: true
-  validates_presence_of :sex
-  validates_presence_of :name
-  validates_presence_of :email
+  validates :email, presence: true, uniqueness: true
+  validates_presence_of :sex, :name, :phone
 
   after_create :assign_default_role
 
   attr_reader :accept_terms
-
-  def email_required?
-    false
-  end
 
   def assign_default_role
     self.add_role(:normal) if self.roles.blank?

@@ -5,10 +5,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :phone,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "phone" }%>
+      <%= f.input :email, required: true %>
       <%= f.input :password,
                   required: true,
                   hint: ("最少 #{@minimum_password_length} 字元, 請注意英文字母有大小寫區別" if @minimum_password_length),
@@ -16,6 +13,10 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :phone,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "phone" }%>
       <%= f.association :store,
                   label: "註冊門市",
                   prompt: "請選擇門市",
@@ -25,7 +26,6 @@
                   as: :radio_buttons,
                   collection: [["男性", "male"], ["女性", "female"]],
                   required: true %>
-      <%= f.input :email, required: true %>
       <%= f.input :address %>
       <%= f.input :line %>
       <%= f.input :birthday,
