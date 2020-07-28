@@ -63,6 +63,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
+
   config.action_mailer.smtp_settings = {
     address: Email.address,
     port: Email.port,
