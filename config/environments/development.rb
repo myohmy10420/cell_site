@@ -37,7 +37,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.i18n.available_locales = 'zh-TW'
+  config.i18n.available_locales = ['en', 'zh-TW']
 
   # 設定用哪種方法提醒之後有什麼功能會在之後的 rails 版本被棄用
   config.active_support.deprecation = :log

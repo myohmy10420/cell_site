@@ -47,14 +47,18 @@ gem 'aws-sdk', '~> 3'
 
 group :development, :test do
   gem 'pry'
-  gem 'rspec-rails'
-  gem 'rails-controller-testing'
   gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'shoulda-matchers'
 end
 
 group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'database_cleaner-active_record'
+  gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     store
-    email { 'user@jspe.com' }
+    email { I18n.with_locale(:en) { Faker::Internet.unique.email } }
     password { 'password' }
     password_confirmation { 'password' }
     phone { "09#{Faker::PhoneNumber.subscriber_number(length: 8)}" }
@@ -10,6 +10,7 @@ FactoryBot.define do
 
     trait :admin do
       after(:create) do |user|
+        user.confirm
         user.add_role :admin
       end
     end

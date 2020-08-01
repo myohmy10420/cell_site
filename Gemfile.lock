@@ -768,6 +768,10 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    database_cleaner (1.8.5)
+    database_cleaner-active_record (1.8.0)
+      activerecord
+      database_cleaner (~> 1.8.0)
     devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -974,6 +978,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano3-puma (= 1.2.1)
+  database_cleaner-active_record
   devise (~> 4.7.1)
   factory_bot_rails
   faker
