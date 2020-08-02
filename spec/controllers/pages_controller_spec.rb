@@ -1,3 +1,29 @@
+describe 'Public access to pages', type: :request do
+  it '#home with carousel_products components' do
+    get root_path
+    expect(response).to be_successful
+    expect(response.body).to include('carousel_products')
+  end
+
+  it '#web_terms with title' do
+    get pages_web_terms_path
+    expect(response).to be_successful
+    expect(response.body).to include('就是便宜網站使用條款')
+  end
+
+  it '#privacy_policy with title' do
+    get pages_privacy_policy_path
+    expect(response).to be_successful
+    expect(response.body).to include('就是便宜隱私權政策')
+  end
+
+  it '#disclaimer with title' do
+    get pages_disclaimer_path
+    expect(response).to be_successful
+    expect(response.body).to include('就是便宜免責聲明')
+  end
+end
+
 RSpec.describe PagesController, type: :controller do
   describe 'GET home' do
     it 'assigns instance variables by order' do
