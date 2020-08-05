@@ -6,6 +6,10 @@ section.header {
   min-width: 1200px;
   background-color: #EE1C29;
 
+  .nav {
+    align-items: center;
+  }
+
   .justify-content-end {
     flex-grow: 1;
     height: 100%;
@@ -48,6 +52,7 @@ section.header {
     width: 100%;
     padding: 0px;
     flex-wrap: initial;
+    height: 80px;
 
     .logo {
       height: 57px;
