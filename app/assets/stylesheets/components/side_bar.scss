@@ -1,16 +1,17 @@
 .side-bar {
   min-height: 460px;
-  border: 1px solid #a9a9a9;
+  border: 1px solid #FFFFFF;
   border-radius: 5px;
   background-color: #ffffff;
   margin: 20px 0px 0px;
-  padding: 8px 0px;
+  padding: 0px 0px 8px 0px;
 
   a {
     color: #000000;
 
     &:hover {
-      background-color: #0150CE;
+      color: #FFFFFF;
+      background-color: #ee1c29;
     }
   }
 
@@ -19,19 +20,28 @@
   }
 
   &__search_products_input {
-    padding: 3px 10px 10px;
+    padding: 0;
   }
 
   &__collapse {
     .card {
       background-color: transparent;
       .card-header {
-        padding: 0px;
+        padding: 0;
+        margin-bottom: 0px;
+        background-color: #FFFFFF;
+        border-bottom: 0px;
+
         button {
           width: 100%;
           text-decoration: none;
           text-align: left;
-          color: #E9222E;
+          color: #000000;
+
+          &:hover {
+            color: #FFFFFF;
+            background-color: #ee1c29;
+          }
         }
       }
 
@@ -43,11 +53,17 @@
           padding: 5px 10px;
           display: inline-block;
           width: 100%;
-          border-top: 1px solid #a9a9a9;
-          border-bottom: 1px solid #a9a9a9;
+          border-top: 1px solid #e0e0e1;
+          background-color: #f6f6f6;
+          padding-left: 30px !important;
+
+          &:last-of-type {
+            border-bottom: 1px solid #e0e0e1;
+          }
 
           &:hover {
             color: #ffffff;
+            background-color: #ee1c29;
             text-decoration: none;
           }
         }

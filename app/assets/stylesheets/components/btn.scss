@@ -24,3 +24,14 @@
 a.btn-link, a.btn-link:hover {
   text-decoration: none;
 }
+
+.btn-secondary {
+  color: #fff;
+  background-color: #808080;
+  border-color: #808080;
+
+  &:hover {
+    background-color: #d90b0b;
+    border-color: #d90b0b
+  }
+ }
