@@ -24,3 +24,10 @@
     text-decoration: none;
   }
 }
+
+// For carousel
+.sr-only {
+  position: static;
+  z-index: -1;
+  box-shadow: -10px 3px 12px 5px #000
+}

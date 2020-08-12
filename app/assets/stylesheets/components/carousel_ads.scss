@@ -1,0 +1,36 @@
+#carousel_ads {
+  margin: 0 auto;
+  width: 684px;
+  height: 404px;
+  border: none;
+
+  ol li {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px
+  }
+
+  .carousel-item img {
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  a {
+    top: -15%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #carousel_ads {
+    width: 100%;
+    height: inherit;
+
+    .carousel-item img {
+      max-width: 100%;
+    }
+  }
+}
