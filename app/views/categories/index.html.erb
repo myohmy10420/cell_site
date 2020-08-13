@@ -1,8 +1,8 @@
 <div class="main-container">
   <div class="categories-borad">
-    <section class="section">
+    <section class="borad-section">
       <div class="square square--red"></div>
-      <span class="font font--grey">商品導覽</span>
+      <span class="font font--13r font--red">商品導覽</span>
     </section>
 
     <section class="section">
@@ -16,26 +16,26 @@
       <% end %>
     </section>
 
-    <br><br>
-
     <section class="section">
-        <% @brands.each do |b| %>
-          <div>
+      <% @brands.each do |b| %>
+        <div class="category-item">
+          <div class="category-item-brand">
             <%= image_tag b.logo.url(:medium), id: "#{b.name}", class: "topic-logo" %>
-            <span><%= b.name %></span>
+            <div class="category-item-brand-name"><%= b.name %></div>
           </div>
           <div class="category-box-container">
             <% b.categories.each do |c| %>
               <% if c.products.find_by(shelved: true).present? %>
                 <%= link_to category_path(c), class: "category-box" do %>
                   <div class="category-btn">
-                    <span><%= c.name %></span>
+                    <span class="font font--13r"><%= c.name %></span>
                   </div>
                 <% end %>
               <% end %>
             <% end %>
           </div>
-        <% end %>
+        </div>
+      <% end %>
     </section>
   </div>
 </div>
