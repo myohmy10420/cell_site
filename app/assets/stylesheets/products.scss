@@ -1,6 +1,11 @@
 .products {
   padding: 20px;
 
+  .borad-section {
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ee1c29;
+  }
+
   ._product-tag {
     display: inline-block;
     position:relative;
@@ -31,7 +36,7 @@
         display: inline-block;
         width: 40px;
         height: 40px;
-        margin: 3px;
+        margin: 10px 3px;
         text-indent: 0;
 
         &.active {
@@ -43,6 +48,10 @@
           height: 38px;
         }
       }
+    }
+
+    a {
+      top: -15%;
     }
   }
 
@@ -59,10 +68,19 @@
     .specs {
       padding: 0px 10px;
       vertical-align: top;
+
+      &-name {
+        margin-bottom: 20px;
+      }
+
+      &-selling_price {
+        margin-bottom: 20px;
+      }
     }
   }
 
   .recoveries-standard {
+    margin-top: 20px;
     img {
       width: 360px;
     }

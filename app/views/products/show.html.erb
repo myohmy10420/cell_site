@@ -1,7 +1,7 @@
 <section class="products">
-  <div>
-    <div class="square  square--red"></div>
-    <span class="font font--grey">產品目錄</span>
+  <div class="borad-section">
+    <div class="square square--red"></div>
+    <span class="font font--13r font--red">產品目錄</span>
   </div>
   <div class="details">
     <div class="image">
@@ -11,8 +11,7 @@
     </div>
 
     <div class="specs">
-      <div>
-        <div class="square square--grey square--large"></div>
+      <div class="specs-name">
         <span class="font font--red font--16r"><%= @product.name %></span>
         <div class="_product-tag--show-page">
           <%= render_tag(@product.tag) %>
@@ -22,7 +21,7 @@
         <span class="font font--red">市價</span>:
         <%= render_details_list_price(@product) %>
       </div>
-      <div>
+      <div class="specs-selling_price">
         <span class="font font--red">售價</span>:
         <%= render_details_selling_price(@product) %>
       </div>
