@@ -20,7 +20,7 @@
         </div>
 
         <div id="collapse_<%= index %>"
-             class="collapse collapse_<%= index %> <%= pre_expand_product_brand(brand, @product.try(:brand)) %>"
+             class="collapse collapse_<%= index %> <%= pre_expand_brand(brand) %>"
              data-parent="#side-bar__collapse">
           <div class="card-body">
             <% brand.categories.each do |c| %>
